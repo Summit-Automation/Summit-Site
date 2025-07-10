@@ -1,26 +1,41 @@
 @import "tailwindcss";
 
+/* === Theme Variables === */
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --accent: #14b8a6; /* Tailwind teal-500 */
+  --accent-hover: #0d9488; /* Tailwind teal-600 */
+  --header-bg: #2563eb; /* Tailwind blue-600 */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #f4f4f5; /* near white */
   }
 }
 
+/* === Global Styles === */
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
+  @apply antialiased;
+
+}
+
+/* === Utility Enhancements === */
+a {
+  @apply transition-colors duration-200;
+}
+
+.backdrop-blur-md {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+
+button {
+  @apply focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2;
 }
