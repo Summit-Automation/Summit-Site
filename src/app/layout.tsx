@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Summit Automation",
-  description: "AI-powered CRM and invoicing designed for real contractors",
+  title: "Summit Automation - CRM & Invoicing for Contractors",
+  description: "Stop drowning in paperwork. Start growing your business. AI-powered CRM and invoicing designed for real contractors.",
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-gray-950 text-white antialiased`}
+        className={`${inter.className} bg-white text-gray-900 antialiased`}
       >
         {children}
       </body>
