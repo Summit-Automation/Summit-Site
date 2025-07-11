@@ -7,8 +7,24 @@ import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
+// Type definitions
+interface BlogPost {
+  title: string;
+  author: string;
+  date: string;
+  readTime: string;
+  category: string;
+  content: string;
+}
+
+interface BlogPostPageProps {
+  params: Promise<{
+    slug: string;
+  }>;
+}
+
 // This would eventually come from your markdown files or CMS
-const blogPosts = {
+const blogPosts: Record<string, BlogPost> = {
   'contractors-drowning-in-paperwork': {
     title: "Why Contractors Are Drowning in Paperwork (And How AI Can Save Them)",
     author: "Summit Team",
@@ -174,7 +190,7 @@ We'll be opening our beta program soon. Interested contractors will get early ac
   }
 };
 
-export default function BlogPostPage({ params }) {
+export default function BlogPostPage({ params }: BlogPostPageProps) {
   // Unwrap the params Promise using React.use()
   const resolvedParams = use(params);
   const post = blogPosts[resolvedParams.slug];
@@ -183,7 +199,7 @@ export default function BlogPostPage({ params }) {
     notFound();
   }
 
-  const formatDate = (dateString) => {
+  const formatDate = (dateString: string): string => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
