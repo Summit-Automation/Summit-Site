@@ -6,8 +6,20 @@ import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
+// Type definitions
+interface BlogPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  author: string;
+  date: string;
+  readTime: string;
+  category: string;
+  published: boolean;
+}
+
 // This would eventually come from your markdown files or CMS
-const blogPosts = [
+const blogPosts: BlogPost[] = [
   {
     slug: 'contractors-drowning-in-paperwork',
     title: "Why Contractors Are Drowning in Paperwork (And How AI Can Save Them)",
@@ -41,7 +53,7 @@ const blogPosts = [
 ];
 
 export default function BlogPage() {
-  const formatDate = (dateString) => {
+  const formatDate = (dateString: string): string => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
