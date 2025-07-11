@@ -2,16 +2,24 @@
 
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Check, Users, Zap, FileText, Search } from 'lucide-react';
-import SummitDashboardPreview from '@/components/SummitDashboardPreview';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import useScrollEffect from '@/hooks/useScrollEffect';
+import SummitDashboardPreview from '@/components/SummitDashboardPreview';
 
 export default function HomePage() {
-  const scrolled = useScrollEffect(50);
+  const [scrolled, setScrolled] = useState(false);
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleWaitlistSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,7 +49,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
-      {/* Use proper Header component */}
+      {/* Use proper Header component but pass scrolled state */}
       <Header scrolled={scrolled} />
 
       {/* Hero Section */}
