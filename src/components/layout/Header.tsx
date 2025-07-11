@@ -28,10 +28,10 @@ const Header = ({ scrolled }: HeaderProps) => {
 
                         <Link href="/" className="flex items-center gap-2 z-10">
                             <Image
-                                src="/logo.svg"
+                                src="/images/4_SVG.svg"
                                 alt="Summit Automation Logo"
-                                width={120}
-                                height={32}
+                                width={180}
+                                height={48}
                                 priority
                             />
                         </Link>

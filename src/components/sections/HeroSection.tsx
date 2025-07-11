@@ -15,7 +15,7 @@ const HeroSection = () => {
             <AnimatedSparks />
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <Image src="/logo.svg" alt="Summit Automation Logo" width={300} height={64} className="mx-auto mb-6 pt-10" priority />
+                <Image src="/images/4_SVG.svg" alt="Summit Automation Logo" width={350} height={75} className="mx-auto mb-3 pt-6" priority />
                 <div className="max-w-4xl mx-auto">
                     <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
                         We&apos;re Building the Future of Contractor Ops
