@@ -4,8 +4,20 @@ import React from 'react';
 import { Calendar, Clock, ArrowRight, User } from 'lucide-react';
 import Link from 'next/link';
 
+// Type definition for blog post
+interface BlogPost {
+  id: number;
+  slug: string;
+  title: string;
+  excerpt: string;
+  author: string;
+  date: string;
+  readTime: string;
+  category: string;
+}
+
 const BlogSection = () => {
-  const blogPosts = [
+  const blogPosts: BlogPost[] = [
     {
       id: 1,
       slug: 'contractors-drowning-in-paperwork',
@@ -38,7 +50,7 @@ const BlogSection = () => {
     }
   ];
 
-  const formatDate = (dateString) => {
+  const formatDate = (dateString: string): string => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
