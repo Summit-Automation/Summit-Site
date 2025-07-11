@@ -5,7 +5,7 @@ const Footer = () => (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-stretch">
                 <div className="flex flex-col justify-center h-full text-center">
-                    <img src="/logo.svg" alt="Summit Automation Logo" className="h-16 w-auto mb-3" />
+                    <img src="/images/4_SVG.svg" alt="Summit Automation Logo" className="h-40 w-auto mb-3" />
                     <p className="text-gray-400">Peak Performance.</p>
                     <p className="text-gray-400">Seamlessly Automated.</p>
                 </div>
