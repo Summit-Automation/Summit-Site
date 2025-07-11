@@ -1,11 +1,13 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Check, Menu, X, Users, TrendingUp, Zap, FileText, Search } from 'lucide-react';
+import { ArrowRight, Check, Users, Zap, FileText, Search } from 'lucide-react';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import SummitDashboardPreview from '@/components/SummitDashboardPreview';
 
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -14,6 +16,7 @@ export default function HomePage() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -46,51 +49,8 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
-      {/* Header */}
-      <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-sm' : 'bg-white/95 backdrop-blur-sm'
-      }`}>
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              <div className="text-2xl font-bold text-gray-900">Summit</div>
-            </div>
-            
-            <nav className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">Features</a>
-              <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 transition-colors">How it works</a>
-              <a href="#waitlist" className="text-gray-600 hover:text-gray-900 transition-colors">Waitlist</a>
-            </nav>
-
-            <div className="hidden md:flex items-center space-x-4">
-              <a href="#waitlist" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                Join waitlist
-              </a>
-            </div>
-
-            <button 
-              className="md:hidden"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t">
-            <div className="px-6 py-4 space-y-4">
-              <a href="#features" className="block text-gray-600">Features</a>
-              <a href="#how-it-works" className="block text-gray-600">How it works</a>
-              <a href="#waitlist" className="block text-gray-600">Waitlist</a>
-              <a href="#waitlist" className="block bg-blue-600 text-white px-4 py-2 rounded-lg text-center">
-                Join waitlist
-              </a>
-            </div>
-          </div>
-        )}
-      </header>
+      {/* Use proper Header component but pass scrolled state */}
+      <Header scrolled={scrolled} />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-6">
@@ -124,23 +84,7 @@ export default function HomePage() {
 
           {/* Hero Image/Dashboard Preview */}
           <div className="relative max-w-4xl mx-auto">
-            <div className="bg-gray-100 rounded-2xl shadow-2xl overflow-hidden border">
-              <div className="bg-white p-4 border-b flex items-center space-x-2">
-                <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                <div className="flex-1 text-center text-sm text-gray-500">summit.app</div>
-              </div>
-              <div className="p-8 bg-gradient-to-br from-blue-50 to-indigo-100 min-h-96 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-600 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                    <TrendingUp className="w-8 h-8 text-white" />
-                  </div>
-                  <p className="text-gray-600 font-medium">Dashboard Preview</p>
-                  <p className="text-gray-500 text-sm mt-1">Coming soon</p>
-                </div>
-              </div>
-            </div>
+            <SummitDashboardPreview />
           </div>
         </div>
       </section>
@@ -348,41 +292,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <div className="text-2xl font-bold text-white mb-4">Summit</div>
-              <p className="text-gray-400 mb-4">
-                AI-powered tools built for contractors who want to focus on the work, not the paperwork.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold text-white mb-4">Product</h4>
-              <ul className="space-y-2">
-                <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
-                <li><a href="#how-it-works" className="hover:text-white transition-colors">How it works</a></li>
-                <li><a href="#waitlist" className="hover:text-white transition-colors">Waitlist</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold text-white mb-4">Company</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy</a></li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-            <p>&copy; 2025 Summit Automation. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      {/* Use proper Footer component */}
+      <Footer />
     </div>
   );
 }
