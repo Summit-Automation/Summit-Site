@@ -159,7 +159,7 @@ export default function HomePage() {
               },
               {
                 icon: <Zap className="w-8 h-8" />,
-                title: "Custom Automation Bots",
+                title: "Custom AI Automations",
                 description: "Get bots tailored specifically to your business needs. From quote generators that pull from your templates to custom workflow automation - we build what you need.",
                 features: ["Quote generator bots", "Template-based automation", "Custom workflow bots", "Business-specific solutions"]
               }
