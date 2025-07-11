@@ -17,12 +17,12 @@ const ProblemSection = () => {
         
         <div className="grid md:grid-cols-3 gap-8 text-left">
           <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-            <h3 className="font-semibold text-red-900 mb-2">The current way</h3>
+            <h3 className="font-semibold text-red-900 mb-2">Without Summit Suite</h3>
             <ul className="text-red-700 space-y-2">
-              <li>• Manual data entry from receipts</li>
-              <li>• Clients fall through the cracks</li>
-              <li>• No visibility into cash flow</li>
-              <li>• Buried in spreadsheets</li>
+              <li>• Manual expense entry from receipts</li>
+              <li>• Clients falling through the cracks</li>
+              <li>• Low cashflow visibility</li>
+              <li>• Buried in hours of monotonous administrative tasks</li>
             </ul>
           </div>
           
@@ -31,12 +31,12 @@ const ProblemSection = () => {
           </div>
           
           <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-            <h3 className="font-semibold text-green-900 mb-2">The Summit way</h3>
+            <h3 className="font-semibold text-green-900 mb-2">With Summit Suite</h3>
             <ul className="text-green-700 space-y-2">
-              <li>• AI extracts data automatically</li>
-              <li>• Smart lead generation & tracking</li>
+              <li>• AI powered expense tracking</li>
+              <li>• Automated lead generation, follow up, and tracking</li>
               <li>• Real-time financial insights</li>
-              <li>• Everything in one place</li>
+              <li>• Hours of tasks completed in minutes, letting you reclaim your time to spend it on what matters most</li>
             </ul>
           </div>
         </div>

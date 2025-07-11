@@ -9,10 +9,10 @@ const FeaturesSection = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Powered by AI, built for your business
+            Your new AI workforce, built for your business
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Stop manually entering data. Let Summit&apos;s AI handle the paperwork while you focus on growing your business. Plus custom automation bots tailored to your specific workflows.
+            Ever wished your employees could work 24/7? Our agents do exactly that. Whether you get a late-night quote request or you want to get ahead on your outreach, our agents are always there to help.
           </p>
         </div>
 
@@ -27,7 +27,7 @@ const FeaturesSection = () => {
             {
               icon: <Search className="w-8 h-8" />,
               title: "AI Lead Generation Tool",
-              description: "Find new opportunities automatically. Our AI scans relevant sources to identify potential clients and business opportunities in your industry.",
+              description: "Find new leads with ease. Our AI scans relevant sources to identify potential clients and business opportunities in your industry.",
               features: ["Industry-specific lead discovery", "Contact information extraction", "Automated lead scoring", "Opportunity tracking"]
             },
             {
