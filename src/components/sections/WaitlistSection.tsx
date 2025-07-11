@@ -33,8 +33,9 @@ const WaitlistSection = () => {
 
       setIsSubmitted(true);
       setEmail('');
-    } catch (err) {
+    } catch (error) {
       setError('Something went wrong. Please try again.');
+      console.error('Waitlist submission error:', error);
     } finally {
       setIsSubmitting(false);
     }
@@ -50,7 +51,7 @@ const WaitlistSection = () => {
           <div className="bg-green-900/20 border border-green-500 rounded-lg p-6">
             <h2 className="text-3xl font-bold text-green-400 mb-4">Thank You!</h2>
             <p className="text-lg text-gray-300">
-              You've successfully joined our waitlist. We'll keep you updated on Summit Automation's progress and let you know when early access is available.
+              You&apos;ve successfully joined our waitlist. We&apos;ll keep you updated on Summit Automation&apos;s progress and let you know when early access is available.
             </p>
           </div>
           <button
