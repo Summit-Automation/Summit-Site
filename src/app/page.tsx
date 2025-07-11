@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Check, Menu, X, Users, TrendingUp, Zap, FileText, Search } from 'lucide-react';
+import SummitDashboardPreview from '@/components/SummitDashboardPreview';
 
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
@@ -53,7 +54,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <div className="text-2xl font-bold text-gray-900">Summit</div>
+              <div className="text-2xl font-bold text-gray-900">Summit Automation</div>
             </div>
             
             <nav className="hidden md:flex items-center space-x-8">
@@ -122,25 +123,9 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Hero Image/Dashboard Preview */}
-          <div className="relative max-w-4xl mx-auto">
-            <div className="bg-gray-100 rounded-2xl shadow-2xl overflow-hidden border">
-              <div className="bg-white p-4 border-b flex items-center space-x-2">
-                <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                <div className="flex-1 text-center text-sm text-gray-500">summit.app</div>
-              </div>
-              <div className="p-8 bg-gradient-to-br from-blue-50 to-indigo-100 min-h-96 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-600 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                    <TrendingUp className="w-8 h-8 text-white" />
-                  </div>
-                  <p className="text-gray-600 font-medium">Dashboard Preview</p>
-                  <p className="text-gray-500 text-sm mt-1">Coming soon</p>
-                </div>
-              </div>
-            </div>
+          {/* Interactive Dashboard Preview */}
+          <div className="relative max-w-6xl mx-auto">
+            <SummitDashboardPreview />
           </div>
         </div>
       </section>
@@ -192,7 +177,7 @@ export default function HomePage() {
               Powered by AI, built for your business
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Stop manually entering data. Let Summit&apos;s AI handle the paperwork while you focus on growing your business. Plus custom automation bots tailored to your specific workflows.
+              Stop manually entering data. Let Summit Automation&apos;s AI handle the paperwork while you focus on growing your business. Plus custom automation bots tailored to your specific workflows.
             </p>
           </div>
 
@@ -248,7 +233,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              How Summit works
+              How Summit Automation works
             </h2>
             <p className="text-xl text-gray-600">
               Three simple steps to transform how you run your business.
@@ -260,7 +245,7 @@ export default function HomePage() {
               {
                 step: "01",
                 title: "Connect your data",
-                description: "Import your existing contacts or start fresh. Summit's AI learns your business patterns and sets everything up automatically.",
+                description: "Import your existing contacts or start fresh. Summit Automation's AI learns your business patterns and sets everything up automatically.",
                 highlight: "Works with existing tools"
               },
               {
@@ -303,26 +288,27 @@ export default function HomePage() {
                 Ready to reclaim your time?
               </h2>
               <p className="text-xl mb-8 text-blue-100">
-                Join our waitlist and be the first to access Summit when we launch. 
+                Join our waitlist and be the first to access the Summit Suite when we launch. 
                 Get exclusive updates on our development progress.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+              <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   className="flex-1 px-4 py-3 rounded-lg bg-white text-gray-900 placeholder-gray-500 border border-gray-300 focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none"
+                  required
                 />
                 <button
-                  onClick={handleWaitlistSubmit}
+                  type="submit"
                   disabled={isSubmitting}
                   className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors disabled:opacity-50 whitespace-nowrap"
                 >
                   {isSubmitting ? 'Joining...' : 'Join waitlist'}
                 </button>
-              </div>
+              </form>
               
               <p className="text-blue-200 text-sm mt-4">
                 We&apos;ll never spam you. Unsubscribe anytime.
@@ -335,7 +321,7 @@ export default function HomePage() {
               </div>
               <h2 className="text-3xl font-bold mb-4">You&apos;re on the list!</h2>
               <p className="text-xl text-blue-100 mb-6">
-                Thanks for joining our waitlist. We&apos;ll keep you updated on Summit&apos;s progress and let you know when we&apos;re ready to launch.
+                Thanks for joining our waitlist. We&apos;ll keep you updated on Summit Automation&apos;s progress and let you know when we&apos;re ready to launch.
               </p>
               <button 
                 onClick={() => setIsSubmitted(false)}
@@ -353,7 +339,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <div className="text-2xl font-bold text-white mb-4">Summit</div>
+              <div className="text-2xl font-bold text-white mb-4">Summit Automation</div>
               <p className="text-gray-400 mb-4">
                 AI-powered tools built for contractors who want to focus on the work, not the paperwork.
               </p>
