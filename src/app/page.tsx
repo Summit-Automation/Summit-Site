@@ -1,23 +1,17 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Check, Menu, X, Users, TrendingUp, Zap, FileText, Search } from 'lucide-react';
+import { ArrowRight, Check, Users, Zap, FileText, Search } from 'lucide-react';
 import SummitDashboardPreview from '@/components/SummitDashboardPreview';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import useScrollEffect from '@/hooks/useScrollEffect';
 
 export default function HomePage() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const scrolled = useScrollEffect(50);
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const handleWaitlistSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,51 +41,8 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
-      {/* Header */}
-      <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-sm' : 'bg-white/95 backdrop-blur-sm'
-      }`}>
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              <div className="text-2xl font-bold text-gray-900">Summit Automation</div>
-            </div>
-            
-            <nav className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">Features</a>
-              <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 transition-colors">How it works</a>
-              <a href="#waitlist" className="text-gray-600 hover:text-gray-900 transition-colors">Waitlist</a>
-            </nav>
-
-            <div className="hidden md:flex items-center space-x-4">
-              <a href="#waitlist" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                Join waitlist
-              </a>
-            </div>
-
-            <button 
-              className="md:hidden"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t">
-            <div className="px-6 py-4 space-y-4">
-              <a href="#features" className="block text-gray-600">Features</a>
-              <a href="#how-it-works" className="block text-gray-600">How it works</a>
-              <a href="#waitlist" className="block text-gray-600">Waitlist</a>
-              <a href="#waitlist" className="block bg-blue-600 text-white px-4 py-2 rounded-lg text-center">
-                Join waitlist
-              </a>
-            </div>
-          </div>
-        )}
-      </header>
+      {/* Use proper Header component */}
+      <Header scrolled={scrolled} />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-6">
@@ -123,8 +74,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Interactive Dashboard Preview */}
-          <div className="relative max-w-6xl mx-auto">
+          {/* Hero Image/Dashboard Preview */}
+          <div className="relative max-w-4xl mx-auto">
             <SummitDashboardPreview />
           </div>
         </div>
@@ -177,7 +128,7 @@ export default function HomePage() {
               Powered by AI, built for your business
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Stop manually entering data. Let Summit Automation&apos;s AI handle the paperwork while you focus on growing your business. Plus custom automation bots tailored to your specific workflows.
+              Stop manually entering data. Let Summit&apos;s AI handle the paperwork while you focus on growing your business. Plus custom automation bots tailored to your specific workflows.
             </p>
           </div>
 
@@ -233,7 +184,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              How Summit Automation works
+              How Summit works
             </h2>
             <p className="text-xl text-gray-600">
               Three simple steps to transform how you run your business.
@@ -245,7 +196,7 @@ export default function HomePage() {
               {
                 step: "01",
                 title: "Connect your data",
-                description: "Import your existing contacts or start fresh. Summit Automation's AI learns your business patterns and sets everything up automatically.",
+                description: "Import your existing contacts or start fresh. Summit's AI learns your business patterns and sets everything up automatically.",
                 highlight: "Works with existing tools"
               },
               {
@@ -288,27 +239,26 @@ export default function HomePage() {
                 Ready to reclaim your time?
               </h2>
               <p className="text-xl mb-8 text-blue-100">
-                Join our waitlist and be the first to access the Summit Suite when we launch. 
+                Join our waitlist and be the first to access Summit when we launch. 
                 Get exclusive updates on our development progress.
               </p>
               
-              <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+              <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   className="flex-1 px-4 py-3 rounded-lg bg-white text-gray-900 placeholder-gray-500 border border-gray-300 focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none"
-                  required
                 />
                 <button
-                  type="submit"
+                  onClick={handleWaitlistSubmit}
                   disabled={isSubmitting}
                   className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors disabled:opacity-50 whitespace-nowrap"
                 >
                   {isSubmitting ? 'Joining...' : 'Join waitlist'}
                 </button>
-              </form>
+              </div>
               
               <p className="text-blue-200 text-sm mt-4">
                 We&apos;ll never spam you. Unsubscribe anytime.
@@ -321,7 +271,7 @@ export default function HomePage() {
               </div>
               <h2 className="text-3xl font-bold mb-4">You&apos;re on the list!</h2>
               <p className="text-xl text-blue-100 mb-6">
-                Thanks for joining our waitlist. We&apos;ll keep you updated on Summit Automation&apos;s progress and let you know when we&apos;re ready to launch.
+                Thanks for joining our waitlist. We&apos;ll keep you updated on Summit&apos;s progress and let you know when we&apos;re ready to launch.
               </p>
               <button 
                 onClick={() => setIsSubmitted(false)}
@@ -334,41 +284,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <div className="text-2xl font-bold text-white mb-4">Summit Automation</div>
-              <p className="text-gray-400 mb-4">
-                AI-powered tools built for contractors who want to focus on the work, not the paperwork.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold text-white mb-4">Product</h4>
-              <ul className="space-y-2">
-                <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
-                <li><a href="#how-it-works" className="hover:text-white transition-colors">How it works</a></li>
-                <li><a href="#waitlist" className="hover:text-white transition-colors">Waitlist</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold text-white mb-4">Company</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy</a></li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-            <p>&copy; 2025 Summit Automation. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      {/* Use proper Footer component */}
+      <Footer />
     </div>
   );
 }

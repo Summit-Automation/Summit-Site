@@ -3,16 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import { 
   BarChart3, 
-  TrendingUp, 
   Users, 
   FileText, 
   DollarSign,
   Phone,
   Mail,
-  Clock,
-  CheckCircle,
   Camera,
-  Plus,
   ChevronDown,
   ChevronUp,
   Home
