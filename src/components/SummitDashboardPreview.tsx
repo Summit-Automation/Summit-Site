@@ -162,7 +162,7 @@ const SummitDashboardPreview = () => {
         <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
         <div className="w-3 h-3 bg-green-400 rounded-full"></div>
         <div className="flex-1 text-center text-sm text-gray-500 font-mono">
-          summit.app/dashboard
+          SummitAutomation.io/DashboardPreview
         </div>
       </div>
 
