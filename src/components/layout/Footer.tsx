@@ -1,11 +1,18 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Footer = () => (
     <footer className="bg-gray-950 text-gray-400 py-12 border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-stretch">
                 <div className="flex flex-col justify-center h-full text-center">
-                    <img src="/images/4_SVG.svg" alt="Summit Automation Logo" className="h-40 w-auto mb-3" />
+                    <Image 
+                        src="/images/4_SVG.svg" 
+                        alt="Summit Automation Logo" 
+                        width={160}
+                        height={160}
+                        className="mx-auto mb-3" 
+                    />
                     <p className="text-gray-400">Peak Performance.</p>
                     <p className="text-gray-400">Seamlessly Automated.</p>
                 </div>

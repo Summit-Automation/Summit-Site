@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Check, Menu, X, Users, Clock, TrendingUp, Shield, Smartphone, Zap, FileText, Search, DollarSign, BookOpen } from 'lucide-react';
+import { ArrowRight, Check, Menu, X, Users, TrendingUp, Zap, FileText, Search } from 'lucide-react';
 
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
