@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Summit Automation - CRM & Invoicing for Contractors",
+  title: "Summit Automation",
   description: "Stop drowning in paperwork. Start growing your business. AI-powered CRM and invoicing designed for real contractors.",
 };
 
