@@ -39,8 +39,8 @@ const FeaturesSection = () => {
             {
               icon: <Zap className="w-8 h-8" />,
               title: "Custom AI Automations",
-              description: "Get bots tailored specifically to your business needs. From quote generators that pull from your templates to custom workflow automation - we build what you need.",
-              features: ["Quote generator bots", "Template-based automation", "Custom workflow bots", "Business-specific solutions"]
+              description: "Get agents tailored specifically to your business needs. From intelligent customer support to smart internal ops, we build automations that fit your business—seamlessly and scalably",
+              features: ["Personalized to your systems", "TBuilt with the latest AI models", "Trained on your data", "Always on, always learning"]
             }
           ].map((feature, index) => (
             <div key={index} className="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
