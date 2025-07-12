@@ -17,8 +17,8 @@ const MobileMenu = () => {
             <div className="px-4 pt-4 pb-6 space-y-2">
                 {[
                     {label: 'Features', href: '#features'}, 
-                    {label: 'About', href: '#about'}, 
-                    {label: 'Waitlist', href: '#waitlist'}
+                    {label: 'How It Works', href: '#how-it-works'}, 
+                    {label: 'Blog', href: '#blog'}
                 ].map(({label, href}) => (
                     <a
                         key={label}
