@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, LogIn } from 'lucide-react';
 import MobileMenu from '@/components/layout/MobileMenu';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,6 +12,11 @@ interface HeaderProps {
 
 const Header = ({ scrolled }: HeaderProps) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    const handleLogin = () => {
+        // Redirect to dashboard subdomain
+        window.location.href = 'https://dashboard.summitautomation.io';
+    };
 
     return (
         <header
@@ -62,11 +67,25 @@ const Header = ({ scrolled }: HeaderProps) => {
                         ))}
                     </nav>
 
-                    {/* Call to Action */}
-                    <div className="hidden md:flex items-center">
+                    {/* Call to Action Buttons */}
+                    <div className="hidden md:flex items-center gap-3">
+                        {/* Login Button */}
+                        <button
+                            onClick={handleLogin}
+                            className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 hover:scale-105 ${
+                                scrolled
+                                    ? 'text-white hover:bg-white/10 border border-white/20'
+                                    : 'text-gray-700 hover:bg-gray-100 border border-gray-200'
+                            }`}
+                        >
+                            <LogIn className="w-4 h-4" />
+                            Login
+                        </button>
+
+                        {/* Join Waitlist Button */}
                         <a
                             href="#waitlist"
-                            className={`ml-6 inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold shadow-sm transition-all duration-200 hover:scale-105 ${
+                            className={`inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold shadow-sm transition-all duration-200 hover:scale-105 ${
                                 scrolled
                                     ? 'bg-teal-500 text-white hover:bg-teal-600'
                                     : 'bg-blue-600 text-white hover:bg-blue-700'
