@@ -12,6 +12,7 @@ interface Message {
 
 const StyledChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [showTooltip, setShowTooltip] = useState(true);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -27,12 +28,9 @@ const StyledChatWidget = () => {
 
   const formatMessage = (text: string): string => {
     const formatted = text
-      // Convert **bold** to <strong>
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      // Convert line breaks to temporary markers first
       .replace(/\n/g, '|||BREAK|||');
 
-    // Handle bullet points more carefully
     const lines = formatted.split('|||BREAK|||');
     const processedLines = [];
     let inList = false;
@@ -58,7 +56,6 @@ const StyledChatWidget = () => {
       }
     }
 
-    // Close any open list
     if (inList) {
       processedLines.push('</ul>');
     }
@@ -75,7 +72,6 @@ const StyledChatWidget = () => {
   }, [messages]);
 
   useEffect(() => {
-    // Hide tooltip after 5 seconds
     const timer = setTimeout(() => {
       setShowTooltip(false);
     }, 5000);
@@ -97,7 +93,6 @@ const StyledChatWidget = () => {
     setIsLoading(true);
 
     try {
-      // Call your Flowise API - using the original chatflow ID
       const response = await fetch('https://flowise.summitautomation.io/api/v1/prediction/30ce9d6c-9395-4465-aacf-595d5dc24012', {
         method: 'POST',
         headers: {
@@ -144,7 +139,6 @@ const StyledChatWidget = () => {
   };
 
   const handleStarterPrompt = async (prompt: string) => {
-    // Immediately add user message and send
     const userMessage: Message = {
       id: Date.now().toString(),
       text: prompt,
@@ -196,13 +190,21 @@ const StyledChatWidget = () => {
 
   const openChat = () => {
     setIsOpen(true);
+    setIsVisible(true);
     setShowTooltip(false);
+  };
+
+  const closeChat = () => {
+    setIsOpen(false);
+    setTimeout(() => {
+      setIsVisible(false);
+    }, 300);
   };
 
   return (
     <div className="fixed bottom-5 right-5 z-50">
       {/* Tooltip */}
-      {!isOpen && showTooltip && (
+      {!isVisible && showTooltip && (
         <div 
           className="absolute bottom-16 right-0 mb-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white text-sm rounded-xl shadow-2xl whitespace-nowrap animate-bounce"
           style={{ fontSize: '14px', fontWeight: '500' }}
@@ -213,9 +215,8 @@ const StyledChatWidget = () => {
       )}
 
       {/* Chat Button */}
-      {!isOpen && (
+      {!isVisible && (
         <div className="relative">
-          {/* Pulsing ring effect */}
           <div className="absolute inset-0 rounded-full bg-blue-400 animate-ping opacity-20"></div>
           <div className="absolute inset-0 rounded-full bg-blue-500 animate-pulse opacity-30"></div>
           
@@ -231,38 +232,58 @@ const StyledChatWidget = () => {
             }}
             aria-label="Open chat"
           >
-            {/* Shine effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
             
             <MessageCircle className="w-7 h-7 mx-auto group-hover:scale-110 transition-transform duration-200 relative z-10" />
             
-            {/* Floating dots */}
             <div className="absolute top-2 right-2 w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
           </button>
         </div>
       )}
 
       {/* Chat Window */}
-      {isOpen && (
+      {isVisible && (
         <div 
-          className="bg-white rounded-2xl shadow-2xl flex flex-col border border-gray-100 overflow-hidden backdrop-blur-sm"
+          className="bg-white rounded-2xl shadow-2xl flex flex-col border border-gray-100 overflow-hidden transition-all duration-300 ease-in-out"
           style={{ 
             width: '400px', 
             height: '700px',
-            boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15), 0 8px 32px rgba(0, 0, 0, 0.1)'
+            boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15), 0 8px 32px rgba(0, 0, 0, 0.1)',
+            animation: isOpen ? 'scaleIn 0.3s ease-in-out forwards' : 'scaleOut 0.3s ease-in-out forwards'
           }}
         >
+          <style jsx>{`
+            @keyframes scaleIn {
+              0% {
+                transform: scale(0.5) translateY(20px);
+                opacity: 0;
+              }
+              100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+              }
+            }
+            @keyframes scaleOut {
+              0% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+              }
+              100% {
+                transform: scale(0.5) translateY(20px);
+                opacity: 0;
+              }
+            }
+          `}</style>
           {/* Header */}
           <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white p-5 flex justify-between items-center relative overflow-hidden">
-            {/* Background pattern */}
             <div className="absolute inset-0 opacity-10">
               <div className="absolute top-0 left-0 w-32 h-32 bg-white rounded-full -translate-x-16 -translate-y-16"></div>
               <div className="absolute bottom-0 right-0 w-24 h-24 bg-white rounded-full translate-x-12 translate-y-12"></div>
             </div>
             
             <div className="flex items-center space-x-3 relative z-10">
-              <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/20">
-                <MessageCircle className="w-5 h-5" />
+              <div className="w-10 h-10 bg-blue-500/30 rounded-xl flex items-center justify-center border border-white/30">
+                <MessageCircle className="w-5 h-5 text-white" />
               </div>
               <div>
                 <h3 className="font-semibold" style={{ fontSize: '16px' }}>Summit Assistant</h3>
@@ -270,7 +291,7 @@ const StyledChatWidget = () => {
               </div>
             </div>
             <button
-              onClick={() => setIsOpen(false)}
+              onClick={closeChat}
               className="text-white/80 hover:text-white hover:bg-white/10 rounded-xl p-2 transition-all duration-200 relative z-10"
               aria-label="Close chat"
             >
