@@ -9,6 +9,7 @@ import FeaturesSection from '@/components/sections/FeaturesSection';
 import BlogSection from '@/components/sections/BlogSection';
 import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import WaitlistSection from '@/components/sections/WaitlistSection';
+import ChatWidget from '@/components/ui/ChatWidget';
 
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
@@ -32,6 +33,9 @@ export default function HomePage() {
       <BlogSection />
       <WaitlistSection />
       <Footer />
+      
+      {/* Flowise Chat Widget */}
+      <ChatWidget />
     </div>
   );
 }
