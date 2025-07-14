@@ -26,7 +26,7 @@ const StyledChatWidget = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const formatMessage = (text: string): string => {
-    let formatted = text
+    const formatted = text
       // Convert **bold** to <strong>
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       // Convert line breaks to temporary markers first
