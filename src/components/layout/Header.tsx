@@ -26,16 +26,16 @@ const Header = ({ scrolled }: HeaderProps) => {
                     : 'bg-white/95 backdrop-blur-lg shadow-sm'
             }`}
         >
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="flex items-center h-20 md:justify-start justify-between">
-                    {/* Logo - Made larger and moved left */}
-                    <div className="flex-shrink-0 md:w-72">
-                        <Link href="/" className="flex items-center gap-2 z-10 md:-ml-4">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between h-16 md:h-20">
+                    {/* Logo - Always on the left */}
+                    <div className="flex-shrink-0">
+                        <Link href="/" className="flex items-center">
                             <Image
                                 src="/images/4_SVG.svg"
                                 alt="Summit Automation Logo"
-                                width={240}
-                                height={64}
+                                width={180}
+                                height={48}
                                 priority
                                 className={`transition-all duration-300 ${
                                     scrolled 
@@ -46,8 +46,8 @@ const Header = ({ scrolled }: HeaderProps) => {
                         </Link>
                     </div>
 
-                    {/* Desktop Nav */}
-                    <nav className="hidden md:flex items-center gap-6 flex-1 justify-center">
+                    {/* Desktop Nav - Hidden on mobile */}
+                    <nav className="hidden md:flex items-center gap-6">
                         {[
                             { label: 'Features', href: '#features' },
                             { label: 'How It Works', href: '#how-it-works' },
@@ -67,8 +67,8 @@ const Header = ({ scrolled }: HeaderProps) => {
                         ))}
                     </nav>
 
-                    {/* Call to Action Buttons */}
-                    <div className="hidden md:flex items-center gap-3 md:w-80 justify-end">
+                    {/* Desktop Call to Action Buttons - Hidden on mobile */}
+                    <div className="hidden md:flex items-center gap-3">
                         {/* Login Button */}
                         <button
                             onClick={handleLogin}
@@ -95,14 +95,14 @@ const Header = ({ scrolled }: HeaderProps) => {
                         </a>
                     </div>
 
-                    {/* Mobile Menu Button */}
+                    {/* Mobile Menu Button - Always visible on mobile */}
                     <div className="md:hidden">
                         <button
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className={`transition-colors ${
+                            className={`p-2 rounded-lg transition-colors ${
                                 scrolled 
-                                    ? 'text-white hover:text-teal-300' 
-                                    : 'text-gray-700 hover:text-blue-600'
+                                    ? 'text-white hover:text-teal-300 hover:bg-white/10' 
+                                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'
                             }`}
                             aria-label="Toggle menu"
                         >
