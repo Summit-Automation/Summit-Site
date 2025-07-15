@@ -29,13 +29,13 @@ const Header = ({ scrolled }: HeaderProps) => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16 md:h-20">
                     {/* Logo - Always on the left */}
-                    <div className="flex-shrink-0">
+                    <div className="flex-shrink-0 -ml-4">
                         <Link href="/" className="flex items-center">
                             <Image
                                 src="/images/4_SVG.svg"
                                 alt="Summit Automation Logo"
-                                width={180}
-                                height={48}
+                                width={250}
+                                height={68}
                                 priority
                                 className={`transition-all duration-300 ${
                                     scrolled 
