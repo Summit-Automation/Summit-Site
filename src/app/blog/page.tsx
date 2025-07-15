@@ -18,12 +18,12 @@ interface BlogPost {
   published: boolean;
 }
 
-// This would eventually come from your markdown files or CMS
+// Updated blog posts for small businesses
 const blogPosts: BlogPost[] = [
   {
-    slug: 'contractors-drowning-in-paperwork',
-    title: "Why Contractors Are Drowning in Paperwork (And How AI Can Save Them)",
-    excerpt: "The average contractor spends 20+ hours per week on administrative tasks. Here's how modern technology can change that.",
+    slug: 'small-businesses-drowning-in-paperwork',
+    title: "Why Small Businesses Are Drowning in Paperwork (And How AI Can Save Them)",
+    excerpt: "The average small business owner spends 20+ hours per week on administrative tasks. Here's how modern technology can change that.",
     author: "Summit Team",
     date: "2024-01-15",
     readTime: "5 min read",
@@ -31,9 +31,9 @@ const blogPosts: BlogPost[] = [
     published: true
   },
   {
-    slug: 'hidden-costs-manual-invoices',
-    title: "The Hidden Costs of Manual Invoice Processing",
-    excerpt: "Every manual invoice costs your business more than you think. We break down the true financial impact.",
+    slug: 'hidden-costs-manual-processes',
+    title: "The Hidden Costs of Manual Business Processes",
+    excerpt: "Every manual process costs your business more than you think. We break down the true financial impact of inefficient workflows.",
     author: "Summit Team", 
     date: "2024-01-12",
     readTime: "7 min read",
@@ -43,7 +43,7 @@ const blogPosts: BlogPost[] = [
   {
     slug: 'building-summit-behind-scenes',
     title: "Building Summit: Behind the Scenes of Our AI Development",
-    excerpt: "Take a look inside our development process and see how we're building the future of contractor automation.",
+    excerpt: "Take a look inside our development process and see how we're building the future of small business automation.",
     author: "Development Team",
     date: "2024-01-10",
     readTime: "4 min read", 
