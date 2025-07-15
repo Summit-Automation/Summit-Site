@@ -106,7 +106,7 @@ const ProblemSection = () => {
               <span className="font-bold text-blue-600"> $1,000 per week</span> in lost revenue potential.
             </p>
             <div className="inline-flex items-center bg-white rounded-full px-6 py-3 shadow-sm border border-blue-200">
-              <span className="text-gray-700">That's </span>
+              <span className="text-gray-700">That&apos;s </span>
               <span className="font-bold text-blue-600 mx-2 text-xl">$52,000</span>
               <span className="text-gray-700"> per year</span>
             </div>
