@@ -11,12 +11,12 @@ const MobileMenu = () => {
 
     return (
         <div className="md:hidden">
-            {/* Backdrop overlay */}
-            <div className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40" />
+            {/* Backdrop overlay - positioned below header */}
+            <div className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40" style={{ top: '80px' }} />
             
             {/* Menu content */}
             <div 
-                className="relative bg-white/95 backdrop-blur-xl border-t border-gray-200/50 shadow-2xl z-50"
+                className="relative bg-white/95 backdrop-blur-xl border-t border-gray-200/50 shadow-2xl z-45"
                 style={{
                     background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.95) 100%)',
                     backdropFilter: 'blur(20px)',
