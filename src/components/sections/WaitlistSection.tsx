@@ -55,10 +55,10 @@ const WaitlistSection = () => {
             </div>
             <h2 className="text-4xl font-bold text-white mb-6">Welcome to the Future!</h2>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              You've successfully joined our waitlist. We'll keep you updated on Summit Automation's progress and let you know when early access is available.
+              You&apos;ve successfully joined our waitlist. We&apos;ll keep you updated on Summit Automation&apos;s progress and let you know when early access is available.
             </p>
             <div className="bg-gray-700/50 rounded-lg p-6 mb-8">
-              <p className="text-blue-300 font-medium">What's next?</p>
+              <p className="text-blue-300 font-medium">What&apos;s next?</p>
               <ul className="text-gray-300 mt-3 space-y-2 text-left">
                 <li>• Exclusive updates on our development progress</li>
                 <li>• Early access when we launch</li>

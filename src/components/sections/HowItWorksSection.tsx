@@ -2,7 +2,7 @@
 'use client';
 
 import React from 'react';
-import { Check, Calendar, Zap, Target, ArrowDown } from 'lucide-react';
+import { Check, Target, ArrowDown } from 'lucide-react';
 
 const HowItWorksSection = () => {
   return (
