@@ -1,11 +1,13 @@
-'use client';
+// FILE: src/app/blog/[slug]/page.tsx  
+// REPLACE THE ENTIRE CONTENT OF YOUR EXISTING FILE WITH THIS
 
-import React, { use } from 'react';
+import React from 'react';
 import { notFound } from 'next/navigation';
 import { Calendar, Clock, User, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import type { Metadata } from 'next';
 
 // Type definitions
 interface BlogPost {
@@ -266,9 +268,58 @@ Every feature we develop is tested with real business owners to ensure it actual
   }
 };
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  // Unwrap the params Promise using React.use()
-  const resolvedParams = use(params);
+// Generate metadata for each blog post
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  const resolvedParams = await params;
+  const post = blogPosts[resolvedParams.slug];
+  
+  if (!post) {
+    return {
+      title: 'Blog Post Not Found - Summit Automation',
+      description: 'The requested blog post could not be found.'
+    };
+  }
+
+  const pageUrl = `https://summitautomation.io/blog/${resolvedParams.slug}`;
+
+  return {
+    title: `${post.title} - Summit Automation Blog`,
+    description: post.excerpt,
+    keywords: `${post.category.toLowerCase()}, business automation, AI tools, small business, ${post.title.toLowerCase()}`,
+    authors: [{ name: post.author }],
+    openGraph: {
+      title: `${post.title} - Summit Automation`,
+      description: post.excerpt,
+      url: pageUrl,
+      type: 'article',
+      publishedTime: post.date,
+      authors: [post.author],
+      section: post.category,
+      images: [
+        {
+          url: "https://summitautomation.io/blog-og-image.png",
+          width: 1200,
+          height: 630,
+          alt: `${post.title} - Summit Automation Blog`
+        }
+      ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.title} - Summit Automation`,
+      description: post.excerpt,
+      images: ["https://summitautomation.io/blog-og-image.png"],
+      creator: "@summitautomation"
+    },
+    alternates: {
+      canonical: pageUrl
+    }
+  };
+}
+
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  // Unwrap the params Promise
+  const resolvedParams = await params;
   const post = blogPosts[resolvedParams.slug];
   
   if (!post) {
