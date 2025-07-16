@@ -12,10 +12,7 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: false,
-  experimental: {
-    optimizeCss: true,
-  },
-  // Enable static optimization
+  // Removed experimental.optimizeCss - this was causing the critters module error
   trailingSlash: false,
   // SEO headers
   async headers() {
