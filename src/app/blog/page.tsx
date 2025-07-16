@@ -1,10 +1,42 @@
-'use client';
+// FILE: src/app/blog/page.tsx
+// REPLACE THE ENTIRE CONTENT OF YOUR EXISTING FILE WITH THIS
 
 import React from 'react';
 import { Calendar, Clock, User, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import type { Metadata } from 'next';
+
+// Add this metadata export for the blog page
+export const metadata: Metadata = {
+  title: "Blog - Summit Automation | Business Automation Insights",
+  description: "Read the latest insights, tips, and updates about business automation, AI tools, and growing your small business from the Summit Automation team.",
+  keywords: "business automation blog, AI tools insights, small business tips, automation trends, CRM advice, invoicing tips",
+  openGraph: {
+    title: "Blog - Summit Automation",
+    description: "Read the latest insights about business automation and AI tools for small businesses.",
+    url: "https://summitautomation.io/blog",
+    type: "website",
+    images: [
+      {
+        url: "https://summitautomation.io/blog-og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Summit Automation Blog"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog - Summit Automation",
+    description: "Read the latest insights about business automation and AI tools for small businesses.",
+    images: ["https://summitautomation.io/blog-og-image.png"]
+  },
+  alternates: {
+    canonical: "https://summitautomation.io/blog"
+  }
+};
 
 // Type definitions
 interface BlogPost {
@@ -68,6 +100,39 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
       <Header scrolled={true} />
+      
+      {/* Add structured data for the blog */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "name": "Summit Automation Blog",
+            "description": "Insights, tips, and updates about business automation, AI tools, and growing your small business",
+            "url": "https://summitautomation.io/blog",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Summit Automation",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://summitautomation.io/images/4_SVG.svg"
+              }
+            },
+            "blogPost": blogPosts.filter(post => post.published).map(post => ({
+              "@type": "BlogPosting",
+              "headline": post.title,
+              "description": post.excerpt,
+              "url": `https://summitautomation.io/blog/${post.slug}`,
+              "datePublished": post.date,
+              "author": {
+                "@type": "Person",
+                "name": post.author
+              }
+            }))
+          })
+        }}
+      />
       
       <main className="pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-6">
