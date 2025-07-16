@@ -25,8 +25,8 @@ const BlogSection = () => {
       slug: 'small-businesses-drowning-in-paperwork',
       title: "Why Small Businesses Are Drowning in Paperwork (And How AI Can Save Them)",
       excerpt: "The average small business owner spends 20+ hours per week on administrative tasks. Here's how modern technology can change that.",
-      author: "Summit Team",
-      date: "2024-01-15",
+      author: "Robert Fusco",
+      date: "2025-07-15",
       readTime: "5 min read",
       category: "Industry Insights",
       icon: <TrendingUp className="w-6 h-6" />
@@ -36,8 +36,8 @@ const BlogSection = () => {
       slug: 'hidden-costs-manual-processes',
       title: "The Hidden Costs of Manual Business Processes",
       excerpt: "Every manual process costs your business more than you think. We break down the true financial impact of inefficient workflows.",
-      author: "Summit Team", 
-      date: "2024-01-12",
+      author: "Robert Fusco", 
+      date: "2025-07-12",
       readTime: "7 min read",
       category: "Business Tips",
       icon: <Target className="w-6 h-6" />
@@ -47,8 +47,8 @@ const BlogSection = () => {
       slug: 'building-summit-behind-scenes',
       title: "Building Summit: Behind the Scenes of Our AI Development",
       excerpt: "Take a look inside our development process and see how we're building the future of small business automation.",
-      author: "Development Team",
-      date: "2024-01-10",
+      author: "Brandon Allshouse",
+      date: "2025-07-11",
       readTime: "4 min read", 
       category: "Company Updates",
       icon: <Zap className="w-6 h-6" />
