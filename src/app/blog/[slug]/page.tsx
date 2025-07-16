@@ -6,6 +6,7 @@ import { Calendar, Clock, User, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { BlogPostSchema } from '@/components/seo/StructuredData';
 
 // Type definitions
 interface BlogPost {
@@ -15,6 +16,7 @@ interface BlogPost {
   readTime: string;
   category: string;
   content: string;
+  excerpt: string;
 }
 
 interface BlogPostPageProps {
@@ -31,6 +33,7 @@ const blogPosts: Record<string, BlogPost> = {
     date: "2025-07-11",
     readTime: "5 min read",
     category: "Industry Insights",
+    excerpt: "The average small business owner spends 20+ hours per week on administrative tasks. Here's how modern AI automation technology can transform your workflow and give you your time back.",
     content: `
 # Why Small Businesses Are Drowning in Paperwork (And How AI Can Save Them)
 
@@ -100,6 +103,7 @@ Your time is too valuable to spend on data entry. Let AI handle the paperwork so
     date: "2025-07-12",
     readTime: "7 min read",
     category: "Business Tips",
+    excerpt: "Every manual process costs your business more than you think. We break down the true financial impact of inefficient workflows and show you how automation can save thousands annually.",
     content: `
 # The Hidden Costs of Manual Business Processes
 
@@ -194,6 +198,7 @@ The key is to start with the processes that consume the most time or cause the m
     date: "2025-07-12",
     readTime: "4 min read",
     category: "Company Updates",
+    excerpt: "Take a look inside our development process and see how we're building the future of small business automation. Learn about our AI training process and upcoming features.",
     content: `
 # Building Summit: Behind the Scenes of Our AI Development
 
@@ -283,19 +288,31 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     });
   };
 
+  const pageUrl = `https://summitautomation.io/blog/${resolvedParams.slug}`;
+
   return (
     <div className="min-h-screen bg-white text-gray-900">
       <Header scrolled={true} />
       
+      <BlogPostSchema
+        title={post.title}
+        description={post.excerpt}
+        author={post.author}
+        datePublished={post.date}
+        url={pageUrl}
+      />
+      
       <article className="pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-6">
-          <Link 
-            href="/blog" 
-            className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-8"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to blog
-          </Link>
+          <nav aria-label="Breadcrumb" className="mb-8">
+            <Link 
+              href="/blog" 
+              className="inline-flex items-center text-blue-600 hover:text-blue-700"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to blog
+            </Link>
+          </nav>
           
           <header className="mb-12">
             <div className="mb-4">
@@ -308,7 +325,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               {post.title}
             </h1>
             
-            <div className="flex items-center gap-6 text-gray-600">
+            <div className="flex items-center gap-6 text-gray-600 mb-6">
               <div className="flex items-center gap-2">
                 <User className="w-4 h-4" />
                 {post.author}
@@ -322,6 +339,10 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                 {post.readTime}
               </div>
             </div>
+
+            <p className="text-xl text-gray-600 leading-relaxed">
+              {post.excerpt}
+            </p>
           </header>
           
           <div className="prose prose-lg max-w-none">
