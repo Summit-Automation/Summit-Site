@@ -26,7 +26,7 @@ const BlogSection = () => {
       title: "Why Small Businesses Are Drowning in Paperwork (And How AI Can Save Them)",
       excerpt: "The average small business owner spends 20+ hours per week on administrative tasks. Here's how modern technology can change that.",
       author: "Robert Fusco",
-      date: "2025-07-15",
+      date: "2025-07-11",
       readTime: "5 min read",
       category: "Industry Insights",
       icon: <TrendingUp className="w-6 h-6" />
