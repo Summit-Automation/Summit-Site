@@ -49,7 +49,7 @@ const FAQSection = () => {
             Frequently Asked Questions
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Got questions? We've got answers.
+            Got questions? We&apos;ve got answers.
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Everything you need to know about Summit Automation and how it can transform your business operations.
