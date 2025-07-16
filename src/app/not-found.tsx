@@ -1,12 +1,20 @@
 import Link from 'next/link';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
 import { Home, ArrowLeft } from 'lucide-react';
 
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-white text-gray-900 flex flex-col">
-      <Header scrolled={true} />
+      <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-lg shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 md:h-20">
+            <div className="flex-shrink-0">
+              <Link href="/" className="text-2xl font-bold text-blue-600">
+                Summit Automation
+              </Link>
+            </div>
+          </div>
+        </div>
+      </header>
       
       <main className="flex-1 flex items-center justify-center px-6 pt-24">
         <div className="max-w-2xl mx-auto text-center">
@@ -40,18 +48,8 @@ export default function NotFound() {
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Popular Pages</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/#features" className="text-blue-600 hover:text-blue-700 underline">
-                  Features & Benefits
-                </Link>
-              </li>
-              <li>
-                <Link href="/#how-it-works" className="text-blue-600 hover:text-blue-700 underline">
-                  How It Works
-                </Link>
-              </li>
-              <li>
-                <Link href="/#waitlist" className="text-blue-600 hover:text-blue-700 underline">
-                  Join Waitlist
+                <Link href="/" className="text-blue-600 hover:text-blue-700 underline">
+                  Homepage
                 </Link>
               </li>
               <li>
@@ -59,12 +57,21 @@ export default function NotFound() {
                   Blog Articles
                 </Link>
               </li>
+              <li>
+                <Link href="/faq" className="text-blue-600 hover:text-blue-700 underline">
+                  FAQ
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
       </main>
       
-      <Footer />
+      <footer className="bg-gray-950 text-gray-400 py-8 border-t border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p>&copy; 2025 Summit Automation. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 }
