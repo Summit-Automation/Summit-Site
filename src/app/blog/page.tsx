@@ -23,7 +23,7 @@ const blogPosts: BlogPost[] = [
   {
     slug: 'small-businesses-drowning-in-paperwork',
     title: "Why Small Businesses Are Drowning in Paperwork (And How AI Can Save Them)",
-    excerpt: "The average small business owner spends 20+ hours per week on administrative tasks. Here's how modern technology can change that.",
+    excerpt: "The average small business owner spends 20+ hours per week on administrative tasks. Here's how modern AI automation technology can transform your workflow and give you your time back.",
     author: "Robert Fusco",
     date: "2025-07-11",
     readTime: "5 min read",
@@ -33,7 +33,7 @@ const blogPosts: BlogPost[] = [
   {
     slug: 'hidden-costs-manual-processes',
     title: "The Hidden Costs of Manual Business Processes",
-    excerpt: "Every manual process costs your business more than you think. We break down the true financial impact of inefficient workflows.",
+    excerpt: "Every manual process costs your business more than you think. We break down the true financial impact of inefficient workflows and show you how automation can save thousands annually.",
     author: "Robert Fusco", 
     date: "2025-07-12",
     readTime: "7 min read",
@@ -43,7 +43,7 @@ const blogPosts: BlogPost[] = [
   {
     slug: 'building-summit-behind-scenes',
     title: "Building Summit: Behind the Scenes of Our AI Development",
-    excerpt: "Take a look inside our development process and see how we're building the future of small business automation.",
+    excerpt: "Take a look inside our development process and see how we're building the future of small business automation. Learn about our AI training process and upcoming features.",
     author: "Brandon Allshouse",
     date: "2025-07-11",
     readTime: "4 min read", 
@@ -71,24 +71,26 @@ export default function BlogPage() {
       
       <main className="pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="mb-12">
+          <nav aria-label="Breadcrumb" className="mb-6">
             <Link 
               href="/#blog" 
-              className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-6"
+              className="inline-flex items-center text-blue-600 hover:text-blue-700"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to home
             </Link>
-            
+          </nav>
+          
+          <header className="mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Summit Blog
+              Summit Automation Blog
             </h1>
             <p className="text-xl text-gray-600">
-              Insights, tips, and updates from the Summit team
+              Insights, tips, and updates about business automation, AI tools, and growing your small business
             </p>
-          </div>
+          </header>
 
-          <div className="space-y-12">
+          <section className="space-y-12" aria-label="Blog posts">
             {blogPosts.filter(post => post.published).map((post) => (
               <article key={post.slug} className="border-b border-gray-200 pb-12 last:border-b-0">
                 <div className="mb-4">
@@ -126,13 +128,14 @@ export default function BlogPage() {
                   <Link 
                     href={`/blog/${post.slug}`}
                     className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                    aria-label={`Read article: ${post.title}`}
                   >
                     Read Article
                   </Link>
                 </div>
               </article>
             ))}
-          </div>
+          </section>
         </div>
       </main>
       
