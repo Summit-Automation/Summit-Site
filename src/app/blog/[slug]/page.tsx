@@ -27,8 +27,8 @@ interface BlogPostPageProps {
 const blogPosts: Record<string, BlogPost> = {
   'small-businesses-drowning-in-paperwork': {
     title: "Why Small Businesses Are Drowning in Paperwork (And How AI Can Save Them)",
-    author: "Summit Team",
-    date: "2024-01-15",
+    author: "Robert Fusco",
+    date: "2025-07-11",
     readTime: "5 min read",
     category: "Industry Insights",
     content: `
@@ -96,8 +96,8 @@ Your time is too valuable to spend on data entry. Let AI handle the paperwork so
   },
   'hidden-costs-manual-processes': {
     title: "The Hidden Costs of Manual Business Processes",
-    author: "Summit Team",
-    date: "2024-01-12",
+    author: "Robert Fusco",
+    date: "2025-07-12",
     readTime: "7 min read",
     category: "Business Tips",
     content: `
@@ -190,8 +190,8 @@ The key is to start with the processes that consume the most time or cause the m
   },
   'building-summit-behind-scenes': {
     title: "Building Summit: Behind the Scenes of Our AI Development",
-    author: "Development Team", 
-    date: "2024-01-10",
+    author: "Brandon Allshouse", 
+    date: "2025-07-12",
     readTime: "4 min read",
     category: "Company Updates",
     content: `
@@ -243,9 +243,9 @@ We're currently working on:
 - Voice-activated data entry
 - Multi-language support for global businesses
 
-## Beta Testing Program
+## Alpha Testing Program
 
-We'll be opening our beta program soon to select small businesses. Beta participants will get:
+We'll be opening our Alpha program soon to select small businesses. Alpha participants will get:
 - Free access during the testing period
 - Direct input into product development
 - Priority access to new features
@@ -257,7 +257,7 @@ We're building Summit with a simple mission: to give small business owners their
 
 Every feature we develop is tested with real business owners to ensure it actually solves real problems, not just looks good in demos.
 
-*Want to be among the first to try Summit? [Join our waitlist](/#waitlist) for beta access and regular updates on our progress.*
+*Want to be among the first to try Summit? [Join our waitlist](/#waitlist) for Alpha access and regular updates on our progress.*
     `
   }
 };
