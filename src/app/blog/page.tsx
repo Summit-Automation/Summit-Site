@@ -24,8 +24,8 @@ const blogPosts: BlogPost[] = [
     slug: 'small-businesses-drowning-in-paperwork',
     title: "Why Small Businesses Are Drowning in Paperwork (And How AI Can Save Them)",
     excerpt: "The average small business owner spends 20+ hours per week on administrative tasks. Here's how modern technology can change that.",
-    author: "Summit Team",
-    date: "2024-01-15",
+    author: "Robert Fusco",
+    date: "2025-07-11",
     readTime: "5 min read",
     category: "Industry Insights",
     published: true
@@ -35,7 +35,7 @@ const blogPosts: BlogPost[] = [
     title: "The Hidden Costs of Manual Business Processes",
     excerpt: "Every manual process costs your business more than you think. We break down the true financial impact of inefficient workflows.",
     author: "Summit Team", 
-    date: "2024-01-12",
+    date: "2025-07-12",
     readTime: "7 min read",
     category: "Business Tips",
     published: true
@@ -45,7 +45,7 @@ const blogPosts: BlogPost[] = [
     title: "Building Summit: Behind the Scenes of Our AI Development",
     excerpt: "Take a look inside our development process and see how we're building the future of small business automation.",
     author: "Development Team",
-    date: "2024-01-10",
+    date: "2025-07-11",
     readTime: "4 min read", 
     category: "Company Updates",
     published: true
