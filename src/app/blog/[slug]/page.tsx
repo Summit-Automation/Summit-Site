@@ -6,7 +6,6 @@ import { Calendar, Clock, User, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { BlogPostSchema } from '@/components/seo/StructuredData';
 
 // Type definitions
 interface BlogPost {
@@ -294,12 +293,50 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     <div className="min-h-screen bg-white text-gray-900">
       <Header scrolled={true} />
       
-      <BlogPostSchema
-        title={post.title}
-        description={post.excerpt}
-        author={post.author}
-        datePublished={post.date}
-        url={pageUrl}
+      {/* Blog Post Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": post.title,
+            "description": post.excerpt,
+            "author": {
+              "@type": "Person",
+              "name": post.author
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Summit Automation",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://summitautomation.io/images/4_SVG.svg"
+              }
+            },
+            "datePublished": post.date,
+            "dateModified": post.date,
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": pageUrl
+            },
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://summitautomation.io/blog-og-image.png",
+              "width": 1200,
+              "height": 630
+            },
+            "articleSection": "Business Automation",
+            "keywords": [
+              "business automation",
+              "AI tools",
+              "small business",
+              "productivity",
+              "CRM",
+              "invoicing"
+            ]
+          })
+        }}
       />
       
       <article className="pt-24 pb-16">

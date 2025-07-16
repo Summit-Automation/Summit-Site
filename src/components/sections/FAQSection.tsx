@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
-import { FAQSchema } from '@/components/seo/StructuredData';
 
 const FAQSection = () => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(0);
@@ -40,7 +39,24 @@ const FAQSection = () => {
 
   return (
     <section className="py-24 px-6 bg-gray-50">
-      <FAQSchema faqs={faqs} />
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            }))
+          })
+        }}
+      />
       
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { OrganizationSchema, SoftwareSchema } from '@/components/seo/StructuredData';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -42,10 +41,6 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: '/favicon.ico',
-  },
-  verification: {
-    google: "your-google-site-verification-code",
-    // Add your actual Google Search Console verification code here
   }
 };
 
@@ -62,30 +57,75 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        
+        {/* Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Summit Automation",
+              "alternateName": "Summit",
+              "url": "https://summitautomation.io",
+              "logo": "https://summitautomation.io/images/4_SVG.svg",
+              "description": "AI-powered business automation platform for small businesses. Automate CRM, invoicing, and business processes to save time and grow faster.",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "email": "admin@summitautomation.io"
+              },
+              "foundingDate": "2025",
+              "numberOfEmployees": {
+                "@type": "QuantitativeValue",
+                "value": "2-10"
+              },
+              "industry": "Business Automation Software",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "US"
+              }
+            })
+          }}
+        />
+        
+        {/* Software Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "Summit Automation",
+              "description": "AI-powered business automation platform for small businesses. Automate CRM, invoicing, and business processes.",
+              "url": "https://summitautomation.io",
+              "applicationCategory": "BusinessApplication",
+              "operatingSystem": "Web Browser",
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "USD",
+                "price": "0",
+                "description": "Free trial available - Join waitlist for early access"
+              },
+              "creator": {
+                "@type": "Organization",
+                "name": "Summit Automation",
+                "url": "https://summitautomation.io"
+              },
+              "featureList": [
+                "AI Receipt Processing",
+                "Automated CRM",
+                "Invoice Generation", 
+                "Lead Management",
+                "Business Process Automation"
+              ]
+            })
+          }}
+        />
       </head>
       <body
         className={`${inter.className} bg-white text-gray-900 antialiased`}
       >
-        {/* Google Analytics - Using Next.js Script component */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'GA_MEASUREMENT_ID');
-          `}
-        </Script>
-
-        <OrganizationSchema />
-        <SoftwareSchema 
-          name="Summit Automation"
-          description="AI-powered business automation platform for small businesses. Automate CRM, invoicing, and business processes."
-          url="https://summitautomation.io"
-        />
         {children}
       </body>
     </html>
