@@ -49,21 +49,36 @@ const Header = ({ scrolled }: HeaderProps) => {
                     {/* Desktop Nav - Hidden on mobile */}
                     <nav className="hidden md:flex items-center gap-6">
                         {[
-                            { label: 'Features', href: '#features' },
-                            { label: 'How It Works', href: '#how-it-works' },
-                            { label: 'Blog', href: '#blog' },
+                            { label: 'Features', href: '/#features' },
+                            { label: 'How It Works', href: '/#how-it-works' },
+                            { label: 'Blog', href: '/#blog' },
+                            { label: 'FAQ', href: '/faq' },
                         ].map(({ label, href }) => (
-                            <a
-                                key={label}
-                                href={href}
-                                className={`text-sm font-medium transition-colors ${
-                                    scrolled 
-                                        ? 'text-white hover:text-teal-300' 
-                                        : 'text-gray-700 hover:text-blue-600'
-                                }`}
-                            >
-                                {label}
-                            </a>
+                            href.startsWith('/') ? (
+                                <Link
+                                    key={label}
+                                    href={href}
+                                    className={`text-sm font-medium transition-colors ${
+                                        scrolled 
+                                            ? 'text-white hover:text-teal-300' 
+                                            : 'text-gray-700 hover:text-blue-600'
+                                    }`}
+                                >
+                                    {label}
+                                </Link>
+                            ) : (
+                                <a
+                                    key={label}
+                                    href={href}
+                                    className={`text-sm font-medium transition-colors ${
+                                        scrolled 
+                                            ? 'text-white hover:text-teal-300' 
+                                            : 'text-gray-700 hover:text-blue-600'
+                                    }`}
+                                >
+                                    {label}
+                                </a>
+                            )
                         ))}
                     </nav>
 

@@ -8,12 +8,12 @@ const FAQSection = () => {
 
   const faqs = [
     {
-      question: "How does Summit Automation save time for small businesses?",
+      question: "How does Summit Automation save time for businesses?",
       answer: "Summit automates repetitive tasks like receipt processing, invoice creation, and customer follow-ups. Our AI can extract data from receipts in seconds, automatically generate professional invoices, and manage your customer relationships, saving you 20+ hours per week on administrative work."
     },
     {
       question: "What types of businesses can use Summit Automation?",
-      answer: "Summit is designed for any small business that deals with paperwork and customer management. This includes consultants, freelancers, retail stores, restaurants, service providers, agencies, and more. Our platform adapts to different industries and business models."
+      answer: "Summit is designed for any business that deals with paperwork and customer management, from small startups to established enterprises. This includes consultants, freelancers, retail stores, restaurants, service providers, agencies, and more. Our platform adapts to different industries and business models."
     },
     {
       question: "How accurate is the AI receipt and invoice processing?",
@@ -29,7 +29,7 @@ const FAQSection = () => {
     },
     {
       question: "How much does Summit Automation cost?",
-      answer: "We're developing flexible pricing plans suitable for small businesses of all sizes. Early waitlist members will get access to special pricing tiers. Join our waitlist to be notified about pricing and get exclusive early adopter benefits."
+      answer: "We're developing flexible pricing plans suitable for businesses of all sizes. Early waitlist members will get access to special pricing tiers. Join our waitlist to be notified about pricing and get exclusive early adopter benefits."
     }
   ];
 

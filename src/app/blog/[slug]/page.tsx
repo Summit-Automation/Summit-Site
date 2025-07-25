@@ -26,23 +26,23 @@ interface BlogPostPageProps {
   }>;
 }
 
-// Updated blog posts with full content for small businesses
+// Updated blog posts with full content for businesses
 const blogPosts: Record<string, BlogPost> = {
-  'small-businesses-drowning-in-paperwork': {
-    title: "Why Small Businesses Are Drowning in Paperwork (And How AI Can Save Them)",
+  'businesses-drowning-in-paperwork': {
+    title: "Why Businesses Are Drowning in Paperwork (And How AI Can Save Them)",
     author: "Robert Fusco",
     date: "2025-07-11",
     readTime: "5 min read",
     category: "Industry Insights",
-    excerpt: "The average small business owner spends 20+ hours per week on administrative tasks. Here's how modern AI automation technology can transform your workflow and give you your time back.",
+    excerpt: "The average business owner spends 20+ hours per week on administrative tasks. Here's how modern AI automation technology can transform your workflow and give you your time back.",
     content: `
-# Why Small Businesses Are Drowning in Paperwork (And How AI Can Save Them)
+# Why Businesses Are Drowning in Paperwork (And How AI Can Save Them)
 
-If you're a small business owner, you know the drill. You started your business because you're passionate about your product or service—whether that's consulting, retail, food service, or professional services. But somewhere along the way, you became a part-time accountant, data entry clerk, and administrative assistant.
+If you're a business owner, you know the drill. You started your business because you're passionate about your product or service—whether that's consulting, retail, food service, or professional services. But somewhere along the way, you became a part-time accountant, data entry clerk, and administrative assistant.
 
 ## The Hidden Time Drain
 
-The average small business owner spends **over 20 hours per week** on administrative tasks:
+The average business owner spends **over 20 hours per week** on administrative tasks:
 
 - **6 hours** manually entering receipt data and expense tracking
 - **5 hours** following up with leads and managing customer relationships
@@ -199,17 +199,17 @@ The key is to start with the processes that consume the most time or cause the m
     date: "2025-07-12",
     readTime: "4 min read",
     category: "Company Updates",
-    excerpt: "Take a look inside our development process and see how we're building the future of small business automation. Learn about our AI training process and upcoming features.",
+    excerpt: "Take a look inside our development process and see how we're building the future of business automation. Learn about our AI training process and upcoming features.",
     content: `
 # Building Summit: Behind the Scenes of Our AI Development
 
-Building AI that actually works for small businesses isn't just about the latest technology—it's about understanding the real problems that need solving.
+Building AI that actually works for businesses isn't just about the latest technology—it's about understanding the real problems that need solving.
 
 ## Our Development Philosophy
 
-We started by spending months talking to small business owners across different industries, understanding their daily workflows, and identifying the biggest pain points. Here's what we learned:
+We started by spending months talking to business owners across different industries, understanding their daily workflows, and identifying the biggest pain points. Here's what we learned:
 
-### Small Business Owners Don't Want Complexity
+### Business Owners Don't Want Complexity
 Every solution needs to be intuitive. If it takes more than 30 seconds to learn, it's too complicated for busy entrepreneurs.
 
 ### Accuracy Is Everything
@@ -219,7 +219,7 @@ Getting customer information or invoice amounts wrong isn't just inconvenient—
 Most business operations happen away from the desk, so every feature must work perfectly on mobile devices.
 
 ### Affordability Matters
-Small businesses need enterprise-level functionality at a price point that makes sense for their revenue.
+Businesses need enterprise-level functionality at a price point that makes sense for their revenue.
 
 ## Our AI Training Process
 
@@ -251,7 +251,7 @@ We're currently working on:
 
 ## Alpha Testing Program
 
-We'll be opening our Alpha program soon to select small businesses. Alpha participants will get:
+We'll be opening our Alpha program soon to select businesses. Alpha participants will get:
 - Free access during the testing period
 - Direct input into product development
 - Priority access to new features
@@ -259,7 +259,7 @@ We'll be opening our Alpha program soon to select small businesses. Alpha partic
 
 ## Our Commitment
 
-We're building Summit with a simple mission: to give small business owners their time back so they can focus on what they love about their business.
+We're building Summit with a simple mission: to give business owners their time back so they can focus on what they love about their business.
 
 Every feature we develop is tested with real business owners to ensure it actually solves real problems, not just looks good in demos.
 
@@ -285,7 +285,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   return {
     title: `${post.title} - Summit Automation Blog`,
     description: post.excerpt,
-    keywords: `${post.category.toLowerCase()}, business automation, AI tools, small business, ${post.title.toLowerCase()}`,
+    keywords: `${post.category.toLowerCase()}, business automation, AI tools, business, ${post.title.toLowerCase()}`,
     authors: [{ name: post.author }],
     openGraph: {
       title: `${post.title} - Summit Automation`,
@@ -344,6 +344,37 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <div className="min-h-screen bg-white text-gray-900">
       <Header scrolled={true} />
       
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://summitautomation.io"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://summitautomation.io/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": post.title,
+                "item": pageUrl
+              }
+            ]
+          })
+        }}
+      />
+      
       {/* Blog Post Schema */}
       <script
         type="application/ld+json"
@@ -381,7 +412,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             "keywords": [
               "business automation",
               "AI tools",
-              "small business",
+              "business",
               "productivity",
               "CRM",
               "invoicing"

@@ -6,7 +6,7 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+    <section className="relative pt-32 pb-20 px-6 overflow-hidden" aria-label="Hero section">
       {/* Clean background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-blue-50 to-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.08),transparent_70%)]"></div>

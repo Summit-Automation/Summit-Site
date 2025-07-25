@@ -12,7 +12,8 @@ const Footer = () => (
                         alt="Summit Automation Logo" 
                         width={160}
                         height={160}
-                        className="mx-auto mb-3" 
+                        className="mx-auto mb-3"
+                        loading="lazy"
                     />
                     <p className="text-gray-400">Peak Performance.</p>
                     <p className="text-gray-400">Seamlessly Automated.</p>
@@ -21,9 +22,9 @@ const Footer = () => (
                 <div>
                     <h3 className="font-semibold mb-4 text-white">Product</h3>
                     <ul className="space-y-2">
-                        <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
-                        <li><a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a></li>
-                        <li><a href="#waitlist" className="hover:text-white transition-colors">Waitlist</a></li>
+                        <li><Link href="/#features" className="hover:text-white transition-colors">Features</Link></li>
+                        <li><Link href="/#how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
+                        <li><Link href="/#waitlist" className="hover:text-white transition-colors">Waitlist</Link></li>
                     </ul>
                 </div>
 
@@ -40,13 +41,18 @@ const Footer = () => (
                                 Contact Us
                             </a>
                         </li>
+                        <li>
+                            <Link href="/privacy" className="hover:text-white transition-colors">
+                                Privacy Policy
+                            </Link>
+                        </li>
                     </ul>
                 </div>
 
                 <div>
                     <h3 className="font-semibold mb-4 text-white">Company</h3>
                     <ul className="space-y-2">
-                        <li><a href="#about" className="hover:text-white transition-colors">About</a></li>
+                        <li><Link href="/#about" className="hover:text-white transition-colors">About</Link></li>
                         <li>
                             <Link href="/blog" className="hover:text-white transition-colors">
                                 Blog

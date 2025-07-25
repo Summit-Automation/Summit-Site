@@ -11,11 +11,11 @@ import type { Metadata } from 'next';
 // Add this metadata export for the blog page
 export const metadata: Metadata = {
   title: "Blog - Summit Automation | Business Automation Insights",
-  description: "Read the latest insights, tips, and updates about business automation, AI tools, and growing your small business from the Summit Automation team.",
-  keywords: "business automation blog, AI tools insights, small business tips, automation trends, CRM advice, invoicing tips",
+  description: "Read the latest insights, tips, and updates about business automation, AI tools, and growing your business from the Summit Automation team.",
+  keywords: "business automation blog, AI tools insights, business tips, automation trends, CRM advice, invoicing tips",
   openGraph: {
     title: "Blog - Summit Automation",
-    description: "Read the latest insights about business automation and AI tools for small businesses.",
+    description: "Read the latest insights about business automation and AI tools for businesses of all sizes.",
     url: "https://summitautomation.io/blog",
     type: "website",
     images: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Blog - Summit Automation",
-    description: "Read the latest insights about business automation and AI tools for small businesses.",
+    description: "Read the latest insights about business automation and AI tools for businesses of all sizes.",
     images: ["https://summitautomation.io/blog-og-image.png"]
   },
   alternates: {
@@ -50,12 +50,12 @@ interface BlogPost {
   published: boolean;
 }
 
-// Updated blog posts for small businesses
+// Updated blog posts for businesses
 const blogPosts: BlogPost[] = [
   {
-    slug: 'small-businesses-drowning-in-paperwork',
-    title: "Why Small Businesses Are Drowning in Paperwork (And How AI Can Save Them)",
-    excerpt: "The average small business owner spends 20+ hours per week on administrative tasks. Here's how modern AI automation technology can transform your workflow and give you your time back.",
+    slug: 'businesses-drowning-in-paperwork',
+    title: "Why Businesses Are Drowning in Paperwork (And How AI Can Save Them)",
+    excerpt: "The average business owner spends 20+ hours per week on administrative tasks. Here's how modern AI automation technology can transform your workflow and give you your time back.",
     author: "Robert Fusco",
     date: "2025-07-11",
     readTime: "5 min read",
@@ -75,7 +75,7 @@ const blogPosts: BlogPost[] = [
   {
     slug: 'building-summit-behind-scenes',
     title: "Building Summit: Behind the Scenes of Our AI Development",
-    excerpt: "Take a look inside our development process and see how we're building the future of small business automation. Learn about our AI training process and upcoming features.",
+    excerpt: "Take a look inside our development process and see how we're building the future of business automation. Learn about our AI training process and upcoming features.",
     author: "Brandon Allshouse",
     date: "2025-07-11",
     readTime: "4 min read", 
@@ -102,6 +102,32 @@ export default function BlogPage() {
       <Header scrolled={true} />
       
       {/* Add structured data for the blog */}
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://summitautomation.io"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://summitautomation.io/blog"
+              }
+            ]
+          })
+        }}
+      />
+      
+      {/* Blog Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -109,7 +135,7 @@ export default function BlogPage() {
             "@context": "https://schema.org",
             "@type": "Blog",
             "name": "Summit Automation Blog",
-            "description": "Insights, tips, and updates about business automation, AI tools, and growing your small business",
+            "description": "Insights, tips, and updates about business automation, AI tools, and growing your business",
             "url": "https://summitautomation.io/blog",
             "publisher": {
               "@type": "Organization",
@@ -151,7 +177,7 @@ export default function BlogPage() {
               Summit Automation Blog
             </h1>
             <p className="text-xl text-gray-600">
-              Insights, tips, and updates about business automation, AI tools, and growing your small business
+              Insights, tips, and updates about business automation, AI tools, and growing your business
             </p>
           </header>
 
