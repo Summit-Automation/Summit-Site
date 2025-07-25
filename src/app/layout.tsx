@@ -6,7 +6,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Summit Automation - AI-Powered Business Automation for Every Business",
+  title: "Summit Automation - AI-Powered Business Automation",
   description: "Stop drowning in paperwork. Start growing your business. AI-powered CRM, invoicing, and custom automation tools designed for businesses of all sizes. Save 20+ hours weekly with intelligent business automation.",
   keywords: "AI automation, business CRM, invoice automation, business process automation, receipt processing, lead generation, customer management, business automation software, automated invoicing, AI business tools",
   authors: [{ name: "Summit Automation" }],
