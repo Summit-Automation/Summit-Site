@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { LogIn, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const MobileMenu = () => {
     const handleLogin = () => {
@@ -26,18 +27,30 @@ const MobileMenu = () => {
                 <div className="px-6 py-6 space-y-1">
                     {/* Navigation Links */}
                     {[
-                        { label: 'Features', href: '#features' }, 
-                        { label: 'How It Works', href: '#how-it-works' }, 
-                        { label: 'Blog', href: '#blog' }
+                        { label: 'Features', href: '/#features' }, 
+                        { label: 'How It Works', href: '/#how-it-works' }, 
+                        { label: 'Blog', href: '/#blog' },
+                        { label: 'FAQ', href: '/faq' }
                     ].map(({ label, href }) => (
-                        <a
-                            key={label}
-                            href={href}
-                            className="group flex items-center justify-between text-gray-700 hover:text-blue-600 text-base font-medium px-4 py-3 rounded-xl hover:bg-blue-50/80 transition-all duration-200 border border-transparent hover:border-blue-100"
-                        >
-                            <span>{label}</span>
-                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-[-8px] group-hover:translate-x-0 transition-all duration-200" />
-                        </a>
+                        href.startsWith('/') ? (
+                            <Link
+                                key={label}
+                                href={href}
+                                className="group flex items-center justify-between text-gray-700 hover:text-blue-600 text-base font-medium px-4 py-3 rounded-xl hover:bg-blue-50/80 transition-all duration-200 border border-transparent hover:border-blue-100"
+                            >
+                                <span>{label}</span>
+                                <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-[-8px] group-hover:translate-x-0 transition-all duration-200" />
+                            </Link>
+                        ) : (
+                            <a
+                                key={label}
+                                href={href}
+                                className="group flex items-center justify-between text-gray-700 hover:text-blue-600 text-base font-medium px-4 py-3 rounded-xl hover:bg-blue-50/80 transition-all duration-200 border border-transparent hover:border-blue-100"
+                            >
+                                <span>{label}</span>
+                                <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-[-8px] group-hover:translate-x-0 transition-all duration-200" />
+                            </a>
+                        )
                     ))}
 
                     {/* Divider */}

@@ -22,9 +22,9 @@ const BlogSection = () => {
   const blogPosts: BlogPost[] = [
     {
       id: 1,
-      slug: 'small-businesses-drowning-in-paperwork',
-      title: "Why Small Businesses Are Drowning in Paperwork (And How AI Can Save Them)",
-      excerpt: "The average small business owner spends 20+ hours per week on administrative tasks. Here's how modern technology can change that.",
+      slug: 'businesses-drowning-in-paperwork',
+      title: "Why Businesses Are Drowning in Paperwork (And How AI Can Save Them)",
+      excerpt: "The average business owner spends 20+ hours per week on administrative tasks. Here's how modern technology can change that.",
       author: "Robert Fusco",
       date: "2025-07-11",
       readTime: "5 min read",
@@ -46,7 +46,7 @@ const BlogSection = () => {
       id: 3,
       slug: 'building-summit-behind-scenes',
       title: "Building Summit: Behind the Scenes of Our AI Development",
-      excerpt: "Take a look inside our development process and see how we're building the future of small business automation.",
+      excerpt: "Take a look inside our development process and see how we're building the future of business automation.",
       author: "Brandon Allshouse",
       date: "2025-07-11",
       readTime: "4 min read", 

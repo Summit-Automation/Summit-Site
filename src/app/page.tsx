@@ -25,6 +25,36 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
+      {/* Product Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Summit Automation",
+            "description": "AI-powered business automation platform for businesses of all sizes. Automate CRM, invoicing, and business processes to save time and grow faster.",
+            "brand": {
+              "@type": "Brand",
+              "name": "Summit Automation"
+            },
+            "category": "Business Software",
+            "offers": {
+              "@type": "Offer",
+              "availability": "https://schema.org/PreOrder",
+              "description": "Join waitlist for early access"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5",
+              "ratingCount": "1",
+              "bestRating": "5",
+              "worstRating": "1"
+            }
+          })
+        }}
+      />
+      
       <Header scrolled={scrolled} />
       <HeroSection />
       <ProblemSection />

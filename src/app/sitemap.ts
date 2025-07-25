@@ -21,7 +21,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: 'https://summitautomation.io/blog/small-businesses-drowning-in-paperwork',
+      url: 'https://summitautomation.io/privacy',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: 'https://summitautomation.io/blog/businesses-drowning-in-paperwork',
       lastModified: new Date('2025-07-11'),
       changeFrequency: 'monthly',
       priority: 0.6,

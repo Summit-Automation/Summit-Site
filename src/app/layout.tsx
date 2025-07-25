@@ -6,9 +6,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Summit Automation - AI-Powered Business Automation for Small Businesses",
-  description: "Stop drowning in paperwork. Start growing your business. AI-powered CRM, invoicing, and custom automation tools designed for small businesses. Save 20+ hours weekly with intelligent business automation.",
-  keywords: "AI automation, small business CRM, invoice automation, business process automation, receipt processing, lead generation, customer management, small business software, automated invoicing, AI business tools",
+  title: "Summit Automation - AI-Powered Business Automation for Every Business",
+  description: "Stop drowning in paperwork. Start growing your business. AI-powered CRM, invoicing, and custom automation tools designed for businesses of all sizes. Save 20+ hours weekly with intelligent business automation.",
+  keywords: "AI automation, business CRM, invoice automation, business process automation, receipt processing, lead generation, customer management, business automation software, automated invoicing, AI business tools",
   authors: [{ name: "Summit Automation" }],
   creator: "Summit Automation",
   publisher: "Summit Automation",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     url: "https://summitautomation.io",
     siteName: "Summit Automation",
     title: "Summit Automation - AI-Powered Business Automation",
-    description: "Stop drowning in paperwork. Start growing your business. AI-powered CRM and invoicing designed for small businesses.",
+    description: "Stop drowning in paperwork. Start growing your business. AI-powered CRM and invoicing designed for businesses of all sizes.",
     images: [
       {
         url: "https://summitautomation.io/og-image.png",
@@ -69,7 +69,7 @@ export default function RootLayout({
               "alternateName": "Summit",
               "url": "https://summitautomation.io",
               "logo": "https://summitautomation.io/images/4_SVG.svg",
-              "description": "AI-powered business automation platform for small businesses. Automate CRM, invoicing, and business processes to save time and grow faster.",
+              "description": "AI-powered business automation platform for businesses of all sizes. Automate CRM, invoicing, and business processes to save time and grow faster.",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
@@ -97,7 +97,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
               "name": "Summit Automation",
-              "description": "AI-powered business automation platform for small businesses. Automate CRM, invoicing, and business processes.",
+              "description": "AI-powered business automation platform for businesses of all sizes. Automate CRM, invoicing, and business processes.",
               "url": "https://summitautomation.io",
               "applicationCategory": "BusinessApplication",
               "operatingSystem": "Web Browser",
