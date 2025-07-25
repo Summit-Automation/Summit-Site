@@ -6,7 +6,7 @@ import { Check, Target, ArrowDown } from 'lucide-react';
 
 const HowItWorksSection = () => {
   return (
-    <section id="how-it-works" className="py-24 px-6 bg-white">
+    <section id="how-it-works" className="py-24 px-6 bg-white" aria-label="How it works">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-20">
           <div className="inline-flex items-center bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">

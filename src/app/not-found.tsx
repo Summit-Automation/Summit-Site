@@ -1,5 +1,12 @@
 import Link from 'next/link';
 import { Home, ArrowLeft } from 'lucide-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '404 - Page Not Found | Summit Automation',
+  description: 'The page you are looking for could not be found. Return to Summit Automation homepage or explore our blog articles.',
+  robots: 'noindex, follow',
+};
 
 export default function NotFound() {
   return (

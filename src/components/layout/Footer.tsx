@@ -12,7 +12,8 @@ const Footer = () => (
                         alt="Summit Automation Logo" 
                         width={160}
                         height={160}
-                        className="mx-auto mb-3" 
+                        className="mx-auto mb-3"
+                        loading="lazy"
                     />
                     <p className="text-gray-400">Peak Performance.</p>
                     <p className="text-gray-400">Seamlessly Automated.</p>

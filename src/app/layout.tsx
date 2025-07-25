@@ -13,6 +13,13 @@ export const metadata: Metadata = {
   creator: "Summit Automation",
   publisher: "Summit Automation",
   robots: "index, follow",
+  applicationName: "Summit Automation",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   alternates: {
     canonical: "https://summitautomation.io"
   },
