@@ -9,7 +9,7 @@ const Footer = () => (
                 <div className="flex flex-col justify-center h-full text-center">
                     <Image 
                         src="/images/4_SVG.svg" 
-                        alt="Summit Automation Logo" 
+                        alt="Summit Automation - AI-powered business automation platform for Pittsburgh, PA businesses" 
                         width={160}
                         height={160}
                         className="mx-auto mb-3"
@@ -58,6 +58,7 @@ const Footer = () => (
                                 Blog
                             </Link>
                         </li>
+                        <li><Link href="/#problem" className="hover:text-white transition-colors">Why Summit?</Link></li>
                     </ul>
                 </div>
             </div>

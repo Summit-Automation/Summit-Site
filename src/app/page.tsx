@@ -62,7 +62,43 @@ export default function HomePage() {
               "@type": "Offer",
               "availability": "https://schema.org/PreOrder",
               "description": "Join waitlist for early access"
+            }
+          })
+        }}
+      />
+
+      {/* Service Schema for Local SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Business Automation Services",
+            "description": "AI-powered business automation services including CRM, invoicing, and process automation for businesses in Pittsburgh, PA and worldwide.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Summit Automation",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "New Castle",
+                "addressRegion": "PA",
+                "addressCountry": "US"
+              }
             },
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "Pittsburgh",
+                "addressRegion": "PA"
+              },
+              {
+                "@type": "State",
+                "name": "Pennsylvania"
+              }
+            ],
+            "serviceType": "Business Process Automation",
+            "category": "Business Services"
           })
         }}
       />

@@ -33,7 +33,7 @@ const Header = ({ scrolled }: HeaderProps) => {
                         <Link href="/" className="flex items-center">
                             <Image
                                 src="/images/4_SVG.svg"
-                                alt="Summit Automation Logo"
+                                alt="Summit Automation - Business automation software for Pittsburgh Pennsylvania"
                                 width={270}
                                 height={73}
                                 priority
