@@ -8,12 +8,12 @@ const FAQSection = () => {
 
   const faqs = [
     {
-      question: "How does Summit Automation save time for businesses?",
-      answer: "Summit automates repetitive tasks like receipt processing, invoice creation, and customer follow-ups. Our AI can extract data from receipts in seconds, automatically generate professional invoices, and manage your customer relationships, saving you 20+ hours per week on administrative work."
+      question: "How does Summit Automation save time for Pittsburgh businesses?",
+      answer: "Summit automates repetitive administrative tasks like receipt processing, invoice creation, and customer follow-ups for businesses in Pittsburgh, PA and throughout Pennsylvania. Our AI-powered business automation platform can extract data from receipts in seconds, automatically generate professional invoices, and manage your customer relationships, saving you 20+ hours per week on manual paperwork and administrative work."
     },
     {
-      question: "What types of businesses can use Summit Automation?",
-      answer: "Summit is designed for any business that deals with paperwork and customer management, from small startups to established enterprises. This includes consultants, freelancers, retail stores, restaurants, service providers, agencies, and more. Our platform adapts to different industries and business models."
+      question: "What types of businesses in Pennsylvania can use Summit Automation?",
+      answer: "Summit's AI-powered business automation platform is designed for any Pennsylvania business that deals with paperwork and customer management, from small startups to established enterprises in Pittsburgh, New Castle, and beyond. This includes consultants, freelancers, retail stores, restaurants, service providers, marketing agencies, and more. Our automated CRM and invoicing system adapts to different industries and business models throughout Pennsylvania."
     },
     {
       question: "How accurate is the AI receipt and invoice processing?",

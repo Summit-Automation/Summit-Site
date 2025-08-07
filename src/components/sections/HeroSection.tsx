@@ -32,7 +32,7 @@ const HeroSection = () => {
           
           <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-3xl mx-auto">
             Summit automates the boring stuff so businesses can focus on what they do best. 
-            AI-powered CRM, invoicing, and custom automation tools that actually work.
+            AI-powered CRM, invoicing, and custom automation tools that actually work. <a href="#faq" className="text-blue-600 hover:text-blue-700 underline">Learn more</a> about how we help businesses save 20+ hours weekly.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">

@@ -6,9 +6,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Summit Automation - AI-Powered Business Automation",
-  description: "Stop drowning in paperwork. Start growing your business. AI-powered CRM, invoicing, and custom automation tools designed for businesses of all sizes. Save 20+ hours weekly with intelligent business automation.",
-  keywords: "AI automation, business CRM, invoice automation, business process automation, receipt processing, lead generation, customer management, business automation software, automated invoicing, AI business tools",
+  title: "Summit Automation - AI-Powered Business Automation | Pittsburgh, PA",
+  description: "Stop drowning in paperwork. Start growing your business. AI-powered CRM, invoicing, and custom automation tools designed for businesses of all sizes. Serving Pittsburgh, New Castle, and businesses worldwide. Save 20+ hours weekly with intelligent business automation.",
+  keywords: "AI automation Pittsburgh, business CRM Pennsylvania, invoice automation New Castle PA, business process automation Pittsburgh, receipt processing PA, lead generation Pittsburgh, customer management Pennsylvania, business automation software Pittsburgh, automated invoicing PA, AI business tools Pittsburgh",
   authors: [{ name: "Summit Automation" }],
   creator: "Summit Automation",
   publisher: "Summit Automation",
@@ -74,6 +74,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         
+        {/* Core Web Vitals Optimization */}
+        <link rel="preload" href="/images/4_SVG.svg" as="image" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        
         {/* Favicon and Icons */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -122,8 +126,31 @@ export default function RootLayout({
               ],
               "address": {
                 "@type": "PostalAddress",
+                "streetAddress": "",
+                "addressLocality": "New Castle",
+                "addressRegion": "PA",
+                "postalCode": "",
                 "addressCountry": "US"
               },
+              "areaServed": [
+                {
+                  "@type": "City",
+                  "name": "Pittsburgh",
+                  "addressRegion": "PA",
+                  "addressCountry": "US"
+                },
+                {
+                  "@type": "City", 
+                  "name": "New Castle",
+                  "addressRegion": "PA",
+                  "addressCountry": "US"
+                },
+                {
+                  "@type": "State",
+                  "name": "Pennsylvania",
+                  "addressCountry": "US"
+                }
+              ],
               "sameAs": [
                 "https://summitautomation.io"
               ]
@@ -188,6 +215,63 @@ export default function RootLayout({
                 "Lead Management",
                 "Business Process Automation"
               ]
+            })
+          }}
+        />
+
+        {/* LocalBusiness Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Summit Automation",
+              "description": "AI-powered business automation services for businesses in Pittsburgh, Pennsylvania and worldwide. Specializing in CRM, invoicing, and business process automation.",
+              "url": "https://summitautomation.io",
+              "telephone": "",
+              "email": "admin@summitautomation.io",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "",
+                "addressLocality": "New Castle",
+                "addressRegion": "PA",
+                "postalCode": "",
+                "addressCountry": "US"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "40.9909",
+                "longitude": "-80.3473"
+              },
+              "areaServed": [
+                {
+                  "@type": "City",
+                  "name": "Pittsburgh",
+                  "addressRegion": "PA"
+                },
+                {
+                  "@type": "City",
+                  "name": "New Castle", 
+                  "addressRegion": "PA"
+                },
+                {
+                  "@type": "State",
+                  "name": "Pennsylvania"
+                }
+              ],
+              "serviceArea": {
+                "@type": "GeoCircle",
+                "geoMidpoint": {
+                  "@type": "GeoCoordinates",
+                  "latitude": "40.4406",
+                  "longitude": "-79.9959"
+                },
+                "geoRadius": "100000"
+              },
+              "priceRange": "$$",
+              "paymentAccepted": ["Cash", "Credit Card", "PayPal"],
+              "currenciesAccepted": "USD"
             })
           }}
         />

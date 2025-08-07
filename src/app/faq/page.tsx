@@ -6,6 +6,22 @@ import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import FAQSection from '@/components/sections/FAQSection';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "FAQ - Summit Automation | Frequently Asked Questions",
+  description: "Get answers to common questions about Summit Automation's AI-powered business automation platform. Learn about our CRM, invoicing, and automation tools for businesses in Pittsburgh, PA.",
+  keywords: "Summit Automation FAQ, business automation questions, AI CRM help, Pittsburgh business automation, automated invoicing questions, business process automation help",
+  openGraph: {
+    title: "FAQ - Summit Automation",
+    description: "Get answers to common questions about AI-powered business automation tools and services.",
+    url: "https://summitautomation.io/faq",
+    type: "website"
+  },
+  alternates: {
+    canonical: "https://summitautomation.io/faq"
+  }
+};
 
 export default function FAQPage() {
   return (
