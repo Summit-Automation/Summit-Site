@@ -25,6 +25,25 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
+      {/* Breadcrumb Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://summitautomation.io"
+              }
+            ]
+          })
+        }}
+      />
+
       {/* Product Schema for SEO */}
       <script
         type="application/ld+json"
@@ -44,13 +63,6 @@ export default function HomePage() {
               "availability": "https://schema.org/PreOrder",
               "description": "Join waitlist for early access"
             },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "5",
-              "ratingCount": "1",
-              "bestRating": "5",
-              "worstRating": "1"
-            }
           })
         }}
       />

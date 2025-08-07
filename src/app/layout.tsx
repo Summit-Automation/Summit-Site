@@ -15,6 +15,8 @@ export const metadata: Metadata = {
   robots: "index, follow",
   applicationName: "Summit Automation",
   referrer: "origin-when-cross-origin",
+  category: "Business Software",
+  classification: "Business Automation Platform",
   formatDetection: {
     email: false,
     address: false,
@@ -22,6 +24,13 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://summitautomation.io"
+  },
+  verification: {
+    google: "",
+    other: {
+      "msvalidate.01": "",
+      "yandex-verification": ""
+    }
   },
   openGraph: {
     type: "website",
@@ -59,6 +68,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Performance Optimization */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        
+        {/* Favicon and Icons */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -77,25 +93,71 @@ export default function RootLayout({
               "url": "https://summitautomation.io",
               "logo": "https://summitautomation.io/images/4_SVG.svg",
               "description": "AI-powered business automation platform for businesses of all sizes. Automate CRM, invoicing, and business processes to save time and grow faster.",
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "contactType": "customer service",
-                "email": "admin@summitautomation.io"
-              },
+              "contactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "contactType": "customer service",
+                  "email": "admin@summitautomation.io",
+                  "availableLanguage": "English"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "contactType": "technical support",
+                  "email": "admin@summitautomation.io",
+                  "availableLanguage": "English"
+                }
+              ],
               "foundingDate": "2025",
               "numberOfEmployees": {
                 "@type": "QuantitativeValue",
                 "value": "2-10"
               },
               "industry": "Business Automation Software",
+              "knowsAbout": [
+                "AI Automation",
+                "Business Process Automation", 
+                "CRM Systems",
+                "Invoice Processing",
+                "Receipt Processing"
+              ],
               "address": {
                 "@type": "PostalAddress",
                 "addressCountry": "US"
-              }
+              },
+              "sameAs": [
+                "https://summitautomation.io"
+              ]
             })
           }}
         />
         
+        {/* WebSite Schema for Search Box */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Summit Automation",
+              "alternateName": "Summit",
+              "url": "https://summitautomation.io",
+              "description": "AI-powered business automation platform for businesses of all sizes",
+              "publisher": {
+                "@type": "Organization",
+                "name": "Summit Automation"
+              },
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://summitautomation.io/search?q={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
+        />
+
         {/* Software Schema */}
         <script
           type="application/ld+json"
