@@ -31,8 +31,7 @@ const HeroSection = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-3xl mx-auto">
-            Summit automates the boring stuff so businesses can focus on what they do best. 
-            AI-powered CRM, invoicing, and custom automation tools that actually work. <a href="#faq" className="text-blue-600 hover:text-blue-700 underline">Learn more</a> about how we help businesses save 20+ hours weekly.
+            Summit is your complete business management suite—AI-powered CRM, automated accounting, smart inventory tracking, mileage logging, and real-time analytics. Everything you need to run your business in one place.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
@@ -46,7 +45,11 @@ const HeroSection = () => {
           </div>
 
           {/* Clean stats section */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-blue-600 mb-2">7+</div>
+              <div className="text-gray-600">Business modules</div>
+            </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-blue-600 mb-2">20+</div>
               <div className="text-gray-600">Hours saved weekly</div>
@@ -56,8 +59,8 @@ const HeroSection = () => {
               <div className="text-gray-600">AI assistance</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">Custom</div>
-              <div className="text-gray-600">Automation solutions</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">Real-time</div>
+              <div className="text-gray-600">Business analytics</div>
             </div>
           </div>
         </div>

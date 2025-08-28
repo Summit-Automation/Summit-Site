@@ -28,6 +28,148 @@ interface BlogPostPageProps {
 
 // Updated blog posts with full content for businesses
 const blogPosts: Record<string, BlogPost> = {
+  'summit-early-access-program': {
+    title: "Join Summit's Early Access Program: What to Expect",
+    author: "Brandon Allshouse",
+    date: "2025-08-15",
+    readTime: "4 min read",
+    category: "Company Updates",
+    excerpt: "We're opening our doors to select businesses for exclusive early access. Learn about our alpha testing program and how to get priority access to Summit's powerful features.",
+    content: `
+# Join Summit's Early Access Program: What to Expect
+
+We're excited to announce that Summit's Early Access program is opening soon to a select group of businesses. This is your chance to be among the first to experience the complete business management suite that's designed to transform how you run your operations.
+
+## What is Early Access?
+
+Our Early Access program gives you exclusive access to Summit's full feature set before our official launch. You'll get to test drive everything—from AI-powered receipt processing to real-time business analytics—and help us refine the platform based on real-world usage.
+
+## What's Included in Early Access
+
+### Complete Feature Set
+- **Business Dashboard & Analytics**: Real-time metrics and insights
+- **AI-Powered Bookkeeping**: Automated expense tracking and categorization
+- **Smart CRM & Lead Management**: Customer relationships and lead generation
+- **Inventory Management**: Stock monitoring and alerts
+- **Mileage Tracking**: Automated business trip logging
+- **Multi-User Collaboration**: Team access and role management
+
+### Direct Developer Access
+Early Access participants get:
+- Priority support from our development team
+- Direct input into feature development
+- Regular feedback sessions and product updates
+- First access to new features as they're released
+
+### No Cost During Testing
+Your Early Access participation is completely free during the testing period. We want you to focus on using Summit to grow your business, not worrying about costs.
+
+## Timeline
+
+- **Applications Open**: Now
+- **Early Access Launch**: September 2025
+- **Feedback Period**: September - November 2025
+- **Public Launch**: December 2025
+
+*Ready to transform your business operations? [Join our waitlist](/#waitlist) today and be among the first to experience Summit.*
+    `
+  },
+  'complete-business-management-suite': {
+    title: "Why Your Business Needs More Than Just CRM Software",
+    author: "Robert Fusco",
+    date: "2025-08-20",
+    readTime: "6 min read",
+    category: "Business Strategy",
+    excerpt: "Most business tools solve one problem at a time. Learn why integrated business management platforms are the future and how they can transform your operations.",
+    content: `
+# Why Your Business Needs More Than Just CRM Software
+
+Most businesses start with one software solution at a time. First, they get a CRM to manage customers. Then accounting software for finances. Maybe inventory management for stock. Before you know it, you're juggling five different tools, each solving one piece of the puzzle.
+
+There's a better way.
+
+## The Problem with Point Solutions
+
+### Data Silos
+When your customer data lives in one system and your financial data in another, getting a complete picture of your business becomes nearly impossible.
+
+### Context Switching
+Jumping between different interfaces, logins, and workflows kills productivity. The average business owner spends 21 minutes per day just switching between apps.
+
+## The Power of Integration
+
+Integrated business management platforms solve these problems by bringing everything under one roof:
+
+### Unified Data Model
+When all your business data lives in one system:
+- Customer information automatically connects to invoices and payments
+- Inventory levels update in real-time based on sales
+- Business analytics can show true performance across all areas
+
+### Streamlined Workflows
+Integrated platforms enable workflows that span multiple business functions:
+- A new lead can automatically become a customer and generate an invoice
+- Low inventory can trigger reorder workflows and update financial projections
+
+*Ready to see how an integrated business management platform can transform your operations? [Learn more about Summit](/#features) and join our waitlist for early access.*
+    `
+  },
+  'ai-powered-inventory-management': {
+    title: "How AI-Powered Inventory Management Prevents Stockouts",
+    author: "Brandon Allshouse",
+    date: "2025-08-25",
+    readTime: "5 min read",
+    category: "Technology",
+    excerpt: "Never run out of products again. Discover how intelligent inventory management systems use AI to predict demand, optimize stock levels, and automate reordering.",
+    content: `
+# How AI-Powered Inventory Management Prevents Stockouts
+
+Running out of stock is every business owner's nightmare. Not only do you lose immediate sales, but you also risk damaging customer relationships and losing them to competitors. Traditional inventory management relies on guesswork and manual tracking—but AI is changing everything.
+
+## The Cost of Stockouts
+
+### Immediate Revenue Loss
+- Lost sales from unavailable products
+- Customers buying from competitors instead
+- Reduced customer lifetime value
+
+### Long-term Impact
+- Damaged customer trust and loyalty
+- Negative reviews and word-of-mouth
+- Market share loss to better-stocked competitors
+
+## AI-Powered Solutions
+
+### Demand Forecasting
+AI analyzes multiple data sources to predict future demand:
+- Historical sales patterns
+- Seasonal trends and cycles
+- Marketing campaign schedules
+- Economic indicators
+
+### Dynamic Reorder Points
+Instead of static thresholds, AI continuously adjusts reorder points based on:
+- Current demand velocity
+- Supply chain lead times
+- Supplier reliability history
+- Cash flow considerations
+
+## Real-World Benefits
+
+### Reduced Stockouts
+Businesses using AI inventory management typically see:
+- 30-50% reduction in stockout incidents
+- Improved customer satisfaction scores
+- Higher sales conversion rates
+
+### Time Savings
+- 80% reduction in manual inventory management tasks
+- Automated reordering and supplier management
+- More time for strategic business activities
+
+*Ready to eliminate stockouts and optimize your inventory? [Discover Summit's AI-powered inventory management](/#features) and see how it can transform your business operations.*
+    `
+  },
   'businesses-drowning-in-paperwork': {
     title: "Why Businesses Are Drowning in Paperwork (And How AI Can Save Them)",
     author: "Robert Fusco",

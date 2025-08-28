@@ -53,6 +53,36 @@ interface BlogPost {
 // Updated blog posts for businesses
 const blogPosts: BlogPost[] = [
   {
+    slug: 'summit-early-access-program',
+    title: "Join Summit's Early Access Program: What to Expect",
+    excerpt: "We're opening our doors to select businesses for exclusive early access. Learn about our alpha testing program and how to get priority access to Summit's powerful features.",
+    author: "Brandon Allshouse",
+    date: "2025-08-15",
+    readTime: "4 min read",
+    category: "Company Updates",
+    published: true
+  },
+  {
+    slug: 'complete-business-management-suite',
+    title: "Why Your Business Needs More Than Just CRM Software",
+    excerpt: "Most business tools solve one problem at a time. Learn why integrated business management platforms are the future and how they can transform your operations.",
+    author: "Robert Fusco",
+    date: "2025-08-20",
+    readTime: "6 min read",
+    category: "Business Strategy",
+    published: true
+  },
+  {
+    slug: 'ai-powered-inventory-management',
+    title: "How AI-Powered Inventory Management Prevents Stockouts",
+    excerpt: "Never run out of products again. Discover how intelligent inventory management systems use AI to predict demand, optimize stock levels, and automate reordering.",
+    author: "Brandon Allshouse",
+    date: "2025-08-25",
+    readTime: "5 min read",
+    category: "Technology",
+    published: true
+  },
+  {
     slug: 'businesses-drowning-in-paperwork',
     title: "Why Businesses Are Drowning in Paperwork (And How AI Can Save Them)",
     excerpt: "The average business owner spends 20+ hours per week on administrative tasks. Here's how modern AI automation technology can transform your workflow and give you your time back.",

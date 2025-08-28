@@ -36,11 +36,11 @@ const ProblemSection = () => {
             </div>
             <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
               <div className="text-2xl font-bold text-blue-600 mb-1">4h</div>
-              <div className="text-sm text-blue-700">Creating invoices</div>
+              <div className="text-sm text-blue-700">Financial tracking</div>
             </div>
             <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
               <div className="text-2xl font-bold text-blue-600 mb-1">5h</div>
-              <div className="text-sm text-blue-700">Other paperwork</div>
+              <div className="text-sm text-blue-700">Inventory & planning</div>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@ const ProblemSection = () => {
             <ul className="text-gray-600 space-y-3">
               <li className="flex items-start">
                 <span className="text-gray-400 mr-2">•</span>
-                Manual expense entry from receipts
+                Manual expense entry and bookkeeping
               </li>
               <li className="flex items-start">
                 <span className="text-gray-400 mr-2">•</span>
@@ -59,11 +59,15 @@ const ProblemSection = () => {
               </li>
               <li className="flex items-start">
                 <span className="text-gray-400 mr-2">•</span>
-                Poor cash flow visibility
+                Poor business performance visibility
               </li>
               <li className="flex items-start">
                 <span className="text-gray-400 mr-2">•</span>
-                Buried in administrative tasks
+                Inventory stockouts and overstock
+              </li>
+              <li className="flex items-start">
+                <span className="text-gray-400 mr-2">•</span>
+                Scattered business tools and data
               </li>
             </ul>
           </div>
@@ -79,19 +83,23 @@ const ProblemSection = () => {
             <ul className="text-blue-700 space-y-3">
               <li className="flex items-start">
                 <span className="text-blue-500 mr-2">•</span>
-                AI-powered expense tracking
+                AI-powered expense and financial tracking
               </li>
               <li className="flex items-start">
                 <span className="text-blue-500 mr-2">•</span>
-                Automated lead nurturing
+                Automated lead nurturing and CRM
               </li>
               <li className="flex items-start">
                 <span className="text-blue-500 mr-2">•</span>
-                Real-time financial insights
+                Real-time business analytics dashboard
               </li>
               <li className="flex items-start">
                 <span className="text-blue-500 mr-2">•</span>
-                Focus on growth, not paperwork
+                Smart inventory and stock management
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-500 mr-2">•</span>
+                Everything integrated in one platform
               </li>
             </ul>
           </div>

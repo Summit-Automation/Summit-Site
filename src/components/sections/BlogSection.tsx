@@ -33,6 +33,17 @@ const BlogSection = () => {
     },
     {
       id: 2,
+      slug: 'summit-early-access-program',
+      title: "Join Summit's Early Access Program: What to Expect",
+      excerpt: "We're opening our doors to select businesses for exclusive early access. Learn about our alpha testing program and how to get priority access to Summit's powerful features.",
+      author: "Brandon Allshouse",
+      date: "2025-08-15",
+      readTime: "4 min read",
+      category: "Company Updates",
+      icon: <Zap className="w-6 h-6" />
+    },
+    {
+      id: 3,
       slug: 'hidden-costs-manual-processes',
       title: "The Hidden Costs of Manual Business Processes",
       excerpt: "Every manual process costs your business more than you think. We break down the true financial impact of inefficient workflows.",
@@ -43,14 +54,36 @@ const BlogSection = () => {
       icon: <Target className="w-6 h-6" />
     },
     {
-      id: 3,
+      id: 4,
+      slug: 'complete-business-management-suite',
+      title: "Why Your Business Needs More Than Just CRM Software",
+      excerpt: "Most business tools solve one problem at a time. Learn why integrated business management platforms are the future and how they can transform your operations.",
+      author: "Robert Fusco",
+      date: "2025-08-20",
+      readTime: "6 min read",
+      category: "Business Strategy",
+      icon: <TrendingUp className="w-6 h-6" />
+    },
+    {
+      id: 5,
       slug: 'building-summit-behind-scenes',
       title: "Building Summit: Behind the Scenes of Our AI Development",
       excerpt: "Take a look inside our development process and see how we're building the future of business automation.",
       author: "Brandon Allshouse",
       date: "2025-07-11",
       readTime: "4 min read", 
-      category: "Company Updates",
+      category: "Development",
+      icon: <Zap className="w-6 h-6" />
+    },
+    {
+      id: 6,
+      slug: 'ai-powered-inventory-management',
+      title: "How AI-Powered Inventory Management Prevents Stockouts",
+      excerpt: "Never run out of products again. Discover how intelligent inventory management systems use AI to predict demand, optimize stock levels, and automate reordering.",
+      author: "Brandon Allshouse",
+      date: "2025-08-25",
+      readTime: "5 min read",
+      category: "Technology",
       icon: <Zap className="w-6 h-6" />
     }
   ];
@@ -80,7 +113,7 @@ const BlogSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-10">
-          {blogPosts.map((post) => (
+          {blogPosts.slice(0, 3).map((post) => (
             <Link key={post.id} href={`/blog/${post.slug}`}>
               <article className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-100 h-full">
                 {/* Header with blue theme */}

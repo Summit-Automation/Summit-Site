@@ -8,28 +8,36 @@ const FAQSection = () => {
 
   const faqs = [
     {
-      question: "How does Summit Automation save time for Pittsburgh businesses?",
-      answer: "Summit automates repetitive administrative tasks like receipt processing, invoice creation, and customer follow-ups for businesses in Pittsburgh, PA and throughout Pennsylvania. Our AI-powered business automation platform can extract data from receipts in seconds, automatically generate professional invoices, and manage your customer relationships, saving you 20+ hours per week on manual paperwork and administrative work."
+      question: "What exactly does Summit include?",
+      answer: "Summit is a complete business management suite that includes: real-time business analytics dashboard, AI-powered bookkeeping and expense tracking, smart CRM with lead generation, inventory management with automated alerts, mileage tracking for tax deductions, and multi-user team collaboration. Everything you need to run your business in one integrated platform."
     },
     {
-      question: "What types of businesses in Pennsylvania can use Summit Automation?",
-      answer: "Summit's AI-powered business automation platform is designed for any Pennsylvania business that deals with paperwork and customer management, from small startups to established enterprises in Pittsburgh, New Castle, and beyond. This includes consultants, freelancers, retail stores, restaurants, service providers, marketing agencies, and more. Our automated CRM and invoicing system adapts to different industries and business models throughout Pennsylvania."
+      question: "What types of businesses can use Summit?",
+      answer: "Summit works for any business that manages customers, tracks expenses, or handles inventory—from solo consultants and freelancers to growing teams and established companies. Whether you're in professional services, retail, hospitality, or any other industry, Summit adapts to your specific business needs."
     },
     {
-      question: "How accurate is the AI receipt and invoice processing?",
-      answer: "Our AI has been trained on thousands of business documents and achieves over 95% accuracy in data extraction. It can recognize vendor information, amounts, dates, and categories from photos of receipts and invoices, significantly reducing manual data entry errors."
+      question: "How does the AI automation actually work?",
+      answer: "Summit's AI handles the time-consuming tasks automatically: snap a photo of any receipt and it extracts all the data instantly, generates leads from your industry sources, creates follow-up reminders for customers, predicts inventory needs, and provides business insights from your data. It's trained on thousands of business documents and achieves over 95% accuracy."
     },
     {
-      question: "Is my business data secure with Summit Automation?",
-      answer: "Yes, security is our top priority. All data is encrypted at rest with AES-256 and in transit via TLS. We follow SOC 2 Type 2 compliance standards and implement strict access controls to protect your sensitive business information."
+      question: "Can multiple team members use Summit?",
+      answer: "Yes, Summit supports multi-user access with role-based permissions. You can give team members access to specific modules (like inventory or customer management) while maintaining control over financial data and sensitive information. Perfect for growing businesses that need team collaboration."
     },
     {
-      question: "When will Summit Automation be available?",
-      answer: "We're currently in development and will be launching our Alpha program soon. Join our waitlist to be among the first to get early access, exclusive updates, and special pricing for early adopters."
+      question: "Is my business data secure?",
+      answer: "Absolutely. All data is encrypted at rest with AES-256 and in transit via TLS. We follow SOC 2 Type 2 compliance standards and implement strict access controls. Your business data stays private and secure, with regular security audits and monitoring."
     },
     {
-      question: "How much does Summit Automation cost?",
-      answer: "We're developing flexible pricing plans suitable for businesses of all sizes. Early waitlist members will get access to special pricing tiers. Join our waitlist to be notified about pricing and get exclusive early adopter benefits."
+      question: "When can I start using Summit?",
+      answer: "We're launching our Early Access program soon for select businesses. Early Access participants get free access during testing, direct input into product development, and priority pricing when we launch. Join our waitlist to secure your spot."
+    },
+    {
+      question: "Does Summit integrate with other tools?",
+      answer: "Summit is designed to be your central business hub, reducing the need for multiple disconnected tools. We're building key integrations based on Early Access feedback. The goal is to have everything you need in one place, but we understand some businesses have specific tool requirements."
+    },
+    {
+      question: "How is this different from other business software?",
+      answer: "Most business tools solve one problem at a time—separate CRM, separate accounting, separate inventory. Summit brings everything together with AI that learns your business patterns. Instead of switching between multiple apps and manually connecting data, you get one integrated system that works seamlessly."
     }
   ];
 
@@ -68,7 +76,7 @@ const FAQSection = () => {
             Got questions? We&apos;ve got answers.
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Everything you need to know about Summit Automation and how it can transform your business operations.
+            Everything you need to know about Summit and how our complete business management suite can transform your operations.
           </p>
         </div>
 

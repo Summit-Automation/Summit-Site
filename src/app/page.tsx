@@ -52,7 +52,7 @@ export default function HomePage() {
             "@context": "https://schema.org",
             "@type": "Product",
             "name": "Summit Automation",
-            "description": "AI-powered business automation platform for businesses of all sizes. Automate CRM, invoicing, and business processes to save time and grow faster.",
+            "description": "Complete business management suite with AI-powered CRM, automated accounting, inventory tracking, mileage logging, recurring payments, and real-time analytics. Built for contractors, service providers, and growing businesses.",
             "brand": {
               "@type": "Brand",
               "name": "Summit Automation"
@@ -75,7 +75,7 @@ export default function HomePage() {
             "@context": "https://schema.org",
             "@type": "Service",
             "name": "Business Automation Services",
-            "description": "AI-powered business automation services including CRM, invoicing, and process automation for businesses in Pittsburgh, PA and worldwide.",
+            "description": "Complete business management services including AI-powered CRM, automated accounting, inventory tracking, mileage logging, payment processing, and business analytics for contractors and service businesses in Pittsburgh, PA and worldwide.",
             "provider": {
               "@type": "Organization",
               "name": "Summit Automation",

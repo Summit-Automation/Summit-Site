@@ -2,7 +2,7 @@
 'use client';
 
 import React from 'react';
-import { Check, Users, Zap, FileText, Search, Camera, Clock, Target } from 'lucide-react';
+import { Check, Users, Zap, FileText, Camera, Clock, BarChart3, Package, Route, CreditCard, PieChart } from 'lucide-react';
 
 const FeaturesSection = () => {
   return (
@@ -14,57 +14,79 @@ const FeaturesSection = () => {
             AI-Powered Solutions
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Your new AI workforce, built for your business
+            Everything you need to run your business in one place
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Ever wished your employees could work 24/7? Our AI agents do exactly that. Whether you get a late-night quote request or want to get ahead on your outreach, our agents are always there to help.
+            From customer relationships to financial tracking, inventory management to business analytics—Summit handles it all with AI. Get the complete business management suite that works 24/7 so you can focus on what matters most.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {[
             {
-              icon: <FileText className="w-8 h-8" />,
-              title: "AI Receipt & Invoice Data Extractor",
-              description: "Take a photo of any receipt or invoice. Our AI instantly extracts vendor info, amounts, dates, and categorizes expenses. No more manual data entry.",
+              icon: <BarChart3 className="w-8 h-8" />,
+              title: "Business Dashboard & Analytics",
+              description: "See your business performance at a glance. Real-time metrics, growth tracking, cash flow analysis, and actionable insights that help you make smarter decisions faster.",
               features: [
-                "Instant photo-to-data conversion", 
-                "Automatic expense categorization", 
-                "Vendor contact extraction", 
-                "Receipt storage & organization"
+                "Real-time business metrics", 
+                "Customer growth tracking", 
+                "Cash flow visualization", 
+                "Revenue & expense analysis"
               ]
             },
             {
-              icon: <Search className="w-8 h-8" />,
-              title: "AI Lead Generation Tool",
-              description: "Find new leads with ease. Our AI scans relevant sources to identify potential clients and business opportunities in your industry.",
+              icon: <FileText className="w-8 h-8" />,
+              title: "AI Receipt & Expense Management",
+              description: "Take a photo of any receipt or invoice. Our AI instantly extracts vendor info, amounts, dates, and categorizes expenses. Plus automated recurring payment processing.",
               features: [
-                "Industry-specific lead discovery", 
-                "Contact information extraction", 
-                "Automated lead scoring", 
-                "Opportunity tracking"
+                "Instant photo-to-data conversion", 
+                "Automatic expense categorization", 
+                "Recurring payment automation", 
+                "Financial reporting & insights"
               ]
             },
             {
               icon: <Users className="w-8 h-8" />,
-              title: "Built-in CRM for Client Management",
-              description: "Track every conversation, follow-up, and opportunity in one organized place. Never lose track of a potential client or forget a follow-up again.",
+              title: "Smart CRM & Lead Management",
+              description: "Track every conversation, follow-up, and opportunity in one organized place. AI helps generate leads, draft emails, and converts prospects into customers automatically.",
               features: [
-                "Contact & conversation history", 
+                "AI-powered lead generation", 
                 "Automated follow-up reminders", 
-                "Project pipeline tracking", 
-                "Client communication tools"
+                "Email draft generation", 
+                "Customer interaction tracking"
+              ]
+            },
+            {
+              icon: <Package className="w-8 h-8" />,
+              title: "Inventory & Stock Management",
+              description: "Never run out of stock again. Monitor inventory levels, get alerts when supplies are low, and track product performance with intelligent inventory management.",
+              features: [
+                "Real-time stock monitoring", 
+                "Automated low-stock alerts", 
+                "Product performance tracking", 
+                "Inventory reporting & analytics"
+              ]
+            },
+            {
+              icon: <Route className="w-8 h-8" />,
+              title: "Mileage & Trip Tracking",
+              description: "Automatically track business trips and maximize tax deductions. Perfect for any business with mobile operations, client visits, or delivery services.",
+              features: [
+                "Automatic trip detection", 
+                "Mileage calculation & logging", 
+                "Tax-ready expense reports", 
+                "Business vs personal categorization"
               ]
             },
             {
               icon: <Zap className="w-8 h-8" />,
-              title: "Custom AI Automations",
-              description: "Get agents tailored specifically to your business needs. From intelligent customer support to smart internal ops, we build automations that fit your business—seamlessly and scalably.",
+              title: "Multi-User Team Collaboration",
+              description: "Scale your operations with team access controls. Multiple users can collaborate securely with customized permissions for different business functions and roles.",
               features: [
-                "Personalized to your systems", 
-                "Built with the latest AI models", 
-                "Trained on your data", 
-                "Always on, always learning"
+                "Role-based access control", 
+                "Team collaboration tools", 
+                "Secure data sharing", 
+                "Activity tracking & permissions"
               ]
             }
           ].map((feature, index) => (
@@ -96,7 +118,7 @@ const FeaturesSection = () => {
         </div>
 
         {/* Additional features grid */}
-        <div className="mt-20 grid md:grid-cols-3 gap-8">
+        <div className="mt-20 grid md:grid-cols-4 gap-8">
           {[
             {
               icon: <Camera className="w-6 h-6" />,
@@ -109,9 +131,14 @@ const FeaturesSection = () => {
               description: "See your business data update instantly across all your devices."
             },
             {
-              icon: <Target className="w-6 h-6" />,
-              title: "Smart Insights",
-              description: "Get actionable recommendations to grow your business faster."
+              icon: <PieChart className="w-6 h-6" />,
+              title: "Advanced Analytics",
+              description: "Expense breakdowns, customer insights, and growth tracking."
+            },
+            {
+              icon: <CreditCard className="w-6 h-6" />,
+              title: "Payment Processing",
+              description: "Automated recurring payments and seamless transaction management."
             }
           ].map((item, index) => (
             <div key={index} className="text-center">
