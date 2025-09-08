@@ -50,6 +50,7 @@ const Header = ({ scrolled }: HeaderProps) => {
                     <nav className="hidden md:flex items-center gap-6">
                         {[
                             { label: 'Features', href: '/#features' },
+                            { label: 'Services', href: '/services' },
                             { label: 'How It Works', href: '/#how-it-works' },
                             { label: 'Blog', href: '/#blog' },
                             { label: 'FAQ', href: '/faq' },
@@ -97,16 +98,16 @@ const Header = ({ scrolled }: HeaderProps) => {
                             Login
                         </button>
 
-                        {/* Join Waitlist Button */}
+                        {/* Get Started Button */}
                         <a
-                            href="#waitlist"
+                            href="#contact"
                             className={`inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold shadow-sm transition-all duration-200 hover:scale-105 ${
                                 scrolled
                                     ? 'bg-teal-500 text-white hover:bg-teal-600'
                                     : 'bg-blue-600 text-white hover:bg-blue-700'
                             }`}
                         >
-                            Join Waitlist
+                            Get Started
                         </a>
                     </div>
 

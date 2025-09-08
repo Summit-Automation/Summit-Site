@@ -28,6 +28,7 @@ const MobileMenu = () => {
                     {/* Navigation Links */}
                     {[
                         { label: 'Features', href: '/#features' }, 
+                        { label: 'Services', href: '/services' },
                         { label: 'How It Works', href: '/#how-it-works' }, 
                         { label: 'Blog', href: '/#blog' },
                         { label: 'FAQ', href: '/faq' }
@@ -70,13 +71,13 @@ const MobileMenu = () => {
                         <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-[-8px] group-hover:translate-x-0 transition-all duration-200" />
                     </button>
 
-                    {/* Join Waitlist Button */}
+                    {/* Get Started Button */}
                     <div className="pt-4">
                         <a
-                            href="#waitlist"
+                            href="#contact"
                             className="group flex items-center justify-center w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold text-base px-6 py-4 rounded-xl text-center transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-blue-500/20"
                         >
-                            <span>Join Waitlist</span>
+                            <span>Get Started</span>
                             <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                         </a>
                     </div>

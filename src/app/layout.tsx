@@ -101,13 +101,13 @@ export default function RootLayout({
                 {
                   "@type": "ContactPoint",
                   "contactType": "customer service",
-                  "email": "admin@summitautomation.io",
+                  "email": "clientservices@summitautomation.io",
                   "availableLanguage": "English"
                 },
                 {
                   "@type": "ContactPoint",
                   "contactType": "technical support",
-                  "email": "admin@summitautomation.io",
+                  "email": "clientservices@summitautomation.io",
                   "availableLanguage": "English"
                 }
               ],
@@ -152,7 +152,8 @@ export default function RootLayout({
                 }
               ],
               "sameAs": [
-                "https://summitautomation.io"
+                "https://summitautomation.io",
+                "https://www.linkedin.com/company/summitautomation/"
               ]
             })
           }}
@@ -201,7 +202,7 @@ export default function RootLayout({
                 "@type": "Offer",
                 "priceCurrency": "USD",
                 "price": "0",
-                "description": "Free trial available - Join waitlist for early access"
+                "description": "Contact us for pricing and demo - Multiple service options available"
               },
               "creator": {
                 "@type": "Organization",
@@ -230,7 +231,7 @@ export default function RootLayout({
               "description": "AI-powered business automation services for businesses in Pittsburgh, Pennsylvania and worldwide. Specializing in CRM, invoicing, and business process automation.",
               "url": "https://summitautomation.io",
               "telephone": "",
-              "email": "admin@summitautomation.io",
+              "email": "clientservices@summitautomation.io",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "",
@@ -271,7 +272,11 @@ export default function RootLayout({
               },
               "priceRange": "$$",
               "paymentAccepted": ["Cash", "Credit Card", "PayPal"],
-              "currenciesAccepted": "USD"
+              "currenciesAccepted": "USD",
+              "sameAs": [
+                "https://summitautomation.io",
+                "https://www.linkedin.com/company/summitautomation/"
+              ]
             })
           }}
         />

@@ -10,11 +10,7 @@ export async function POST(request) {
     }
 
     // Check if environment variables are loaded
-    console.log('ZOHO_EMAIL:', process.env.ZOHO_EMAIL ? 'Set' : 'Not set');
-    console.log('ZOHO_PASSWORD:', process.env.ZOHO_PASSWORD ? 'Set' : 'Not set');
-
     if (!process.env.ZOHO_EMAIL || !process.env.ZOHO_PASSWORD) {
-      console.error('Missing environment variables');
       return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
     }
 
@@ -64,8 +60,7 @@ export async function POST(request) {
     await transporter.sendMail(userMailOptions);
 
     return NextResponse.json({ message: 'Successfully joined waitlist' }, { status: 200 });
-  } catch (error) {
-    console.error('Error sending email:', error);
+  } catch {
     return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
   }
 }

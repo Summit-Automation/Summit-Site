@@ -8,7 +8,7 @@ import ProblemSection from '@/components/sections/ProblemSection';
 import FeaturesSection from '@/components/sections/FeaturesSection';
 import BlogSection from '@/components/sections/BlogSection';
 import HowItWorksSection from '@/components/sections/HowItWorksSection';
-import WaitlistSection from '@/components/sections/WaitlistSection';
+import ContactSection from '@/components/sections/ContactSection';
 import ChatWidget from '@/components/ui/ChatWidget';
 
 export default function HomePage() {
@@ -60,8 +60,8 @@ export default function HomePage() {
             "category": "Business Software",
             "offers": {
               "@type": "Offer",
-              "availability": "https://schema.org/PreOrder",
-              "description": "Join waitlist for early access"
+              "availability": "https://schema.org/InStock",
+              "description": "Contact us for business automation and web development services"
             }
           })
         }}
@@ -109,7 +109,7 @@ export default function HomePage() {
       <FeaturesSection />
       <HowItWorksSection />
       <BlogSection />
-      <WaitlistSection />
+      <ContactSection />
       <Footer />
       
       {/* Flowise Chat Widget */}

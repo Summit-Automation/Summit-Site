@@ -21,8 +21,8 @@ const HeroSection = () => {
         <div className="text-center max-w-4xl mx-auto">
           <div className="inline-flex items-center bg-blue-100 text-blue-700 px-6 py-3 rounded-full text-sm font-medium mb-8 border border-blue-200">
             <Sparkles className="w-4 h-4 mr-2" />
-            Currently in development
-            <div className="ml-2 w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+            Live & continuously improving
+            <div className="ml-2 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
@@ -36,10 +36,17 @@ const HeroSection = () => {
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
             <a 
-              href="#waitlist" 
+              href="#contact" 
               className="bg-blue-600 text-white px-10 py-5 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center justify-center"
             >
-              Join the waitlist
+              Get Started
+              <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a 
+              href="#services" 
+              className="bg-white text-blue-600 border-2 border-blue-600 px-10 py-5 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center justify-center"
+            >
+              View Services
               <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
