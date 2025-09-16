@@ -14,17 +14,28 @@ const StyledChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [showTooltip, setShowTooltip] = useState(true);
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      text: 'Hello! How can I help you with Summit Automation today?',
-      isUser: false,
-      timestamp: new Date()
-    }
-  ]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messageIdRef = useRef(1);
+
+  // Initialize messages on client side to avoid hydration issues
+  useEffect(() => {
+    setMessages([
+      {
+        id: '1',
+        text: 'Hello! How can I help you with Summit Automation today?',
+        isUser: false,
+        timestamp: new Date()
+      }
+    ]);
+  }, []);
+
+  const generateMessageId = () => {
+    messageIdRef.current += 1;
+    return messageIdRef.current.toString();
+  };
 
   const formatMessage = (text: string): string => {
     const formatted = text
@@ -82,7 +93,7 @@ const StyledChatWidget = () => {
     if (!inputValue.trim() || isLoading) return;
 
     const userMessage: Message = {
-      id: Date.now().toString(),
+      id: generateMessageId(),
       text: inputValue,
       isUser: true,
       timestamp: new Date()
@@ -110,7 +121,7 @@ const StyledChatWidget = () => {
       const data = await response.json();
       
       const botMessage: Message = {
-        id: (Date.now() + 1).toString(),
+        id: generateMessageId(),
         text: data.text || data.answer || 'Sorry, I could not process your request.',
         isUser: false,
         timestamp: new Date()
@@ -120,7 +131,7 @@ const StyledChatWidget = () => {
     } catch (error) {
       console.error('Error sending message:', error);
       const errorMessage: Message = {
-        id: (Date.now() + 1).toString(),
+        id: generateMessageId(),
         text: 'Sorry, I\'m having trouble connecting right now. Please try again later.',
         isUser: false,
         timestamp: new Date()
@@ -140,7 +151,7 @@ const StyledChatWidget = () => {
 
   const handleStarterPrompt = async (prompt: string) => {
     const userMessage: Message = {
-      id: Date.now().toString(),
+      id: generateMessageId(),
       text: prompt,
       isUser: true,
       timestamp: new Date()
@@ -167,7 +178,7 @@ const StyledChatWidget = () => {
       const data = await response.json();
       
       const botMessage: Message = {
-        id: (Date.now() + 1).toString(),
+        id: generateMessageId(),
         text: data.text || data.answer || 'Sorry, I could not process your request.',
         isUser: false,
         timestamp: new Date()
@@ -177,7 +188,7 @@ const StyledChatWidget = () => {
     } catch (error) {
       console.error('Error sending message:', error);
       const errorMessage: Message = {
-        id: (Date.now() + 1).toString(),
+        id: generateMessageId(),
         text: 'Sorry, I\'m having trouble connecting right now. Please try again later.',
         isUser: false,
         timestamp: new Date()
@@ -206,25 +217,25 @@ const StyledChatWidget = () => {
       {/* Tooltip */}
       {!isVisible && showTooltip && (
         <div 
-          className="absolute bottom-16 right-0 mb-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white text-sm rounded-xl shadow-2xl whitespace-nowrap animate-bounce"
+          className="absolute bottom-16 right-0 mb-2 px-4 py-3 bg-primary text-primary-foreground text-sm rounded-xl shadow-2xl whitespace-nowrap animate-bounce"
           style={{ fontSize: '14px', fontWeight: '500' }}
         >
           ✨ Automate your business today!
-          <div className="absolute bottom-[-8px] right-5 w-0 h-0 border-l-[8px] border-r-[8px] border-t-[8px] border-l-transparent border-r-transparent border-t-blue-700"></div>
+          <div className="absolute bottom-[-8px] right-5 w-0 h-0 border-l-[8px] border-r-[8px] border-t-[8px] border-l-transparent border-r-transparent border-t-primary"></div>
         </div>
       )}
 
       {/* Chat Button */}
       {!isVisible && (
         <div className="relative">
-          <div className="absolute inset-0 rounded-full bg-blue-400 animate-ping opacity-20"></div>
-          <div className="absolute inset-0 rounded-full bg-blue-500 animate-pulse opacity-30"></div>
+          <div className="absolute inset-0 rounded-full bg-primary-400 animate-ping opacity-20"></div>
+          <div className="absolute inset-0 rounded-full bg-primary-500 animate-pulse opacity-30"></div>
           
           <button
             onClick={openChat}
             onMouseEnter={() => setShowTooltip(true)}
             onMouseLeave={() => setShowTooltip(false)}
-            className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group overflow-hidden"
+            className="relative bg-primary hover:bg-primary/90 text-primary-foreground rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group overflow-hidden"
             style={{ 
               width: '60px', 
               height: '60px',
@@ -244,7 +255,7 @@ const StyledChatWidget = () => {
       {/* Chat Window */}
       {isVisible && (
         <div 
-          className="bg-white rounded-2xl shadow-2xl flex flex-col border border-gray-100 overflow-hidden transition-all duration-300 ease-in-out"
+          className="bg-background rounded-2xl shadow-2xl flex flex-col border border-border overflow-hidden transition-all duration-300 ease-in-out"
           style={{ 
             width: '400px', 
             height: '700px',
@@ -275,24 +286,24 @@ const StyledChatWidget = () => {
             }
           `}</style>
           {/* Header */}
-          <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white p-5 flex justify-between items-center relative overflow-hidden">
+          <div className="bg-primary text-primary-foreground p-5 flex justify-between items-center relative overflow-hidden">
             <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 left-0 w-32 h-32 bg-white rounded-full -translate-x-16 -translate-y-16"></div>
-              <div className="absolute bottom-0 right-0 w-24 h-24 bg-white rounded-full translate-x-12 translate-y-12"></div>
+              <div className="absolute top-0 left-0 w-32 h-32 bg-background rounded-full -translate-x-16 -translate-y-16"></div>
+              <div className="absolute bottom-0 right-0 w-24 h-24 bg-background rounded-full translate-x-12 translate-y-12"></div>
             </div>
             
             <div className="flex items-center space-x-3 relative z-10">
-              <div className="w-10 h-10 bg-blue-500/30 rounded-xl flex items-center justify-center border border-white/30">
+              <div className="w-10 h-10 bg-primary-500/30 rounded-xl flex items-center justify-center border border-white/30">
                 <MessageCircle className="w-5 h-5 text-white" />
               </div>
               <div>
                 <h3 className="font-semibold" style={{ fontSize: '16px' }}>Summit Assistant</h3>
-                <p className="text-blue-100 text-xs">Always here to help ✨</p>
+                <p className="text-primary-100 text-xs">Always here to help ✨</p>
               </div>
             </div>
             <button
               onClick={closeChat}
-              className="text-white/80 hover:text-white hover:bg-white/10 rounded-xl p-2 transition-all duration-200 relative z-10"
+              className="text-white/80 hover:text-white hover:bg-background/10 rounded-xl p-2 transition-all duration-200 relative z-10"
               aria-label="Close chat"
             >
               <X className="w-5 h-5" />
@@ -326,7 +337,7 @@ const StyledChatWidget = () => {
                 <div className="flex justify-start">
                   <button
                     onClick={() => handleStarterPrompt('How can Summit help my business?')}
-                    className="bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 text-blue-700 px-4 py-3 rounded-xl transition-all duration-200 hover:scale-105 shadow-sm border border-blue-200/50"
+                    className="bg-muted/50 hover:bg-muted text-primary px-4 py-3 rounded-xl transition-all duration-200 hover:scale-105 shadow-sm border border-border"
                     style={{ 
                       fontSize: '14px',
                       fontWeight: '500'
@@ -372,11 +383,11 @@ const StyledChatWidget = () => {
                   }}
                 >
                   <div className="flex space-x-1">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
-                    <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                    <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                    <div className="w-2 h-2 bg-primary-400 rounded-full animate-bounce"></div>
+                    <div className="w-2 h-2 bg-primary-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                    <div className="w-2 h-2 bg-primary-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                   </div>
-                  <span className="text-sm text-gray-500">Summit is thinking...</span>
+                  <span className="text-sm text-muted-foreground">Summit is thinking...</span>
                 </div>
               </div>
             )}
@@ -384,7 +395,7 @@ const StyledChatWidget = () => {
           </div>
 
           {/* Input */}
-          <div className="p-4 border-t border-gray-100 bg-gray-50/50">
+          <div className="p-4 border-t border-border bg-muted/20/50">
             <div className="flex space-x-3">
               <input
                 type="text"
@@ -392,7 +403,7 @@ const StyledChatWidget = () => {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Ask about Summit Automation..."
-                className="flex-1 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white shadow-sm"
+                className="flex-1 border border-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 bg-background shadow-sm"
                 style={{
                   fontSize: '15px'
                 }}
@@ -420,7 +431,7 @@ const StyledChatWidget = () => {
           </div>
 
           {/* Footer */}
-          <div className="px-4 py-3 bg-gray-50/50 text-center border-t border-gray-100">
+          <div className="px-4 py-3 bg-muted/20/50 text-center border-t border-border">
             <p style={{ fontSize: '11px', color: '#6b7280' }}>
               Powered by{' '}
               <a 

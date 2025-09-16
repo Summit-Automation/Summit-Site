@@ -281,7 +281,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} bg-white text-gray-900 antialiased`}>
+      <body className={`${inter.className} bg-background text-foreground antialiased`}>
         {/* Google Analytics with your actual ID */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-HYGTW8V3Z4"

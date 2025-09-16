@@ -483,7 +483,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const pageUrl = `https://summitautomation.io/blog/${resolvedParams.slug}`;
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-background text-foreground">
       <Header scrolled={true} />
       
       {/* Breadcrumb Schema */}
@@ -577,16 +577,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           
           <header className="mb-12">
             <div className="mb-4">
-              <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+              <span className="bg-gradient-to-r from-blue-500/20 to-blue-600/10 text-blue-400 px-3 py-1 rounded-full text-sm font-medium border border-blue-500/20">
                 {post.category}
               </span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-slate-50 mb-6 leading-tight">
               {post.title}
             </h1>
             
-            <div className="flex items-center gap-6 text-gray-600 mb-6">
+            <div className="flex items-center gap-6 text-slate-400 mb-6">
               <div className="flex items-center gap-2">
                 <User className="w-4 h-4" />
                 {post.author}
@@ -601,7 +601,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
             </div>
 
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-xl text-slate-300 leading-relaxed">
               {post.excerpt}
             </p>
           </header>
@@ -628,7 +628,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                       return '<br>';
                     }
                     if (line.startsWith('*') && line.endsWith('*')) {
-                      return `<p class="italic text-gray-600 border-l-4 border-blue-200 pl-4 my-6">${line.slice(1, -1)}</p>`;
+                      return `<p class="italic text-slate-300 border-l-4 border-blue-500/40 pl-4 my-6">${line.slice(1, -1)}</p>`;
                     }
                     return `<p class="mb-4 leading-relaxed">${line}</p>`;
                   })

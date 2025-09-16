@@ -54,13 +54,17 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-24 px-6 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
+    <section id="services" className="py-24 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative">
+      {/* Sophisticated background effects */}
+      <div className="absolute inset-0 bg-gradient-to-t from-transparent via-blue-500/3 to-transparent"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_70%)]"></div>
+      
+      <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold text-slate-50 mb-6">
             Our Services
           </h2>
-          <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
             From cutting-edge business automation to custom web development, we help businesses of all sizes streamline operations and establish a strong online presence.
           </p>
         </div>
@@ -69,63 +73,83 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <div 
               key={index} 
-              className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 ${
-                service.highlight ? 'ring-2 ring-blue-500 relative' : ''
+              className={`relative group transform transition-all duration-300 hover:scale-105 ${
+                service.highlight ? 'hover:scale-110' : ''
               }`}
             >
+              {/* Ultra-sophisticated card with premium texture layers */}
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-900/85 to-slate-800/65 rounded-2xl shadow-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/8 to-transparent rounded-2xl"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(59,130,246,0.06),transparent_65%)] rounded-2xl"></div>
+              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.02)_0%,transparent_50%,rgba(0,0,0,0.02)_100%)] rounded-2xl"></div>
+              
+              {/* Premium multi-layer border system */}
+              <div className={`absolute inset-0 rounded-2xl border-2 group-hover:border-slate-600/75 transition-all duration-500 shadow-inner ${
+                service.highlight ? 'border-blue-500/60 group-hover:border-blue-400/80' : 'border-slate-700/60'
+              }`}></div>
+              <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/8 group-hover:ring-white/12 transition-all duration-300"></div>
+              <div className={`absolute inset-0 rounded-2xl ring-1 transition-all duration-300 ${
+                service.highlight ? 'ring-blue-500/30 group-hover:ring-blue-400/40' : 'ring-slate-600/20 group-hover:ring-blue-500/25'
+              }`}></div>
+              <div className="absolute inset-1 rounded-[14px] border border-slate-800/30 shadow-sm"></div>
+              
+              {/* Content container */}
+              <div className="relative p-8 backdrop-blur-md">
+              
               {service.highlight && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                  <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 shadow-lg ring-2 ring-blue-500/20">
                     <Zap className="w-4 h-4" />
                     Flagship Product
                   </div>
                 </div>
               )}
               
-              <div className="mb-6">
-                <div className="bg-gray-100 rounded-full p-4 w-fit mb-4">
-                  {service.icon}
+              <div className="mb-6 relative">
+                <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-full p-4 w-fit mb-4">
+                  {React.cloneElement(service.icon, { className: "w-8 h-8 text-blue-400" })}
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                <h3 className="text-2xl font-bold text-slate-50 mb-3 group-hover:text-white transition-colors duration-300">
                   {service.category}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-slate-300 leading-relaxed">
                   {service.description}
                 </p>
               </div>
 
-              <div className="mb-8">
-                <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-blue-500" />
+              <div className="mb-8 relative">
+                <h4 className="font-semibold text-slate-50 mb-4 flex items-center gap-2">
+                  <Shield className="w-4 h-4 text-blue-400" />
                   What&apos;s Included
                 </h4>
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="text-gray-600 flex items-start gap-2">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                      {feature}
+                    <li key={featureIndex} className="text-slate-300 flex items-start gap-2 group/item">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="group-hover/item:text-slate-200 transition-colors duration-200">{feature}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="pt-6 border-t border-gray-200">
+              <div className="pt-6 border-t border-slate-700/40 relative">
                 <div className="text-center">
-                  <p className="text-lg font-semibold text-gray-900 mb-4">
+                  <p className="text-lg font-semibold text-slate-50 mb-4">
                     {service.pricing}
                   </p>
                   <a 
                     href={`/services#${index === 0 ? 'automation' : index === 1 ? 'web-development' : 'hosting'}`}
-                    className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 ${
+                    className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 relative ${
                       service.highlight 
-                        ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl' 
-                        : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                        ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 shadow-lg hover:shadow-xl ring-2 ring-blue-500/20 hover:ring-blue-500/40' 
+                        : 'bg-gradient-to-r from-slate-800/60 to-slate-700/40 text-slate-200 hover:from-slate-700/60 hover:to-slate-600/40 hover:text-white border border-slate-600/50 backdrop-blur-sm'
                     }`}
                   >
                     <Globe className="w-4 h-4" />
                     Learn More
                   </a>
                 </div>
+              </div>
               </div>
             </div>
           ))}

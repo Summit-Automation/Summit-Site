@@ -6,17 +6,21 @@ import { Check, Users, Zap, FileText, Camera, Clock, BarChart3, Package, Route, 
 
 const FeaturesSection = () => {
   return (
-    <section id="features" className="py-24 px-6 bg-white" aria-label="Features">
-      <div className="max-w-7xl mx-auto">
+    <section id="features" className="py-24 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative" aria-label="Features">
+      {/* Subtle background effects */}
+      <div className="absolute inset-0 bg-gradient-to-t from-transparent via-blue-500/3 to-transparent"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_70%)]"></div>
+      
+      <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center bg-gradient-to-r from-slate-800/60 to-slate-700/40 text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-slate-700/50 backdrop-blur-sm">
             <Zap className="w-4 h-4 mr-2" />
             AI-Powered Solutions
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-6">
             Everything you need to run your business in one place
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
             From customer relationships to financial tracking, inventory management to business analytics—Summit handles it all with AI. Get the complete business management suite that works 24/7 so you can focus on what matters most.
           </p>
         </div>
@@ -90,29 +94,44 @@ const FeaturesSection = () => {
               ]
             }
           ].map((feature, index) => (
-            <div key={index} className="bg-white rounded-xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="bg-blue-100 text-blue-600 rounded-lg p-4 w-fit mb-6">
-                {feature.icon}
-              </div>
+            <div key={index} className="relative group transform transition-all duration-300 hover:scale-[1.02]">
+              {/* Ultra-sophisticated card with multi-layer texture */}
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-900/85 to-slate-800/65 rounded-xl shadow-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/8 to-transparent rounded-xl"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.06),transparent_70%)] rounded-xl"></div>
+              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.02)_0%,transparent_50%,rgba(0,0,0,0.02)_100%)] rounded-xl"></div>
               
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              {/* Premium multi-layer border system */}
+              <div className="absolute inset-0 rounded-xl border-2 border-slate-700/60 group-hover:border-slate-600/75 transition-all duration-500 shadow-inner"></div>
+              <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/8 group-hover:ring-white/12 transition-all duration-300"></div>
+              <div className="absolute inset-0 rounded-xl ring-1 ring-slate-600/20 group-hover:ring-blue-500/30 transition-all duration-300"></div>
+              <div className="absolute inset-1 rounded-[10px] border border-slate-800/30 shadow-sm"></div>
+              
+              {/* Content container */}
+              <div className="relative p-8 backdrop-blur-md">
+                <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/10 text-blue-400 rounded-lg p-4 w-fit mb-6">
+                  {feature.icon}
+                </div>
+              
+              <h3 className="text-2xl font-bold text-slate-50 mb-4">
                 {feature.title}
               </h3>
               
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-slate-300 mb-6 leading-relaxed">
                 {feature.description}
               </p>
               
               <ul className="space-y-3">
                 {feature.features.map((item, idx) => (
                   <li key={idx} className="flex items-start">
-                    <div className="bg-blue-100 rounded-full p-1 mr-3 mt-1 flex-shrink-0">
-                      <Check className="w-3 h-3 text-blue-600" />
+                    <div className="bg-primary/10 rounded-full p-1 mr-3 mt-1 flex-shrink-0">
+                      <Check className="w-3 h-3 text-primary" />
                     </div>
-                    <span className="text-gray-700 leading-relaxed">{item}</span>
+                    <span className="text-muted-foreground leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
+              </div>
             </div>
           ))}
         </div>
@@ -142,13 +161,13 @@ const FeaturesSection = () => {
             }
           ].map((item, index) => (
             <div key={index} className="text-center">
-              <div className="bg-blue-50 rounded-xl p-4 w-fit mx-auto mb-4">
-                <div className="text-blue-600">
+              <div className="bg-muted/20 rounded-xl p-4 w-fit mx-auto mb-4">
+                <div className="text-primary">
                   {item.icon}
                 </div>
               </div>
-              <h4 className="font-semibold text-gray-900 mb-2">{item.title}</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
+              <h4 className="font-semibold text-foreground mb-2">{item.title}</h4>
+              <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
             </div>
           ))}
         </div>

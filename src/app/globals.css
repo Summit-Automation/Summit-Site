@@ -1,17 +1,36 @@
 @import "tailwindcss";
 
-/* === Theme Variables === */
+/* Summit-UI Rich Dark Theme - Professional Slate Design */
 :root {
-  --background: #ffffff;
-  --foreground: #111827;
-  --accent: #2563eb; /* Blue-600 */
-  --accent-hover: #1d4ed8; /* Blue-700 */
+  /* Rich dark slate backgrounds with depth and sophistication */
+  --background: 222 47% 11%;         /* Rich slate-900 for main background */
+  --foreground: 210 40% 98%;         /* Clean white text (slate-50) */
+  --muted: 215 28% 17%;             /* Warm slate-800 for muted areas */
+  --muted-foreground: 215 16% 65%;   /* Readable slate-400 for secondary text */
+  --border: 215 28% 10%;            /* Dark slate-900 borders for sophistication */
+  --card: 222 47% 11%;              /* Rich slate-900 for cards */
+  --card-foreground: 210 40% 98%;   /* Clean white on cards */
+  --primary: 217 91% 60%;           /* Vibrant blue-500 for CTAs */
+  --primary-foreground: 210 40% 98%; /* White text on primary */
+  --secondary: 215 28% 17%;         /* Slate-800 for secondary elements */
+  --secondary-foreground: 210 40% 98%; /* White text on secondary */
+  --accent: 217 91% 60%;            /* Blue-500 for accents */
+  --accent-foreground: 210 40% 98%; /* White text on accents */
+  --destructive: 0 84% 60%;         /* Red-500 for errors */
+  --destructive-foreground: 210 40% 98%;
+  --success: 142 71% 45%;           /* Emerald-500 for success */
+  --success-foreground: 210 40% 98%;
+  --ring: 217 91% 60%;              /* Blue-500 for focus rings */
+  --input: 215 28% 17%;             /* Slate-800 for inputs */
+  --popover: 222 47% 11%;           /* Slate-900 for popovers */
+  --popover-foreground: 210 40% 98%; /* White text in popovers */
+  --radius: 0.75rem;                /* Rounded-xl for modern look */
 }
 
 /* === Global Styles === */
 body {
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
   @apply antialiased;
 }
 
@@ -73,4 +92,19 @@ input[type="email"] {
 /* === Shadow Utilities === */
 .shadow-soft {
   box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+/* === Force Sophisticated Styling === */
+#problem-main-card {
+  position: relative !important;
+  display: block !important;
+  margin-bottom: 4rem !important;
+}
+
+/* Override any semantic token conflicts */
+.relative.group {
+  position: relative !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
 }

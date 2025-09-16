@@ -46,7 +46,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="py-24 px-6 bg-gray-50">
+    <section className="py-24 px-6 bg-muted/20">
       {/* FAQ Schema */}
       <script
         type="application/ld+json"
@@ -68,14 +68,14 @@ const FAQSection = () => {
       
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center bg-muted/50 text-primary/80 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <HelpCircle className="w-4 h-4 mr-2" />
             Frequently Asked Questions
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Got questions? We&apos;ve got answers.
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Everything you need to know about Summit and how our complete business management suite can transform your operations.
           </p>
         </div>
@@ -84,19 +84,30 @@ const FAQSection = () => {
           {faqs.map((faq, index) => (
             <div 
               key={index} 
-              className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
+              className="relative group"
             >
+              {/* Professional card with texture and depth */}
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 to-slate-800/50 rounded-xl shadow-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-xl"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.03),transparent_70%)] rounded-xl"></div>
+              
+              {/* Enhanced border treatment */}
+              <div className="absolute inset-0 rounded-xl border border-slate-700/40 group-hover:border-slate-600/50 transition-all duration-300 shadow-inner"></div>
+              <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/5"></div>
+              
+              {/* Content container */}
+              <div className="relative backdrop-blur-sm">
               <button
                 className="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset rounded-xl"
                 onClick={() => toggleFAQ(index)}
                 aria-expanded={openFAQ === index}
                 aria-controls={`faq-answer-${index}`}
               >
-                <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                <h3 className="text-lg font-semibold text-foreground pr-4">
                   {faq.question}
                 </h3>
                 {openFAQ === index ? (
-                  <ChevronUp className="w-6 h-6 text-blue-600 flex-shrink-0" />
+                  <ChevronUp className="w-6 h-6 text-primary flex-shrink-0" />
                 ) : (
                   <ChevronDown className="w-6 h-6 text-gray-400 flex-shrink-0" />
                 )}
@@ -107,22 +118,23 @@ const FAQSection = () => {
                   id={`faq-answer-${index}`}
                   className="px-8 pb-6"
                 >
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>
               )}
+              </div>
             </div>
           ))}
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">
+          <p className="text-muted-foreground mb-4">
             Still have questions?
           </p>
           <a 
             href="mailto:admin@summitautomation.io"
-            className="text-blue-600 hover:text-blue-700 font-semibold underline"
+            className="text-primary hover:text-primary/80 font-semibold underline"
           >
             Contact us directly
           </a>

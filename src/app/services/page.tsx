@@ -202,7 +202,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-background text-foreground">
       {/* SEO Schema */}
       <script
         type="application/ld+json"
@@ -220,18 +220,21 @@ export default function ServicesPage() {
       <Header scrolled={scrolled} />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 bg-gradient-to-b from-blue-50 to-white">
+      <section className="pt-32 pb-20 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative">
+        {/* Sophisticated background effects */}
+        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-blue-500/3 to-transparent"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_70%)]"></div>
         <div className="max-w-6xl mx-auto text-center">
-          <div className="inline-flex items-center bg-blue-100 text-blue-700 px-6 py-3 rounded-full text-sm font-medium mb-8 border border-blue-200">
+          <div className="inline-flex items-center bg-gradient-to-r from-slate-800/60 to-slate-700/40 text-blue-400 px-6 py-3 rounded-full text-sm font-medium mb-8 border border-slate-700/50 backdrop-blur-sm shadow-lg">
             <Zap className="w-4 h-4 mr-2" />
             Complete Business Solutions
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold text-slate-50 mb-8 leading-tight">
             Services That <span className="text-blue-600">Transform</span> Your Business
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-4xl mx-auto">
+          <p className="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed max-w-4xl mx-auto">
             From AI-powered business automation to custom web development and reliable hosting, we provide the complete technology stack your business needs to thrive in the digital age.
           </p>
         </div>
@@ -242,7 +245,7 @@ export default function ServicesPage() {
         <section 
           key={service.id} 
           id={service.id}
-          className={`py-24 px-6 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
+          className={`py-24 px-6 ${index % 2 === 0 ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900' : 'bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800'}`}
         >
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -256,11 +259,11 @@ export default function ServicesPage() {
                     </div>
                   )}
                   
-                  <div className="bg-gray-100 rounded-full p-6 w-fit mb-6">
+                  <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-full p-6 w-fit mb-6">
                     {service.icon}
                   </div>
                   
-                  <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                  <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-4">
                     {service.category}
                   </h2>
                   
@@ -268,16 +271,31 @@ export default function ServicesPage() {
                     {service.tagline}
                   </p>
                   
-                  <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                  <p className="text-lg text-slate-300 leading-relaxed mb-8">
                     {service.description}
                   </p>
                   
-                  <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-                    <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                      <CreditCard className="w-5 h-5 text-blue-500" />
-                      {service.pricing}
-                    </h3>
-                    <p className="text-gray-600">{service.pricingDescription}</p>
+                  <div className="relative group transform transition-all duration-300 hover:scale-[1.02]">
+                    {/* Ultra-sophisticated dark card with premium texture layers */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-800/90 to-gray-900/70 rounded-xl shadow-2xl"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/8 to-transparent rounded-xl"></div>
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(59,130,246,0.05),transparent_70%)] rounded-xl"></div>
+                    <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.02)_0%,transparent_50%,rgba(0,0,0,0.02)_100%)] rounded-xl"></div>
+                    
+                    {/* Premium multi-layer border system */}
+                    <div className="absolute inset-0 rounded-xl border-2 border-gray-700/60 group-hover:border-gray-600/75 transition-all duration-500 shadow-inner"></div>
+                    <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/8 group-hover:ring-white/12 transition-all duration-300"></div>
+                    <div className="absolute inset-0 rounded-xl ring-1 ring-gray-600/20 group-hover:ring-blue-500/25 transition-all duration-300"></div>
+                    <div className="absolute inset-1 rounded-[10px] border border-gray-800/30 shadow-sm"></div>
+                    
+                    {/* Content container */}
+                    <div className="relative p-6 backdrop-blur-md">
+                      <h3 className="font-semibold text-white mb-2 flex items-center gap-2">
+                        <CreditCard className="w-5 h-5 text-blue-400" />
+                        {service.pricing}
+                      </h3>
+                      <p className="text-slate-300">{service.pricingDescription}</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -286,21 +304,36 @@ export default function ServicesPage() {
               <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                 <div className="space-y-6">
                   {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <div key={featureIndex} className="relative group transform transition-all duration-300 hover:scale-[1.02]">
+                      {/* Ultra-sophisticated dark card with premium texture layers */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-gray-800/90 to-gray-900/70 rounded-xl shadow-2xl"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/8 to-transparent rounded-xl"></div>
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(59,130,246,0.05),transparent_70%)] rounded-xl"></div>
+                      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.02)_0%,transparent_50%,rgba(0,0,0,0.02)_100%)] rounded-xl"></div>
+                      
+                      {/* Premium multi-layer border system */}
+                      <div className="absolute inset-0 rounded-xl border-2 border-gray-700/60 group-hover:border-gray-600/75 transition-all duration-500 shadow-inner"></div>
+                      <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/8 group-hover:ring-white/12 transition-all duration-300"></div>
+                      <div className="absolute inset-0 rounded-xl ring-1 ring-gray-600/20 group-hover:ring-blue-500/25 transition-all duration-300"></div>
+                      <div className="absolute inset-1 rounded-[10px] border border-gray-800/30 shadow-sm"></div>
+                      
+                      {/* Content container */}
+                      <div className="relative p-6 backdrop-blur-md">
+                      <h3 className="text-xl font-bold text-white mb-3">
                         {feature.title}
                       </h3>
-                      <p className="text-gray-600 mb-4">
+                      <p className="text-slate-300 mb-4">
                         {feature.description}
                       </p>
                       <ul className="space-y-2">
                         {feature.details.map((detail, detailIndex) => (
-                          <li key={detailIndex} className="text-gray-600 flex items-start gap-2">
-                            <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                          <li key={detailIndex} className="text-slate-300 flex items-start gap-2">
+                            <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
                             {detail}
                           </li>
                         ))}
                       </ul>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -312,53 +345,98 @@ export default function ServicesPage() {
       ))}
 
       {/* CTA Section */}
-      <section id="contact" className="py-24 px-6 bg-gray-900 text-white">
+      <section id="contact" className="py-24 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to Transform Your Business?
           </h2>
-          <p className="text-xl text-gray-300 mb-12 leading-relaxed">
+          <p className="text-xl text-slate-300 mb-12 leading-relaxed">
             Get in touch to discuss how our services can help streamline your operations, improve your online presence, and accelerate your growth.
           </p>
           
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-gray-800 border border-gray-700 rounded-xl p-6">
+            <div className="relative group transform transition-all duration-300 hover:scale-[1.02]">
+              {/* Ultra-sophisticated dark card with premium texture layers */}
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-800/90 to-gray-900/70 rounded-xl shadow-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/8 to-transparent rounded-xl"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(59,130,246,0.05),transparent_70%)] rounded-xl"></div>
+              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.02)_0%,transparent_50%,rgba(0,0,0,0.02)_100%)] rounded-xl"></div>
+              
+              {/* Premium multi-layer border system */}
+              <div className="absolute inset-0 rounded-xl border-2 border-gray-700/60 group-hover:border-gray-600/75 transition-all duration-500 shadow-inner"></div>
+              <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/8 group-hover:ring-white/12 transition-all duration-300"></div>
+              <div className="absolute inset-0 rounded-xl ring-1 ring-gray-600/20 group-hover:ring-blue-500/25 transition-all duration-300"></div>
+              <div className="absolute inset-1 rounded-[10px] border border-gray-800/30 shadow-sm"></div>
+              
+              {/* Content container */}
+              <div className="relative p-6 backdrop-blur-md">
               <div className="bg-blue-900/20 rounded-full p-3 w-fit mx-auto mb-4">
                 <Mail className="w-6 h-6 text-blue-400" />
               </div>
               <h3 className="font-semibold text-white mb-2">Email Us</h3>
-              <p className="text-gray-300 text-sm mb-3 break-all">clientservices@summitautomation.io</p>
+              <p className="text-slate-300 text-sm mb-3 break-all">clientservices@summitautomation.io</p>
               <a 
                 href="mailto:clientservices@summitautomation.io"
                 className="text-blue-400 hover:text-blue-300 text-sm underline"
               >
                 Send Message
               </a>
+              </div>
             </div>
             
-            <div className="bg-gray-800 border border-gray-700 rounded-xl p-6">
+            <div className="relative group transform transition-all duration-300 hover:scale-[1.02]">
+              {/* Ultra-sophisticated dark card with premium texture layers */}
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-800/90 to-gray-900/70 rounded-xl shadow-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/8 to-transparent rounded-xl"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(59,130,246,0.05),transparent_70%)] rounded-xl"></div>
+              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.02)_0%,transparent_50%,rgba(0,0,0,0.02)_100%)] rounded-xl"></div>
+              
+              {/* Premium multi-layer border system */}
+              <div className="absolute inset-0 rounded-xl border-2 border-gray-700/60 group-hover:border-gray-600/75 transition-all duration-500 shadow-inner"></div>
+              <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/8 group-hover:ring-white/12 transition-all duration-300"></div>
+              <div className="absolute inset-0 rounded-xl ring-1 ring-gray-600/20 group-hover:ring-blue-500/25 transition-all duration-300"></div>
+              <div className="absolute inset-1 rounded-[10px] border border-gray-800/30 shadow-sm"></div>
+              
+              {/* Content container */}
+              <div className="relative p-6 backdrop-blur-md">
               <div className="bg-green-900/20 rounded-full p-3 w-fit mx-auto mb-4">
                 <MessageCircle className="w-6 h-6 text-green-400" />
               </div>
               <h3 className="font-semibold text-white mb-2">Live Chat</h3>
-              <p className="text-gray-300 text-sm mb-3">Chat with our team now</p>
+              <p className="text-slate-300 text-sm mb-3">Chat with our team now</p>
               <button className="text-green-400 hover:text-green-300 text-sm underline">
                 Start Chat
               </button>
+              </div>
             </div>
             
-            <div className="bg-gray-800 border border-gray-700 rounded-xl p-6">
+            <div className="relative group transform transition-all duration-300 hover:scale-[1.02]">
+              {/* Ultra-sophisticated dark card with premium texture layers */}
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-800/90 to-gray-900/70 rounded-xl shadow-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/8 to-transparent rounded-xl"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(59,130,246,0.05),transparent_70%)] rounded-xl"></div>
+              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.02)_0%,transparent_50%,rgba(0,0,0,0.02)_100%)] rounded-xl"></div>
+              
+              {/* Premium multi-layer border system */}
+              <div className="absolute inset-0 rounded-xl border-2 border-gray-700/60 group-hover:border-gray-600/75 transition-all duration-500 shadow-inner"></div>
+              <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/8 group-hover:ring-white/12 transition-all duration-300"></div>
+              <div className="absolute inset-0 rounded-xl ring-1 ring-gray-600/20 group-hover:ring-blue-500/25 transition-all duration-300"></div>
+              <div className="absolute inset-1 rounded-[10px] border border-gray-800/30 shadow-sm"></div>
+              
+              {/* Content container */}
+              <div className="relative p-6 backdrop-blur-md">
               <div className="bg-purple-900/20 rounded-full p-3 w-fit mx-auto mb-4">
                 <Phone className="w-6 h-6 text-purple-400" />
               </div>
               <h3 className="font-semibold text-white mb-2">Schedule Call</h3>
-              <p className="text-gray-300 text-sm mb-3">Book a consultation</p>
+              <p className="text-slate-300 text-sm mb-3">Book a consultation</p>
               <a 
                 href="mailto:clientservices@summitautomation.io?subject=Schedule%20Consultation&body=Hi%2C%20I%27d%20like%20to%20schedule%20a%20consultation%20to%20discuss%20my%20business%20needs.%20Please%20let%20me%20know%20your%20availability."
                 className="text-purple-400 hover:text-purple-300 text-sm underline"
               >
                 Book Now
               </a>
+              </div>
             </div>
           </div>
           
