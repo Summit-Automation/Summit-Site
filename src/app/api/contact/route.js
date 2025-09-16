@@ -1,6 +1,18 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
+// HTML escape function to prevent XSS
+const escapeHtml = (text) => {
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return text.replace(/[&<>"']/g, (m) => map[m]);
+};
+
 export async function POST(request) {
   try {
     const { email, message } = await request.json();
@@ -27,25 +39,28 @@ export async function POST(request) {
     const sanitizedEmail = email.trim().toLowerCase();
     const sanitizedMessage = message.trim();
 
-    // Check if environment variables are loaded
+    // Environment variable check
     if (!process.env.ZOHO_EMAIL || !process.env.ZOHO_PASSWORD) {
       return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
     }
 
-    // Create transporter for Zoho Mail
-    const transporter = nodemailer.createTransport({
+    // Create secure transporter
+    const transporter = nodemailer.createTransporter({
       host: 'smtp.zoho.com',
-      port: 587, // Try TLS port instead of SSL
-      secure: false, // Use STARTTLS instead of SSL
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.ZOHO_EMAIL,
         pass: process.env.ZOHO_PASSWORD,
       },
       tls: {
-        ciphers: 'SSLv3',
-        rejectUnauthorized: false
+        rejectUnauthorized: true
       }
     });
+
+    // Escape HTML for security
+    const escapedEmail = escapeHtml(sanitizedEmail);
+    const escapedMessage = escapeHtml(sanitizedMessage).replace(/\n/g, '<br>');
 
     // Email to admin
     const adminMailOptions = {
@@ -54,11 +69,11 @@ export async function POST(request) {
       subject: 'New Contact Form Submission - Summit Automation',
       html: `
         <h2>New Contact Form Submission</h2>
-        <p><strong>Email:</strong> ${sanitizedEmail}</p>
+        <p><strong>Email:</strong> ${escapedEmail}</p>
         <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
         <h3>Message:</h3>
         <div style="background-color: #f5f5f5; padding: 15px; border-left: 4px solid #0066cc; margin: 10px 0;">
-          ${sanitizedMessage.replace(/\n/g, '<br>')}
+          ${escapedMessage}
         </div>
         <p>Please respond to this inquiry promptly.</p>
       `,
@@ -77,7 +92,7 @@ export async function POST(request) {
         
         <h3>Your message:</h3>
         <div style="background-color: #f5f5f5; padding: 15px; border-left: 4px solid #0066cc; margin: 10px 0;">
-          ${sanitizedMessage.replace(/\n/g, '<br>')}
+          ${escapedMessage}
         </div>
         
         <p>Whether you're interested in our business automation platform or custom web development services, we're excited to help your business grow.</p>
@@ -93,7 +108,7 @@ export async function POST(request) {
 
     return NextResponse.json({ message: 'Message sent successfully' }, { status: 200 });
   } catch (error) {
-    console.error('Error sending email:', error.message);
+    console.error('Contact form error:', error.message);
     
     // Return user-friendly error message without exposing server details
     return NextResponse.json({ 

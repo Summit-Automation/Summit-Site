@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { MessageCircle, X, Send } from 'lucide-react';
 
 interface Message {
@@ -9,6 +9,8 @@ interface Message {
   isUser: boolean;
   timestamp: Date;
 }
+
+const FLOWISE_API_URL = 'https://flowise.summitautomation.io/api/v1/prediction/30ce9d6c-9395-4465-aacf-595d5dc24012';
 
 const StyledChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +22,6 @@ const StyledChatWidget = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messageIdRef = useRef(1);
 
-  // Initialize messages on client side to avoid hydration issues
   useEffect(() => {
     setMessages([
       {
@@ -30,12 +31,15 @@ const StyledChatWidget = () => {
         timestamp: new Date()
       }
     ]);
+    
+    const timer = setTimeout(() => setShowTooltip(false), 5000);
+    return () => clearTimeout(timer);
   }, []);
 
-  const generateMessageId = () => {
+  const generateMessageId = useCallback(() => {
     messageIdRef.current += 1;
     return messageIdRef.current.toString();
-  };
+  }, []);
 
   const formatMessage = (text: string): string => {
     const formatted = text
@@ -74,49 +78,33 @@ const StyledChatWidget = () => {
     return processedLines.join('');
   };
 
-  const scrollToBottom = () => {
+  const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+  }, []);
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages]);
+  }, [messages, scrollToBottom]);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowTooltip(false);
-    }, 5000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const sendMessage = async () => {
-    if (!inputValue.trim() || isLoading) return;
-
+  const sendApiMessage = useCallback(async (question: string): Promise<void> => {
     const userMessage: Message = {
       id: generateMessageId(),
-      text: inputValue,
+      text: question,
       isUser: true,
       timestamp: new Date()
     };
 
     setMessages(prev => [...prev, userMessage]);
-    setInputValue('');
     setIsLoading(true);
 
     try {
-      const response = await fetch('https://flowise.summitautomation.io/api/v1/prediction/30ce9d6c-9395-4465-aacf-595d5dc24012', {
+      const response = await fetch(FLOWISE_API_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          question: inputValue,
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question }),
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to get response');
-      }
+      if (!response.ok) throw new Error('API request failed');
 
       const data = await response.json();
       
@@ -140,77 +128,33 @@ const StyledChatWidget = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [generateMessageId]);
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const sendMessage = useCallback(async () => {
+    if (!inputValue.trim() || isLoading) return;
+    
+    const question = inputValue;
+    setInputValue('');
+    await sendApiMessage(question);
+  }, [inputValue, isLoading, sendApiMessage]);
+
+  const handleKeyPress = useCallback((e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       sendMessage();
     }
-  };
+  }, [sendMessage]);
 
-  const handleStarterPrompt = async (prompt: string) => {
-    const userMessage: Message = {
-      id: generateMessageId(),
-      text: prompt,
-      isUser: true,
-      timestamp: new Date()
-    };
-
-    setMessages(prev => [...prev, userMessage]);
-    setIsLoading(true);
-
-    try {
-      const response = await fetch('https://flowise.summitautomation.io/api/v1/prediction/30ce9d6c-9395-4465-aacf-595d5dc24012', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          question: prompt,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to get response');
-      }
-
-      const data = await response.json();
-      
-      const botMessage: Message = {
-        id: generateMessageId(),
-        text: data.text || data.answer || 'Sorry, I could not process your request.',
-        isUser: false,
-        timestamp: new Date()
-      };
-
-      setMessages(prev => [...prev, botMessage]);
-    } catch (error) {
-      console.error('Error sending message:', error);
-      const errorMessage: Message = {
-        id: generateMessageId(),
-        text: 'Sorry, I\'m having trouble connecting right now. Please try again later.',
-        isUser: false,
-        timestamp: new Date()
-      };
-      setMessages(prev => [...prev, errorMessage]);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const openChat = () => {
+  const openChat = useCallback(() => {
     setIsOpen(true);
     setIsVisible(true);
     setShowTooltip(false);
-  };
+  }, []);
 
-  const closeChat = () => {
+  const closeChat = useCallback(() => {
     setIsOpen(false);
-    setTimeout(() => {
-      setIsVisible(false);
-    }, 300);
-  };
+    setTimeout(() => setIsVisible(false), 300);
+  }, []);
 
   return (
     <div className="fixed bottom-5 right-5 z-50">
@@ -336,7 +280,7 @@ const StyledChatWidget = () => {
               <div className="space-y-2">
                 <div className="flex justify-start">
                   <button
-                    onClick={() => handleStarterPrompt('How can Summit help my business?')}
+                    onClick={() => sendApiMessage('How can Summit help my business?')}
                     className="bg-muted/50 hover:bg-muted text-primary px-4 py-3 rounded-xl transition-all duration-200 hover:scale-105 shadow-sm border border-border"
                     style={{ 
                       fontSize: '14px',
@@ -348,7 +292,7 @@ const StyledChatWidget = () => {
                 </div>
                 <div className="flex justify-start">
                   <button
-                    onClick={() => handleStarterPrompt('What features do you offer?')}
+                    onClick={() => sendApiMessage('What features do you offer?')}
                     className="bg-gradient-to-r from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 text-green-700 px-4 py-3 rounded-xl transition-all duration-200 hover:scale-105 shadow-sm border border-green-200/50"
                     style={{ 
                       fontSize: '14px',
@@ -360,7 +304,7 @@ const StyledChatWidget = () => {
                 </div>
                 <div className="flex justify-start">
                   <button
-                    onClick={() => handleStarterPrompt('How do I join the Alpha?')}
+                    onClick={() => sendApiMessage('How do I join the Alpha?')}
                     className="bg-gradient-to-r from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200 text-purple-700 px-4 py-3 rounded-xl transition-all duration-200 hover:scale-105 shadow-sm border border-purple-200/50"
                     style={{ 
                       fontSize: '14px',
