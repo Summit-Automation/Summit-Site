@@ -6,10 +6,11 @@ import { Check, Target, ArrowDown } from 'lucide-react';
 
 const HowItWorksSection = () => {
   return (
-    <section id="how-it-works" className="py-24 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative" aria-label="How it works">
+    <section id="how-it-works" className="py-32 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative" aria-label="How it works">
       {/* Sophisticated background effects */}
       <div className="absolute inset-0 bg-gradient-to-t from-transparent via-blue-500/3 to-transparent"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,rgba(59,130,246,0.05),transparent_70%)]"></div>
+
       
       <div className="max-w-5xl mx-auto relative">
         <div className="text-center mb-20">

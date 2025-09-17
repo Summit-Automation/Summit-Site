@@ -97,17 +97,21 @@ const BlogSection = () => {
   };
 
   return (
-    <section id="blog" className="py-24 px-6 bg-muted/20">
-      <div className="max-w-7xl mx-auto">
+    <section id="blog" className="py-32 px-6 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 relative" aria-label="Blog posts">
+      {/* Sophisticated background effects with different positioning */}
+      <div className="absolute inset-0 bg-gradient-to-t from-transparent via-blue-500/2 to-transparent"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,rgba(59,130,246,0.03),transparent_70%)]"></div>
+
+      <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center bg-muted/50 text-primary/80 px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <span className="w-2 h-2 bg-muted/500 rounded-full mr-2"></span>
+          <div className="inline-flex items-center bg-gradient-to-r from-slate-800/60 to-slate-700/40 text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-slate-700/50 backdrop-blur-sm">
+            <span className="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
             Latest insights
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-6">
             Latest from our blog
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Insights, tips, and updates from the Summit team. Learn how to streamline your business operations and stay ahead of the curve.
           </p>
         </div>
@@ -159,11 +163,11 @@ const BlogSection = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-foreground mb-4 hover:text-primary transition-colors leading-tight">
+                  <h3 className="text-xl font-bold text-slate-50 mb-4 hover:text-blue-400 transition-colors leading-tight">
                     {post.title}
                   </h3>
-                  
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+
+                  <p className="text-slate-300 mb-6 leading-relaxed">
                     {post.excerpt}
                   </p>
 

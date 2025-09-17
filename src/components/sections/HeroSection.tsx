@@ -13,11 +13,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.05),transparent_50%)]"></div>
       </div>
-      
-      {/* Elegant floating elements with Summit-UI style */}
-      <div className="absolute top-20 left-10 w-16 h-16 bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-full animate-pulse shadow-lg backdrop-blur-sm"></div>
-      <div className="absolute top-40 right-20 w-20 h-20 bg-gradient-to-br from-slate-700/30 to-slate-800/20 rounded-full animate-pulse shadow-xl backdrop-blur-sm" style={{ animationDelay: '1s' }}></div>
-      <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-gradient-to-br from-blue-400/15 to-slate-700/20 rounded-full animate-pulse shadow-lg backdrop-blur-sm" style={{ animationDelay: '2s' }}></div>
+
       
       <div className="relative max-w-6xl mx-auto">
         <div className="text-center max-w-4xl mx-auto">

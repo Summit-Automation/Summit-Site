@@ -231,6 +231,7 @@ export default function ServicesPage() {
         {/* Sophisticated background effects */}
         <div className="absolute inset-0 bg-gradient-to-t from-transparent via-blue-500/3 to-transparent"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_70%)]"></div>
+
         <div className="max-w-6xl mx-auto text-center">
           <div className="inline-flex items-center bg-gradient-to-r from-slate-800/60 to-slate-700/40 text-blue-400 px-6 py-3 rounded-full text-sm font-medium mb-8 border border-slate-700/50 backdrop-blur-sm shadow-lg">
             <Zap className="w-4 h-4 mr-2" />
@@ -249,10 +250,10 @@ export default function ServicesPage() {
 
       {/* Services Detail Sections */}
       {services.map((service, index) => (
-        <section 
-          key={service.id} 
+        <section
+          key={service.id}
           id={service.id}
-          className={`py-24 px-6 ${index % 2 === 0 ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900' : 'bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800'}`}
+          className="py-32 px-6 relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
         >
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -278,16 +279,16 @@ export default function ServicesPage() {
                   
                   <div className="relative group transform transition-all duration-300 hover:scale-[1.02]">
                     {/* Ultra-sophisticated dark card with premium texture layers */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-800/90 to-gray-900/70 rounded-xl shadow-2xl"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-slate-800/90 to-slate-900/70 rounded-xl shadow-2xl"></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/8 to-transparent rounded-xl"></div>
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(59,130,246,0.05),transparent_70%)] rounded-xl"></div>
                     <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.02)_0%,transparent_50%,rgba(0,0,0,0.02)_100%)] rounded-xl"></div>
-                    
+
                     {/* Premium multi-layer border system */}
-                    <div className="absolute inset-0 rounded-xl border-2 border-gray-700/60 group-hover:border-gray-600/75 transition-all duration-500 shadow-inner"></div>
+                    <div className="absolute inset-0 rounded-xl border-2 border-slate-700/60 group-hover:border-slate-600/75 transition-all duration-500 shadow-inner"></div>
                     <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/8 group-hover:ring-white/12 transition-all duration-300"></div>
-                    <div className="absolute inset-0 rounded-xl ring-1 ring-gray-600/20 group-hover:ring-blue-500/25 transition-all duration-300"></div>
-                    <div className="absolute inset-1 rounded-[10px] border border-gray-800/30 shadow-sm"></div>
+                    <div className="absolute inset-0 rounded-xl ring-1 ring-slate-600/20 group-hover:ring-blue-500/25 transition-all duration-300"></div>
+                    <div className="absolute inset-1 rounded-[10px] border border-slate-800/30 shadow-sm"></div>
                     
                     {/* Content container */}
                     <div className="relative p-6 backdrop-blur-md">
@@ -307,16 +308,16 @@ export default function ServicesPage() {
                   {service.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="relative group transform transition-all duration-300 hover:scale-[1.02]">
                       {/* Ultra-sophisticated dark card with premium texture layers */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-gray-800/90 to-gray-900/70 rounded-xl shadow-2xl"></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-slate-800/90 to-slate-900/70 rounded-xl shadow-2xl"></div>
                       <div className="absolute inset-0 bg-gradient-to-t from-black/8 to-transparent rounded-xl"></div>
                       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(59,130,246,0.05),transparent_70%)] rounded-xl"></div>
                       <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.02)_0%,transparent_50%,rgba(0,0,0,0.02)_100%)] rounded-xl"></div>
                       
                       {/* Premium multi-layer border system */}
-                      <div className="absolute inset-0 rounded-xl border-2 border-gray-700/60 group-hover:border-gray-600/75 transition-all duration-500 shadow-inner"></div>
+                      <div className="absolute inset-0 rounded-xl border-2 border-slate-700/60 group-hover:border-slate-600/75 transition-all duration-500 shadow-inner"></div>
                       <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/8 group-hover:ring-white/12 transition-all duration-300"></div>
-                      <div className="absolute inset-0 rounded-xl ring-1 ring-gray-600/20 group-hover:ring-blue-500/25 transition-all duration-300"></div>
-                      <div className="absolute inset-1 rounded-[10px] border border-gray-800/30 shadow-sm"></div>
+                      <div className="absolute inset-0 rounded-xl ring-1 ring-slate-600/20 group-hover:ring-blue-500/25 transition-all duration-300"></div>
+                      <div className="absolute inset-1 rounded-[10px] border border-slate-800/30 shadow-sm"></div>
                       
                       {/* Content container */}
                       <div className="relative p-6 backdrop-blur-md">
@@ -346,7 +347,7 @@ export default function ServicesPage() {
       ))}
 
       {/* CTA Section */}
-      <section id="contact" className="py-24 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative">
+      <section id="contact" className="py-32 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to Transform Your Business?
@@ -358,16 +359,16 @@ export default function ServicesPage() {
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="relative group transform transition-all duration-300 hover:scale-[1.02]">
               {/* Ultra-sophisticated dark card with premium texture layers */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-800/90 to-gray-900/70 rounded-xl shadow-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-800/90 to-slate-900/70 rounded-xl shadow-2xl"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/8 to-transparent rounded-xl"></div>
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(59,130,246,0.05),transparent_70%)] rounded-xl"></div>
               <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.02)_0%,transparent_50%,rgba(0,0,0,0.02)_100%)] rounded-xl"></div>
               
               {/* Premium multi-layer border system */}
-              <div className="absolute inset-0 rounded-xl border-2 border-gray-700/60 group-hover:border-gray-600/75 transition-all duration-500 shadow-inner"></div>
+              <div className="absolute inset-0 rounded-xl border-2 border-slate-700/60 group-hover:border-slate-600/75 transition-all duration-500 shadow-inner"></div>
               <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/8 group-hover:ring-white/12 transition-all duration-300"></div>
-              <div className="absolute inset-0 rounded-xl ring-1 ring-gray-600/20 group-hover:ring-blue-500/25 transition-all duration-300"></div>
-              <div className="absolute inset-1 rounded-[10px] border border-gray-800/30 shadow-sm"></div>
+              <div className="absolute inset-0 rounded-xl ring-1 ring-slate-600/20 group-hover:ring-blue-500/25 transition-all duration-300"></div>
+              <div className="absolute inset-1 rounded-[10px] border border-slate-800/30 shadow-sm"></div>
               
               {/* Content container */}
               <div className="relative p-6 backdrop-blur-md">
@@ -387,16 +388,16 @@ export default function ServicesPage() {
             
             <div className="relative group transform transition-all duration-300 hover:scale-[1.02]">
               {/* Ultra-sophisticated dark card with premium texture layers */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-800/90 to-gray-900/70 rounded-xl shadow-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-800/90 to-slate-900/70 rounded-xl shadow-2xl"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/8 to-transparent rounded-xl"></div>
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(59,130,246,0.05),transparent_70%)] rounded-xl"></div>
               <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.02)_0%,transparent_50%,rgba(0,0,0,0.02)_100%)] rounded-xl"></div>
               
               {/* Premium multi-layer border system */}
-              <div className="absolute inset-0 rounded-xl border-2 border-gray-700/60 group-hover:border-gray-600/75 transition-all duration-500 shadow-inner"></div>
+              <div className="absolute inset-0 rounded-xl border-2 border-slate-700/60 group-hover:border-slate-600/75 transition-all duration-500 shadow-inner"></div>
               <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/8 group-hover:ring-white/12 transition-all duration-300"></div>
-              <div className="absolute inset-0 rounded-xl ring-1 ring-gray-600/20 group-hover:ring-blue-500/25 transition-all duration-300"></div>
-              <div className="absolute inset-1 rounded-[10px] border border-gray-800/30 shadow-sm"></div>
+              <div className="absolute inset-0 rounded-xl ring-1 ring-slate-600/20 group-hover:ring-blue-500/25 transition-all duration-300"></div>
+              <div className="absolute inset-1 rounded-[10px] border border-slate-800/30 shadow-sm"></div>
               
               {/* Content container */}
               <div className="relative p-6 backdrop-blur-md">
@@ -413,16 +414,16 @@ export default function ServicesPage() {
             
             <div className="relative group transform transition-all duration-300 hover:scale-[1.02]">
               {/* Ultra-sophisticated dark card with premium texture layers */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-800/90 to-gray-900/70 rounded-xl shadow-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-800/90 to-slate-900/70 rounded-xl shadow-2xl"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/8 to-transparent rounded-xl"></div>
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(59,130,246,0.05),transparent_70%)] rounded-xl"></div>
               <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.02)_0%,transparent_50%,rgba(0,0,0,0.02)_100%)] rounded-xl"></div>
               
               {/* Premium multi-layer border system */}
-              <div className="absolute inset-0 rounded-xl border-2 border-gray-700/60 group-hover:border-gray-600/75 transition-all duration-500 shadow-inner"></div>
+              <div className="absolute inset-0 rounded-xl border-2 border-slate-700/60 group-hover:border-slate-600/75 transition-all duration-500 shadow-inner"></div>
               <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/8 group-hover:ring-white/12 transition-all duration-300"></div>
-              <div className="absolute inset-0 rounded-xl ring-1 ring-gray-600/20 group-hover:ring-blue-500/25 transition-all duration-300"></div>
-              <div className="absolute inset-1 rounded-[10px] border border-gray-800/30 shadow-sm"></div>
+              <div className="absolute inset-0 rounded-xl ring-1 ring-slate-600/20 group-hover:ring-blue-500/25 transition-all duration-300"></div>
+              <div className="absolute inset-1 rounded-[10px] border border-slate-800/30 shadow-sm"></div>
               
               {/* Content container */}
               <div className="relative p-6 backdrop-blur-md">

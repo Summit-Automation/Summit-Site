@@ -6,14 +6,20 @@ import { ArrowRight, Clock } from 'lucide-react';
 
 const ProblemSection = () => {
   return (
-    <section className="py-24 px-6 bg-muted/20">
-      <div className="max-w-5xl mx-auto">
+    <section className="py-32 px-6 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 relative" aria-label="Business problems">
+      {/* Sophisticated background effects with different positioning */}
+      <div className="absolute inset-0 bg-gradient-to-t from-transparent via-blue-500/2 to-transparent"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(59,130,246,0.04),transparent_70%)]"></div>
+
+
+
+      <div className="max-w-5xl mx-auto relative">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            You didn&apos;t start a business to become a 
-            <span className="text-primary"> data entry clerk</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-6">
+            You didn&apos;t start a business to become a
+            <span className="text-blue-400"> data entry clerk</span>
           </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
             Most business owners spend 20+ hours a week on paperwork, follow-ups, and administrative tasks. 
             That&apos;s time stolen from growing your business and serving customers.
           </p>
@@ -203,15 +209,15 @@ const ProblemSection = () => {
           {/* Content container */}
           <div className="relative p-8 backdrop-blur-sm">
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-foreground mb-4">The Real Cost of Manual Work</h3>
-            <p className="text-muted-foreground mb-6">
-              If your time is worth $50/hour, those 20 hours of admin work represent 
-              <span className="font-bold text-primary"> $1,000 per week</span> in lost revenue potential.
+            <h3 className="text-2xl font-bold text-slate-50 mb-4">The Real Cost of Manual Work</h3>
+            <p className="text-slate-300 mb-6">
+              If your time is worth $50/hour, those 20 hours of admin work represent
+              <span className="font-bold text-blue-400"> $1,000 per week</span> in lost revenue potential.
             </p>
-            <div className="inline-flex items-center bg-background rounded-full px-6 py-3 shadow-sm border border-slate-700/40">
-              <span className="text-foreground/70">That&apos;s </span>
-              <span className="font-bold text-primary mx-2 text-xl">$52,000</span>
-              <span className="text-foreground/70"> per year</span>
+            <div className="inline-flex items-center bg-slate-900/60 rounded-full px-6 py-3 shadow-sm border border-slate-700/40 backdrop-blur-sm">
+              <span className="text-slate-300">That&apos;s </span>
+              <span className="font-bold text-blue-400 mx-2 text-xl">$52,000</span>
+              <span className="text-slate-300"> per year</span>
             </div>
           </div>
           </div>
