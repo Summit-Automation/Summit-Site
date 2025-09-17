@@ -13,11 +13,18 @@ import ChatWidget from '@/components/ui/ChatWidget';
 
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    // Ensure we're on the client before setting up scroll listener
+    setIsClient(true);
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+
+    // Set initial scroll state
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -103,7 +110,7 @@ export default function HomePage() {
         }}
       />
       
-      <Header scrolled={scrolled} />
+      <Header scrolled={isClient ? scrolled : false} />
       <HeroSection />
       <ProblemSection />
       <FeaturesSection />

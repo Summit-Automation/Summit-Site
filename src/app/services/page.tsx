@@ -9,11 +9,18 @@ import Link from 'next/link';
 
 export default function ServicesPage() {
   const [scrolled, setScrolled] = React.useState(false);
+  const [isClient, setIsClient] = React.useState(false);
 
   React.useEffect(() => {
+    // Ensure we're on the client before setting up scroll listener
+    setIsClient(true);
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+
+    // Set initial scroll state
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -217,7 +224,7 @@ export default function ServicesPage() {
         }}
       />
 
-      <Header scrolled={scrolled} />
+      <Header scrolled={isClient ? scrolled : false} />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative">
@@ -252,12 +259,6 @@ export default function ServicesPage() {
               {/* Service Overview */}
               <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                 <div className="mb-8">
-                  {service.highlight && (
-                    <div className="inline-flex items-center bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-                      <Zap className="w-4 h-4 mr-2" />
-                      Flagship Product
-                    </div>
-                  )}
                   
                   <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-full p-6 w-fit mb-6">
                     {service.icon}

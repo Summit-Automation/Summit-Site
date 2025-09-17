@@ -93,60 +93,7 @@ p {
   box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
 }
 
-/* Tailwind v3 opacity fixes - gradient colors with opacity */
-.from-gray-800\/90 {
-  --tw-gradient-from: rgb(31 41 55/0.9) var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(31 41 55/0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.to-gray-900\/70 {
-  --tw-gradient-to: rgb(17 24 39/0.7) var(--tw-gradient-to-position);
-}
-
-.from-black\/8 {
-  --tw-gradient-from: rgb(0 0 0/0.08) var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(0 0 0/0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.border-gray-700\/60 {
-  border-color: rgb(55 65 81/0.6);
-}
-
-.border-gray-600\/75 {
-  border-color: rgb(75 85 99/0.75);
-}
-
-.ring-white\/8 {
-  --tw-ring-color: rgb(255 255 255/0.08);
-}
-
-.ring-white\/12 {
-  --tw-ring-color: rgb(255 255 255/0.12);
-}
-
-.ring-gray-600\/20 {
-  --tw-ring-color: rgb(75 85 99/0.2);
-}
-
-.ring-blue-500\/25 {
-  --tw-ring-color: rgb(59 130 246/0.25);
-}
-
-.border-gray-800\/30 {
-  border-color: rgb(31 41 55/0.3);
-}
-
-.from-slate-800\/60 {
-  --tw-gradient-from: rgb(30 41 59/0.6) var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(30 41 59/0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.to-slate-700\/40 {
-  --tw-gradient-to: rgb(51 65 85/0.4) var(--tw-gradient-to-position);
-}
+/* Note: Removed hardcoded color overrides to allow Tailwind's dark mode to work properly */
 
 /* Component fixes */
 #problem-main-card {
