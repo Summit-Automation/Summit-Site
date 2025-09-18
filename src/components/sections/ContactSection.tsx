@@ -48,7 +48,7 @@ const ContactSection = () => {
     return (
       <section
         id="contact"
-        className="py-32 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative"
+        className="section-flow section-final py-32 px-6 relative"
       >
         {/* Sophisticated background effects */}
         <div className="absolute inset-0 bg-gradient-to-t from-transparent via-blue-500/3 to-transparent"></div>
@@ -91,7 +91,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="py-32 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative"
+      className="section-flow section-final py-32 px-6 relative"
     >
       {/* Sophisticated background effects */}
       <div className="absolute inset-0 bg-gradient-to-t from-transparent via-blue-500/3 to-transparent"></div>

@@ -1,7 +1,7 @@
 // File: src/components/sections/BlogSection.tsx
 'use client';
 
-import React from 'react';
+import React, { memo, useCallback } from 'react';
 import { Calendar, Clock, ArrowRight, User, TrendingUp, Zap, Target } from 'lucide-react';
 import Link from 'next/link';
 
@@ -18,8 +18,8 @@ interface BlogPost {
   icon: React.ReactNode;
 }
 
-const BlogSection = () => {
-  const blogPosts: BlogPost[] = [
+// Move blog posts array outside component to prevent recreation on every render
+const BLOG_POSTS: BlogPost[] = [
     {
       id: 1,
       slug: 'businesses-drowning-in-paperwork',
@@ -86,18 +86,19 @@ const BlogSection = () => {
       category: "Technology",
       icon: <Zap className="w-6 h-6" />
     }
-  ];
+] as const;
 
-  const formatDate = (dateString: string): string => {
+const BlogSection = memo(() => {
+  const formatDate = useCallback((dateString: string): string => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
     });
-  };
+  }, []);
 
   return (
-    <section id="blog" className="py-32 px-6 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 relative" aria-label="Blog posts">
+    <section id="blog" className="section-flow section-alternate py-32 px-6 relative" aria-label="Blog posts">
       {/* Sophisticated background effects with different positioning */}
       <div className="absolute inset-0 bg-gradient-to-t from-transparent via-blue-500/2 to-transparent"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,rgba(59,130,246,0.03),transparent_70%)]"></div>
@@ -117,7 +118,7 @@ const BlogSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-10">
-          {blogPosts.slice(0, 3).map((post) => (
+          {BLOG_POSTS.slice(0, 3).map((post) => (
             <Link key={post.id} href={`/blog/${post.slug}`}>
               <article className="relative group h-full">
                 {/* Professional card with texture and depth */}
@@ -203,6 +204,9 @@ const BlogSection = () => {
       </div>
     </section>
   );
-};
+});
+
+// Add display name for better debugging
+BlogSection.displayName = 'BlogSection';
 
 export default BlogSection;

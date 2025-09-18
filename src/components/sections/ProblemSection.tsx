@@ -6,7 +6,7 @@ import { ArrowRight, Clock } from 'lucide-react';
 
 const ProblemSection = () => {
   return (
-    <section className="py-32 px-6 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 relative" aria-label="Business problems">
+    <section className="section-flow section-alternate py-32 px-6 relative" aria-label="Business problems">
       {/* Sophisticated background effects with different positioning */}
       <div className="absolute inset-0 bg-gradient-to-t from-transparent via-blue-500/2 to-transparent"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(59,130,246,0.04),transparent_70%)]"></div>

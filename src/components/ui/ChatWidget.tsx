@@ -10,7 +10,8 @@ interface Message {
   timestamp: Date;
 }
 
-const FLOWISE_API_URL = 'https://flowise.summitautomation.io/api/v1/prediction/30ce9d6c-9395-4465-aacf-595d5dc24012';
+// Use internal secure API endpoint
+const CHAT_API_URL = '/api/chat';
 
 const StyledChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +22,7 @@ const StyledChatWidget = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messageIdRef = useRef(1);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     setMessages([
@@ -41,8 +43,22 @@ const StyledChatWidget = () => {
     return messageIdRef.current.toString();
   }, []);
 
+  // HTML escape function to prevent XSS attacks
+  const escapeHtml = (unsafe: string): string => {
+    return unsafe
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  };
+
   const formatMessage = (text: string): string => {
-    const formatted = text
+    // First escape all HTML to prevent XSS
+    const escapedText = escapeHtml(text);
+
+    // Then apply our safe formatting
+    const formatted = escapedText
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       .replace(/\n/g, '|||BREAK|||');
 
@@ -52,7 +68,7 @@ const StyledChatWidget = () => {
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i].trim();
-      
+
       if (line.startsWith('- ')) {
         if (!inList) {
           processedLines.push('<ul style="margin: 6px 0 10px 0; padding-left: 18px; list-style-type: disc;">');
@@ -98,19 +114,22 @@ const StyledChatWidget = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(FLOWISE_API_URL, {
+      const response = await fetch(CHAT_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question }),
       });
 
-      if (!response.ok) throw new Error('API request failed');
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+        throw new Error(errorData.error || 'API request failed');
+      }
 
       const data = await response.json();
-      
+
       const botMessage: Message = {
         id: generateMessageId(),
-        text: data.text || data.answer || 'Sorry, I could not process your request.',
+        text: data.text || 'Sorry, I could not process your request.',
         isUser: false,
         timestamp: new Date()
       };
@@ -118,9 +137,12 @@ const StyledChatWidget = () => {
       setMessages(prev => [...prev, botMessage]);
     } catch (error) {
       console.error('Error sending message:', error);
+      const errorMsg = error instanceof Error ? error.message : 'Unknown error';
       const errorMessage: Message = {
         id: generateMessageId(),
-        text: 'Sorry, I\'m having trouble connecting right now. Please try again later.',
+        text: errorMsg.includes('Rate limit')
+          ? errorMsg
+          : 'Sorry, I\'m having trouble connecting right now. Please try again later.',
         isUser: false,
         timestamp: new Date()
       };
@@ -153,7 +175,26 @@ const StyledChatWidget = () => {
 
   const closeChat = useCallback(() => {
     setIsOpen(false);
-    setTimeout(() => setIsVisible(false), 300);
+
+    // Clear any existing timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    // Set new timeout with cleanup tracking
+    timeoutRef.current = setTimeout(() => {
+      setIsVisible(false);
+      timeoutRef.current = null;
+    }, 300);
+  }, []);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
   }, []);
 
   return (

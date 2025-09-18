@@ -67,30 +67,55 @@ p {
   line-height: 1.6;
 }
 
-/* Animations */
+/* Animations - GPU Accelerated for 60fps */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translate3d(0, 30px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out;
+  will-change: transform, opacity;
 }
 
 /* Utilities */
 .backdrop-blur-sm {
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
+  will-change: auto; /* Only when needed */
 }
 
 .shadow-soft {
   box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+/* Performance-optimized hover animations */
+.hover\:scale-\[1\.02\]:hover {
+  will-change: transform;
+  transform: translate3d(0, 0, 0) scale(1.02);
+}
+
+.hover\:scale-105:hover {
+  will-change: transform;
+  transform: translate3d(0, 0, 0) scale(1.05);
+}
+
+.hover\:scale-110:hover {
+  will-change: transform;
+  transform: translate3d(0, 0, 0) scale(1.1);
+}
+
+/* Optimize backdrop filters for performance */
+.backdrop-blur-performance {
+  backdrop-filter: blur(4px);
+  contain: layout style paint;
+  isolation: isolate;
 }
 
 /* Enhanced texture and layering system */
@@ -128,33 +153,59 @@ p {
     rgba(59, 130, 246, 0.08) 240deg,
     rgba(59, 130, 246, 0.1) 360deg);
   animation: rotate 20s linear infinite;
+  will-change: transform;
+  transform: translateZ(0); /* Force hardware acceleration */
 }
 
 @keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from { transform: translate3d(0, 0, 0) rotate(0deg); }
+  to { transform: translate3d(0, 0, 0) rotate(360deg); }
 }
 
 
-/* Simple section separation without hydration issues */
-section:not(:first-child) {
-  border-top: 1px solid rgba(51, 65, 85, 0.15);
+/* Seamless Section Flow System - Production Ready */
+
+/* Base section styling */
+.section-flow {
   position: relative;
+  overflow: hidden;
 }
 
-section:not(:first-child)::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-  height: 1px;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    rgba(59, 130, 246, 0.2) 50%,
-    transparent 100%);
-  pointer-events: none;
+/* Ultra-smooth gradient system using nearly identical colors */
+.section-hero {
+  background: linear-gradient(180deg,
+    rgb(15, 23, 42) 0%,
+    rgb(16, 24, 43) 30%,
+    rgb(17, 25, 44) 70%,
+    rgb(18, 26, 45) 100%
+  );
+}
+
+.section-primary {
+  background: linear-gradient(180deg,
+    rgb(18, 26, 45) 0%,
+    rgb(17, 25, 44) 30%,
+    rgb(16, 24, 43) 70%,
+    rgb(15, 23, 42) 100%
+  );
+}
+
+.section-alternate {
+  background: linear-gradient(180deg,
+    rgb(15, 23, 42) 0%,
+    rgb(16, 24, 43) 30%,
+    rgb(17, 25, 44) 70%,
+    rgb(18, 26, 45) 100%
+  );
+}
+
+.section-final {
+  background: linear-gradient(180deg,
+    rgb(18, 26, 45) 0%,
+    rgb(16, 24, 43) 30%,
+    rgb(14, 22, 41) 70%,
+    rgb(12, 20, 39) 100%
+  );
 }
 
 /* Component fixes */

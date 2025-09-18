@@ -4,7 +4,7 @@ import React from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ChatWidget from '@/components/ui/ChatWidget';
-import { Bot, Code, Server, Zap, CheckCircle, CreditCard, Mail, Phone, MessageCircle, Users, Calculator, Package, TrendingUp, Headphones, Layout, Code2, Smartphone, Settings, Shield, Activity } from 'lucide-react';
+import { Bot, Code, Server, Zap, CheckCircle, CreditCard, Mail, Phone, MessageCircle, Users, Calculator, Package, TrendingUp, Layout, Code2, Smartphone, Settings, Shield, Activity } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ServicesPage() {
@@ -199,7 +199,7 @@ export default function ServicesPage() {
       <Header scrolled={isClient ? scrolled : false} />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative">
+      <section className="section-flow section-hero pt-32 pb-20 px-6 relative">
         <div className="absolute inset-0 bg-gradient-to-t from-transparent via-blue-500/3 to-transparent"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_70%)]"></div>
 
@@ -224,7 +224,7 @@ export default function ServicesPage() {
         <section
           key={service.id}
           id={service.id}
-          className="py-32 px-6 relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+          className={`section-flow py-32 px-6 relative ${index % 2 === 0 ? 'section-primary' : 'section-alternate'}`}
         >
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
@@ -326,7 +326,7 @@ export default function ServicesPage() {
       ))}
 
       {/* CTA Section */}
-      <section id="contact" className="py-32 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative">
+      <section id="contact" className="section-flow section-final py-32 px-6 text-white relative">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to Transform Your Business?

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { rateLimit, getClientIP } from '@/lib/rateLimit';
 
 // HTML escape function to prevent XSS
 const escapeHtml = (text) => {
@@ -15,6 +16,19 @@ const escapeHtml = (text) => {
 
 export async function POST(request) {
   try {
+    // Rate limiting - 3 contact submissions per 15 minutes per IP
+    const clientIP = getClientIP(request);
+    const rateLimitResult = rateLimit(`contact_${clientIP}`, 3, 15 * 60 * 1000);
+
+    if (!rateLimitResult.success) {
+      return NextResponse.json({
+        error: rateLimitResult.message
+      }, {
+        status: 429,
+        headers: { 'Retry-After': rateLimitResult.retryAfter.toString() }
+      });
+    }
+
     const { email, message } = await request.json();
 
     // Input validation

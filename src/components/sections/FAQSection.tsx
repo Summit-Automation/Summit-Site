@@ -46,7 +46,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="py-24 px-6 bg-muted/20">
+    <section className="section-flow section-primary py-24 px-6 relative">
       {/* FAQ Schema */}
       <script
         type="application/ld+json"

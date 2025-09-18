@@ -6,13 +6,11 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-32 pb-20 px-6 overflow-hidden" aria-label="Hero section">
-      {/* Sophisticated gradient background matching Summit-UI */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-blue-500/5 to-transparent"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.05),transparent_50%)]"></div>
-      </div>
+    <section className="section-flow section-hero pt-32 pb-20 px-6" aria-label="Hero section">
+      {/* Sophisticated overlay effects */}
+      <div className="absolute inset-0 bg-gradient-to-t from-transparent via-blue-500/5 to-transparent"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.05),transparent_50%)]"></div>
 
       
       <div className="relative max-w-6xl mx-auto">

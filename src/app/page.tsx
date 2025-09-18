@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import HeroSection from '@/components/sections/HeroSection';
@@ -14,21 +14,38 @@ import ChatWidget from '@/components/ui/ChatWidget';
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const tickingRef = useRef(false);
+
+  // Optimized scroll handler with useCallback
+  const handleScroll = useCallback(() => {
+    const scrollY = window.scrollY;
+    setScrolled(scrollY > 50);
+  }, []);
 
   useEffect(() => {
     // Ensure we're on the client before setting up scroll listener
     setIsClient(true);
 
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+    // Throttled scroll handler using requestAnimationFrame
+    const throttledScrollHandler = () => {
+      if (!tickingRef.current) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          tickingRef.current = false;
+        });
+        tickingRef.current = true;
+      }
     };
 
     // Set initial scroll state
     handleScroll();
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    // Use passive event listener for better performance
+    window.addEventListener('scroll', throttledScrollHandler, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', throttledScrollHandler);
+    };
+  }, [handleScroll]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
