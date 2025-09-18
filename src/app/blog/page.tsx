@@ -128,7 +128,7 @@ export default function BlogPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-background text-foreground">
       <Header scrolled={true} />
       
       {/* Add structured data for the blog */}
@@ -203,10 +203,10 @@ export default function BlogPage() {
           </nav>
           
           <header className="mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-slate-50 mb-4">
               Summit Automation Blog
             </h1>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-slate-300">
               Insights, tips, and updates about business automation, AI tools, and growing your business
             </p>
           </header>
@@ -215,23 +215,23 @@ export default function BlogPage() {
             {blogPosts.filter(post => post.published).map((post) => (
               <article key={post.slug} className="border-b border-gray-200 pb-12 last:border-b-0">
                 <div className="mb-4">
-                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-gradient-to-r from-blue-500/20 to-blue-600/10 text-blue-400 px-3 py-1 rounded-full text-sm font-medium border border-blue-500/20">
                     {post.category}
                   </span>
                 </div>
                 
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 hover:text-blue-600 transition-colors">
+                <h2 className="text-2xl md:text-3xl font-bold text-slate-50 mb-4 hover:text-blue-400 transition-colors">
                   <Link href={`/blog/${post.slug}`}>
                     {post.title}
                   </Link>
                 </h2>
                 
-                <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                <p className="text-slate-300 text-lg mb-6 leading-relaxed">
                   {post.excerpt}
                 </p>
                 
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-6 text-sm text-gray-500">
+                  <div className="flex items-center gap-6 text-sm text-slate-400">
                     <div className="flex items-center gap-1">
                       <User className="w-4 h-4" />
                       {post.author}

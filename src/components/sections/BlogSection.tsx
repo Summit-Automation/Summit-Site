@@ -1,7 +1,7 @@
 // File: src/components/sections/BlogSection.tsx
 'use client';
 
-import React from 'react';
+import React, { memo, useCallback } from 'react';
 import { Calendar, Clock, ArrowRight, User, TrendingUp, Zap, Target } from 'lucide-react';
 import Link from 'next/link';
 
@@ -18,8 +18,8 @@ interface BlogPost {
   icon: React.ReactNode;
 }
 
-const BlogSection = () => {
-  const blogPosts: BlogPost[] = [
+// Move blog posts array outside component to prevent recreation on every render
+const BLOG_POSTS: BlogPost[] = [
     {
       id: 1,
       slug: 'businesses-drowning-in-paperwork',
@@ -86,49 +86,65 @@ const BlogSection = () => {
       category: "Technology",
       icon: <Zap className="w-6 h-6" />
     }
-  ];
+] as const;
 
-  const formatDate = (dateString: string): string => {
+const BlogSection = memo(() => {
+  const formatDate = useCallback((dateString: string): string => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
     });
-  };
+  }, []);
 
   return (
-    <section id="blog" className="py-24 px-6 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
+    <section id="blog" className="section-flow section-alternate py-32 px-6 relative" aria-label="Blog posts">
+      {/* Sophisticated background effects with different positioning */}
+      <div className="absolute inset-0 bg-gradient-to-t from-transparent via-blue-500/2 to-transparent"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,rgba(59,130,246,0.03),transparent_70%)]"></div>
+
+      <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+          <div className="inline-flex items-center bg-gradient-to-r from-slate-800/60 to-slate-700/40 text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-slate-700/50 backdrop-blur-sm">
+            <span className="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
             Latest insights
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-6">
             Latest from our blog
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Insights, tips, and updates from the Summit team. Learn how to streamline your business operations and stay ahead of the curve.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-10">
-          {blogPosts.slice(0, 3).map((post) => (
+          {BLOG_POSTS.slice(0, 3).map((post) => (
             <Link key={post.id} href={`/blog/${post.slug}`}>
-              <article className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-100 h-full">
+              <article className="relative group h-full">
+                {/* Professional card with texture and depth */}
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 to-slate-800/50 rounded-xl shadow-xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-xl"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.03),transparent_70%)] rounded-xl"></div>
+                
+                {/* Enhanced border treatment */}
+                <div className="absolute inset-0 rounded-xl border border-slate-700/40 group-hover:border-slate-600/50 transition-all duration-300 shadow-inner"></div>
+                <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/5"></div>
+                
+                {/* Content container */}
+                <div className="relative h-full backdrop-blur-sm overflow-hidden rounded-xl">
                 {/* Header with blue theme */}
                 <div className="h-48 bg-blue-600 relative overflow-hidden">
                   <div className="absolute inset-0 bg-blue-700/20" />
                   
                   <div className="absolute top-6 left-6">
-                    <span className="bg-white/90 text-blue-600 px-3 py-1.5 rounded-full text-sm font-medium">
+                    <span className="bg-slate-900/90 text-primary px-3 py-1.5 rounded-full text-sm font-medium border border-slate-700/40">
                       {post.category}
                     </span>
                   </div>
                   
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-white text-center">
-                      <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-3">
+                      <div className="w-16 h-16 bg-slate-900/20 rounded-xl flex items-center justify-center mx-auto mb-3 border border-slate-700/40">
                         {post.icon}
                       </div>
                       <p className="text-sm opacity-90 font-medium">Read Article</p>
@@ -148,27 +164,28 @@ const BlogSection = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 hover:text-blue-600 transition-colors leading-tight">
+                  <h3 className="text-xl font-bold text-slate-50 mb-4 hover:text-blue-400 transition-colors leading-tight">
                     {post.title}
                   </h3>
-                  
-                  <p className="text-gray-600 mb-6 leading-relaxed">
+
+                  <p className="text-slate-300 mb-6 leading-relaxed">
                     {post.excerpt}
                   </p>
 
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2 text-sm text-gray-500">
-                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                        <User className="w-4 h-4 text-blue-600" />
+                      <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                        <User className="w-4 h-4 text-primary" />
                       </div>
                       {post.author}
                     </div>
                     
-                    <div className="flex items-center text-blue-600 font-medium text-sm">
+                    <div className="flex items-center text-primary font-medium text-sm">
                       Read more
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </div>
                   </div>
+                </div>
                 </div>
               </article>
             </Link>
@@ -187,6 +204,9 @@ const BlogSection = () => {
       </div>
     </section>
   );
-};
+});
+
+// Add display name for better debugging
+BlogSection.displayName = 'BlogSection';
 
 export default BlogSection;

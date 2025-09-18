@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(curl:*)",
+      "Bash(pkill:*)",
+      "Bash(npm run dev:*)",
+      "Bash(fuser:*)",
+      "Bash(lsof:*)",
+      "Bash(xargs kill:*)",
+      "Bash(netstat:*)",
+      "Bash(find:*)",
+      "Bash(npm audit:*)",
+      "mcp__ide__getDiagnostics",
+      "Bash(npm install)",
+      "Bash(npm run lint)",
+      "Bash(sed:*)",
+      "Bash(/dev/null)",
+      "Bash(npx @next/codemod@canary next-lint-to-eslint-cli:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

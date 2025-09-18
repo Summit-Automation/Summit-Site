@@ -66,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         {/* Performance Optimization */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
@@ -281,7 +281,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} bg-white text-gray-900 antialiased`}>
+      <body className={`${inter.className} bg-background text-foreground antialiased`}>
         {/* Google Analytics with your actual ID */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-HYGTW8V3Z4"

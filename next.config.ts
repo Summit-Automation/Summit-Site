@@ -1,9 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Production optimizations  
+  // Production optimizations
   experimental: {
     optimizePackageImports: ['lucide-react'],
+  },
+
+  // Compiler optimizations for production
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
   },
   images: {
     dangerouslyAllowSVG: true,
@@ -48,6 +53,10 @@ const nextConfig: NextConfig = {
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://flowise.summitautomation.io wss://flowise.summitautomation.io https:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests",
           },
           // Performance Headers
           {
