@@ -21,9 +21,13 @@ const Header = ({ scrolled }: HeaderProps) => {
     return (
         <header
             className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-                scrolled
-                    ? 'bg-primary/95 backdrop-blur-lg shadow-md'
-                    : 'bg-background/95 backdrop-blur-lg shadow-sm'
+                mobileMenuOpen
+                    ? scrolled
+                        ? 'bg-primary shadow-md'
+                        : 'bg-background shadow-sm'
+                    : scrolled
+                        ? 'bg-primary/95 backdrop-blur-lg shadow-md'
+                        : 'bg-background/95 backdrop-blur-lg shadow-sm'
             }`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

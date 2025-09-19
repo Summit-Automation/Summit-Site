@@ -11,19 +11,12 @@ const MobileMenu = () => {
     };
 
     return (
-        <div className="md:hidden">
-            {/* Backdrop overlay - positioned below header */}
-            <div className="fixed inset-0 bg-background/20 backdrop-blur-sm z-40" style={{ top: '80px' }} />
-            
+        <div className="md:hidden fixed inset-0 z-[60] isolate" style={{ top: '64px' }}>
+            {/* Backdrop overlay */}
+            <div className="absolute inset-0 bg-black/75 backdrop-blur-none" />
+
             {/* Menu content */}
-            <div 
-                className="relative bg-background/95 backdrop-blur-xl border-t border-border/50 shadow-2xl z-45"
-                style={{
-                    background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.95) 100%)',
-                    backdropFilter: 'blur(20px)',
-                    WebkitBackdropFilter: 'blur(20px)'
-                }}
-            >
+            <div className="absolute top-0 left-0 right-0 bg-slate-900 border-t border-slate-700 shadow-2xl isolate">
                 <div className="px-6 py-6 space-y-1">
                     {/* Navigation Links */}
                     {[
@@ -37,7 +30,7 @@ const MobileMenu = () => {
                             <Link
                                 key={label}
                                 href={href}
-                                className="group flex items-center justify-between text-foreground/70 hover:text-primary text-base font-medium px-4 py-3 rounded-xl hover:bg-muted/20/80 transition-all duration-200 border border-transparent hover:border-slate-700/40"
+                                className="group flex items-center justify-between text-slate-200 hover:text-white text-base font-medium px-4 py-3 rounded-xl hover:bg-slate-800/60 transition-all duration-200 border border-transparent hover:border-slate-600/50"
                             >
                                 <span>{label}</span>
                                 <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-[-8px] group-hover:translate-x-0 transition-all duration-200" />
@@ -46,7 +39,7 @@ const MobileMenu = () => {
                             <a
                                 key={label}
                                 href={href}
-                                className="group flex items-center justify-between text-foreground/70 hover:text-primary text-base font-medium px-4 py-3 rounded-xl hover:bg-muted/20/80 transition-all duration-200 border border-transparent hover:border-slate-700/40"
+                                className="group flex items-center justify-between text-slate-200 hover:text-white text-base font-medium px-4 py-3 rounded-xl hover:bg-slate-800/60 transition-all duration-200 border border-transparent hover:border-slate-600/50"
                             >
                                 <span>{label}</span>
                                 <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-[-8px] group-hover:translate-x-0 transition-all duration-200" />
@@ -55,16 +48,16 @@ const MobileMenu = () => {
                     ))}
 
                     {/* Divider */}
-                    <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent my-4" />
+                    <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-4" />
 
                     {/* Login Button */}
                     <button
                         onClick={handleLogin}
-                        className="group flex items-center justify-between w-full text-foreground/70 hover:text-primary text-base font-medium px-4 py-3 rounded-xl hover:bg-muted/20/80 transition-all duration-200 border border-transparent hover:border-slate-700/40"
+                        className="group flex items-center justify-between w-full text-slate-200 hover:text-white text-base font-medium px-4 py-3 rounded-xl hover:bg-slate-800/60 transition-all duration-200 border border-transparent hover:border-slate-600/50"
                     >
                         <div className="flex items-center gap-3">
-                            <div className="bg-blue-100 rounded-lg p-2 group-hover:bg-blue-200 transition-colors duration-200">
-                                <LogIn className="w-4 h-4 text-blue-600" />
+                            <div className="bg-primary/20 rounded-lg p-2 group-hover:bg-primary/30 transition-colors duration-200">
+                                <LogIn className="w-4 h-4 text-primary" />
                             </div>
                             <span>Login</span>
                         </div>
@@ -75,7 +68,7 @@ const MobileMenu = () => {
                     <div className="pt-4">
                         <a
                             href="#contact"
-                            className="group flex items-center justify-center w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold text-base px-6 py-4 rounded-xl text-center transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-slate-700/40"
+                            className="group flex items-center justify-center w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base px-6 py-4 rounded-xl text-center transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-border/40"
                         >
                             <span>Get Started</span>
                             <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
@@ -84,7 +77,7 @@ const MobileMenu = () => {
                 </div>
                 
                 {/* Bottom accent */}
-                <div className="h-1 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700"></div>
+                <div className="h-1 bg-gradient-to-r from-primary/80 via-primary to-primary/80"></div>
             </div>
         </div>
     );
