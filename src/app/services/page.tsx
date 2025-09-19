@@ -4,7 +4,7 @@ import React from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ChatWidget from '@/components/ui/ChatWidget';
-import { Bot, Code, Server, Zap, CheckCircle, CreditCard, Mail, Phone, MessageCircle, Users, Calculator, Package, TrendingUp, Layout, Code2, Smartphone, Settings, Shield, Activity } from 'lucide-react';
+import { Bot, Code, Server, Zap, CheckCircle, CreditCard, MessageCircle, Users, Calculator, Package, TrendingUp, Layout, Code2, Smartphone, Settings, Shield, Activity } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ServicesPage() {
@@ -327,61 +327,23 @@ export default function ServicesPage() {
 
       {/* CTA Section */}
       <section id="contact" className="section-flow section-final py-32 px-6 text-white relative">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-blue-500/3 to-transparent"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_70%)]"></div>
+
+        <div className="max-w-4xl mx-auto text-center relative">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-50">
             Ready to Transform Your Business?
           </h2>
           <p className="text-xl text-slate-300 mb-12 leading-relaxed">
-            Get in touch to discuss how our services can help streamline your operations, improve your online presence, and accelerate your growth.
+            Get in touch to discuss how our services can help streamline your operations, improve your online presence, and accelerate your growth. Email us directly or schedule a meeting to get started.
           </p>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 rounded-xl border border-slate-700/50 p-6 backdrop-blur-sm shadow-lg">
-              <div className="bg-blue-900/20 rounded-full p-3 w-fit mx-auto mb-4">
-                <Mail className="w-6 h-6 text-blue-400" />
-              </div>
-              <h3 className="font-semibold text-white mb-2">Email Us</h3>
-              <p className="text-slate-300 text-sm mb-3 break-all">clientservices@summitautomation.io</p>
-              <a
-                href="mailto:clientservices@summitautomation.io"
-                className="text-blue-400 hover:text-blue-300 text-sm underline"
-              >
-                Send Message
-              </a>
-            </div>
-
-            <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 rounded-xl border border-slate-700/50 p-6 backdrop-blur-sm shadow-lg">
-              <div className="bg-green-900/20 rounded-full p-3 w-fit mx-auto mb-4">
-                <MessageCircle className="w-6 h-6 text-green-400" />
-              </div>
-              <h3 className="font-semibold text-white mb-2">Live Chat</h3>
-              <p className="text-slate-300 text-sm mb-3">Chat with our team now</p>
-              <button className="text-green-400 hover:text-green-300 text-sm underline">
-                Start Chat
-              </button>
-            </div>
-
-            <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 rounded-xl border border-slate-700/50 p-6 backdrop-blur-sm shadow-lg">
-              <div className="bg-purple-900/20 rounded-full p-3 w-fit mx-auto mb-4">
-                <Phone className="w-6 h-6 text-purple-400" />
-              </div>
-              <h3 className="font-semibold text-white mb-2">Schedule Call</h3>
-              <p className="text-slate-300 text-sm mb-3">Book a consultation</p>
-              <a
-                href="mailto:clientservices@summitautomation.io?subject=Schedule%20Consultation&body=Hi%2C%20I%27d%20like%20to%20schedule%20a%20consultation%20to%20discuss%20my%20business%20needs.%20Please%20let%20me%20know%20your%20availability."
-                className="text-purple-400 hover:text-purple-300 text-sm underline"
-              >
-                Book Now
-              </a>
-            </div>
-          </div>
 
           <Link
             href="/#contact"
-            className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl ring-2 ring-blue-500/20 hover:ring-blue-500/40"
           >
             <MessageCircle className="w-5 h-5" />
-            Contact Us
+            Email Us or Schedule a Meeting
           </Link>
         </div>
       </section>

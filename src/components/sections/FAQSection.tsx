@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
+import Link from 'next/link';
 
 const FAQSection = () => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(0);
@@ -132,12 +133,12 @@ const FAQSection = () => {
           <p className="text-muted-foreground mb-4">
             Still have questions?
           </p>
-          <a 
-            href="mailto:admin@summitautomation.io"
+          <Link
+            href="/#contact"
             className="text-primary hover:text-primary/80 font-semibold underline"
           >
-            Contact us directly
-          </a>
+            Contact us or schedule a meeting
+          </Link>
         </div>
       </div>
     </section>

@@ -56,7 +56,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://flowise.summitautomation.io wss://flowise.summitautomation.io https:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests",
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://assets.calendly.com https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://flowise.summitautomation.io wss://flowise.summitautomation.io https://calendly.com https://assets.calendly.com https:; frame-src https://calendly.com https://*.calendly.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests",
           },
           // Performance Headers
           {
