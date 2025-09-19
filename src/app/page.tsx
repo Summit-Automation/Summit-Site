@@ -1,39 +1,56 @@
 'use client';
 
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import HeroSection from '@/components/sections/HeroSection';
 import ProblemSection from '@/components/sections/ProblemSection';
 import FeaturesSection from '@/components/sections/FeaturesSection';
-import BlogSection from '@/components/sections/BlogSection';
-import HowItWorksSection from '@/components/sections/HowItWorksSection';
-import ContactSection from '@/components/sections/ContactSection';
-import ChatWidget from '@/components/ui/ChatWidget';
+
+// Lazy load below-the-fold components for better performance
+const BlogSection = lazy(() => import('@/components/sections/BlogSection'));
+const HowItWorksSection = lazy(() => import('@/components/sections/HowItWorksSection'));
+const ContactSection = lazy(() => import('@/components/sections/ContactSection'));
+const ChatWidget = lazy(() => import('@/components/ui/ChatWidget'));
 
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const tickingRef = useRef(false);
 
-  // Optimized scroll handler with useCallback
+  // Optimized scroll handler with useCallback and reduced setState calls
   const handleScroll = useCallback(() => {
     const scrollY = window.scrollY;
-    setScrolled(scrollY > 50);
+    const shouldBeScrolled = scrollY > 50;
+
+    // Only update state if it actually changed to prevent unnecessary re-renders
+    setScrolled(current => current !== shouldBeScrolled ? shouldBeScrolled : current);
   }, []);
 
   useEffect(() => {
     // Ensure we're on the client before setting up scroll listener
     setIsClient(true);
 
-    // Throttled scroll handler using requestAnimationFrame
+    let lastScrollY = 0;
+
+    // Ultra-optimized throttled scroll handler
     const throttledScrollHandler = () => {
-      if (!tickingRef.current) {
-        requestAnimationFrame(() => {
-          handleScroll();
-          tickingRef.current = false;
-        });
-        tickingRef.current = true;
+      const currentScrollY = window.scrollY;
+
+      // Only process if scroll crosses the threshold boundary or significant distance
+      const threshold = 50;
+      const crossedThreshold = (lastScrollY <= threshold && currentScrollY > threshold) ||
+                              (lastScrollY > threshold && currentScrollY <= threshold);
+
+      if (crossedThreshold || Math.abs(currentScrollY - lastScrollY) > 25) {
+        if (!tickingRef.current) {
+          requestAnimationFrame(() => {
+            handleScroll();
+            tickingRef.current = false;
+          });
+          tickingRef.current = true;
+        }
+        lastScrollY = currentScrollY;
       }
     };
 
@@ -131,13 +148,25 @@ export default function HomePage() {
       <HeroSection />
       <ProblemSection />
       <FeaturesSection />
-      <HowItWorksSection />
-      <BlogSection />
-      <ContactSection />
+
+      <Suspense fallback={<div className="py-32" />}>
+        <HowItWorksSection />
+      </Suspense>
+
+      <Suspense fallback={<div className="py-32" />}>
+        <BlogSection />
+      </Suspense>
+
+      <Suspense fallback={<div className="py-32" />}>
+        <ContactSection />
+      </Suspense>
+
       <Footer />
-      
+
       {/* Flowise Chat Widget */}
-      <ChatWidget />
+      <Suspense fallback={null}>
+        <ChatWidget />
+      </Suspense>
     </div>
   );
 }

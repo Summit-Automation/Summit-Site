@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { Menu, X, LogIn } from 'lucide-react';
 import MobileMenu from '@/components/layout/MobileMenu';
 import Image from 'next/image';
@@ -10,7 +10,7 @@ interface HeaderProps {
     scrolled: boolean;
 }
 
-const Header = ({ scrolled }: HeaderProps) => {
+const Header = memo(({ scrolled }: HeaderProps) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const handleLogin = () => {
@@ -132,6 +132,8 @@ const Header = ({ scrolled }: HeaderProps) => {
             {mobileMenuOpen && <MobileMenu />}
         </header>
     );
-};
+});
+
+Header.displayName = 'Header';
 
 export default Header;

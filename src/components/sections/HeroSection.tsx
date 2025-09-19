@@ -1,10 +1,10 @@
 // File: src/components/sections/HeroSection.tsx
 'use client';
 
-import React from 'react';
+import React, { memo } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
-const HeroSection = () => {
+const HeroSection = memo(() => {
   return (
     <section className="section-flow section-hero pt-32 pb-20 px-6" aria-label="Hero section">
       {/* Sophisticated overlay effects */}
@@ -31,19 +31,21 @@ const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-            <a 
-              href="#contact" 
-              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-10 py-5 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl inline-flex items-center justify-center group"
+            <a
+              href="#contact"
+              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-10 py-5 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 shadow-xl hover:shadow-2xl inline-flex items-center justify-center group"
+              style={{ willChange: 'transform' }}
             >
               Get Started
-              <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform duration-150" style={{ willChange: 'transform' }} />
             </a>
-            <a 
-              href="#services" 
-              className="bg-gradient-to-r from-slate-800/60 to-slate-700/40 text-slate-200 border border-slate-600/50 px-10 py-5 rounded-xl font-semibold hover:from-slate-700/60 hover:to-slate-600/40 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center justify-center backdrop-blur-sm group"
+            <a
+              href="#services"
+              className="bg-gradient-to-r from-slate-800/60 to-slate-700/40 text-slate-200 border border-slate-600/50 px-10 py-5 rounded-xl font-semibold hover:from-slate-700/60 hover:to-slate-600/40 hover:text-white transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center justify-center backdrop-blur-sm group"
+              style={{ willChange: 'transform' }}
             >
               View Services
-              <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform duration-150" style={{ willChange: 'transform' }} />
             </a>
           </div>
 
@@ -70,6 +72,8 @@ const HeroSection = () => {
       </div>
     </section>
   );
-};
+});
+
+HeroSection.displayName = 'HeroSection';
 
 export default HeroSection;
