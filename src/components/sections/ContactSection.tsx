@@ -1,7 +1,8 @@
 // File: src/components/sections/ContactSection.tsx
 'use client';
 import React, { useState } from 'react';
-import { Mail, CheckCircle, ArrowRight, MessageCircle, Phone } from 'lucide-react';
+import { Mail, CheckCircle, ArrowRight, MessageCircle } from 'lucide-react';
+import CalendlyWidget from '@/components/ui/CalendlyWidget';
 
 const ContactSection = () => {
   const [email, setEmail] = useState('');
@@ -123,33 +124,67 @@ const ContactSection = () => {
             <div className="relative p-8 backdrop-blur-sm">
             <h3 className="text-2xl font-bold text-slate-50 mb-6 group-hover:text-white transition-colors duration-300">Send us a message</h3>
             
-            <div className="space-y-4">
-              <div className="relative">
-                <Mail className="absolute left-4 top-4 text-slate-400 w-5 h-5" />
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@company.com"
-                  className="w-full bg-slate-800/60 text-slate-50 placeholder-slate-400/70 border border-slate-700/50 rounded-lg pl-12 pr-4 py-4 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 focus:outline-none transition-all backdrop-blur-sm"
-                  required
-                  disabled={isSubmitting}
-                />
+            <div className="space-y-6">
+              {/* Contact Information Display */}
+              <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/5 rounded-lg p-4 border border-blue-500/20">
+                <h4 className="text-slate-50 font-semibold mb-2">Get in Touch</h4>
+                <p className="text-slate-300 text-sm mb-3 leading-relaxed">
+                  Ready to transform your business? Send us a message and we&apos;ll respond within 24 hours.
+                </p>
+                <div className="flex items-center gap-2 text-blue-400">
+                  <Mail className="w-4 h-4" />
+                  <span className="text-sm">clientservices@summitautomation.io</span>
+                </div>
               </div>
-              
-              <div className="relative">
-                <MessageCircle className="absolute left-4 top-4 text-slate-400 w-5 h-5" />
-                <textarea
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Tell us about your business needs..."
-                  rows={4}
-                  className="w-full bg-slate-800/60 text-slate-50 placeholder-slate-400/70 border border-slate-700/50 rounded-lg pl-12 pr-4 py-4 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 focus:outline-none transition-all resize-none backdrop-blur-sm"
-                  required
-                  disabled={isSubmitting}
-                />
+
+              {/* Form Fields */}
+              <div className="space-y-4">
+                <div className="relative">
+                  <Mail className="absolute left-4 top-4 text-slate-400 w-5 h-5" />
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="your-email@company.com"
+                    className="w-full bg-slate-800/60 text-slate-50 placeholder-slate-400/70 border border-slate-700/50 rounded-lg pl-12 pr-4 py-4 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 focus:outline-none transition-all backdrop-blur-sm"
+                    required
+                    disabled={isSubmitting}
+                  />
+                </div>
+
+                <div className="relative">
+                  <MessageCircle className="absolute left-4 top-4 text-slate-400 w-5 h-5" />
+                  <textarea
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Tell us about your business needs, goals, and how we can help you succeed..."
+                    rows={6}
+                    className="w-full bg-slate-800/60 text-slate-50 placeholder-slate-400/70 border border-slate-700/50 rounded-lg pl-12 pr-4 py-4 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 focus:outline-none transition-all resize-none backdrop-blur-sm"
+                    required
+                    disabled={isSubmitting}
+                  />
+                </div>
               </div>
-              
+
+              {/* Services Interest Checkboxes */}
+              <div className="bg-slate-800/30 rounded-lg p-4 border border-slate-700/30">
+                <h4 className="text-slate-50 font-medium mb-3">Services of Interest:</h4>
+                <div className="grid grid-cols-1 gap-2 text-sm">
+                  <label className="flex items-center gap-2 text-slate-300 hover:text-slate-200 cursor-pointer">
+                    <input type="checkbox" className="text-blue-500 bg-slate-700 border-slate-600 rounded focus:ring-blue-500" />
+                    <span>Business Automation Suite</span>
+                  </label>
+                  <label className="flex items-center gap-2 text-slate-300 hover:text-slate-200 cursor-pointer">
+                    <input type="checkbox" className="text-blue-500 bg-slate-700 border-slate-600 rounded focus:ring-blue-500" />
+                    <span>Custom Business Automation</span>
+                  </label>
+                  <label className="flex items-center gap-2 text-slate-300 hover:text-slate-200 cursor-pointer">
+                    <input type="checkbox" className="text-blue-500 bg-slate-700 border-slate-600 rounded focus:ring-blue-500" />
+                    <span>Web Development</span>
+                  </label>
+                </div>
+              </div>
+
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -158,7 +193,7 @@ const ContactSection = () => {
                 {isSubmitting ? (
                   <>
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                    Sending...
+                    Sending Message...
                   </>
                 ) : (
                   <>
@@ -180,55 +215,7 @@ const ContactSection = () => {
             )}
           </form>
 
-          <div className="space-y-6">
-            <div className="relative group">
-              {/* Professional card with texture and depth */}
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 to-slate-800/50 rounded-xl shadow-xl"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-xl"></div>
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.03),transparent_70%)] rounded-xl"></div>
-              
-              {/* Enhanced border treatment */}
-              <div className="absolute inset-0 rounded-xl border border-slate-700/40 group-hover:border-slate-600/50 transition-all duration-300 shadow-inner"></div>
-              <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/5"></div>
-              
-              {/* Content container */}
-              <div className="relative p-6 backdrop-blur-sm">
-              <h3 className="text-xl font-semibold text-slate-50 mb-4 group-hover:text-white transition-colors duration-300">Quick Contact</h3>
-              <div className="space-y-3">
-                <p className="text-slate-300 flex items-center gap-3 group/item hover:text-slate-200 transition-colors duration-200">
-                  <Mail className="w-5 h-5 text-blue-400" />
-                  clientservices@summitautomation.io
-                </p>
-                <p className="text-slate-300 flex items-center gap-3 group/item hover:text-slate-200 transition-colors duration-200">
-                  <Phone className="w-5 h-5 text-blue-400" />
-                  Available for consultation
-                </p>
-              </div>
-              </div>
-            </div>
-
-            <div className="relative group">
-              {/* Professional card with texture and depth */}
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 to-slate-800/50 rounded-xl shadow-xl"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-xl"></div>
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.03),transparent_70%)] rounded-xl"></div>
-              
-              {/* Enhanced border treatment */}
-              <div className="absolute inset-0 rounded-xl border border-slate-700/40 group-hover:border-slate-600/50 transition-all duration-300 shadow-inner"></div>
-              <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/5"></div>
-              
-              {/* Content container */}
-              <div className="relative p-6 backdrop-blur-sm">
-              <h3 className="text-xl font-semibold text-slate-50 mb-4 group-hover:text-white transition-colors duration-300">What can we help with?</h3>
-              <ul className="text-slate-300 space-y-2">
-                <li className="hover:text-slate-200 transition-colors duration-200">• Business automation platform demo</li>
-                <li className="hover:text-slate-200 transition-colors duration-200">• Custom website development</li>
-                <li className="hover:text-slate-200 transition-colors duration-200">• Web hosting & maintenance</li>
-                <li className="hover:text-slate-200 transition-colors duration-200">• Business process optimization</li>
-              </ul>
-              </div>
-            </div>
-          </div>
+          <CalendlyWidget />
         </div>
       </div>
     </section>

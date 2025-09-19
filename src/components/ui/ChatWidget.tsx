@@ -199,40 +199,38 @@ const StyledChatWidget = () => {
 
   return (
     <div className="fixed bottom-5 right-5 z-50">
-      {/* Tooltip */}
+      {/* Tooltip - Optimized */}
       {!isVisible && showTooltip && (
-        <div 
-          className="absolute bottom-16 right-0 mb-2 px-4 py-3 bg-primary text-primary-foreground text-sm rounded-xl shadow-2xl whitespace-nowrap animate-bounce"
-          style={{ fontSize: '14px', fontWeight: '500' }}
+        <div
+          className="absolute bottom-16 right-0 mb-2 px-4 py-3 bg-primary text-primary-foreground text-sm rounded-xl shadow-2xl whitespace-nowrap"
+          style={{ fontSize: '14px', fontWeight: '500', willChange: 'transform', animation: 'fadeInUp 0.3s ease-out' }}
         >
           ✨ Automate your business today!
           <div className="absolute bottom-[-8px] right-5 w-0 h-0 border-l-[8px] border-r-[8px] border-t-[8px] border-l-transparent border-r-transparent border-t-primary"></div>
         </div>
       )}
 
-      {/* Chat Button */}
+      {/* Chat Button - Optimized */}
       {!isVisible && (
         <div className="relative">
-          <div className="absolute inset-0 rounded-full bg-primary-400 animate-ping opacity-20"></div>
-          <div className="absolute inset-0 rounded-full bg-primary-500 animate-pulse opacity-30"></div>
-          
+          <div className="absolute inset-0 rounded-full bg-primary-500 opacity-30" style={{ willChange: 'transform' }}></div>
+
           <button
             onClick={openChat}
             onMouseEnter={() => setShowTooltip(true)}
             onMouseLeave={() => setShowTooltip(false)}
-            className="relative bg-primary hover:bg-primary/90 text-primary-foreground rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group overflow-hidden"
-            style={{ 
-              width: '60px', 
+            className="relative bg-primary hover:bg-primary/90 text-primary-foreground rounded-full shadow-2xl transition-all duration-200 hover:scale-105 group overflow-hidden"
+            style={{
+              width: '60px',
               height: '60px',
-              boxShadow: '0 10px 30px rgba(59, 129, 246, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1)'
+              boxShadow: '0 10px 30px rgba(59, 129, 246, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+              willChange: 'transform'
             }}
             aria-label="Open chat"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-            
-            <MessageCircle className="w-7 h-7 mx-auto group-hover:scale-110 transition-transform duration-200 relative z-10" />
-            
-            <div className="absolute top-2 right-2 w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            <MessageCircle className="w-7 h-7 mx-auto group-hover:scale-105 transition-transform duration-150 relative z-10" style={{ willChange: 'transform' }} />
+
+            <div className="absolute top-2 right-2 w-2 h-2 bg-green-400 rounded-full opacity-80"></div>
           </button>
         </div>
       )}
@@ -249,9 +247,19 @@ const StyledChatWidget = () => {
           }}
         >
           <style jsx>{`
+            @keyframes fadeInUp {
+              0% {
+                transform: translateY(10px);
+                opacity: 0;
+              }
+              100% {
+                transform: translateY(0);
+                opacity: 1;
+              }
+            }
             @keyframes scaleIn {
               0% {
-                transform: scale(0.5) translateY(20px);
+                transform: scale(0.8) translateY(10px);
                 opacity: 0;
               }
               100% {
@@ -265,7 +273,7 @@ const StyledChatWidget = () => {
                 opacity: 1;
               }
               100% {
-                transform: scale(0.5) translateY(20px);
+                transform: scale(0.8) translateY(10px);
                 opacity: 0;
               }
             }
@@ -366,9 +374,9 @@ const StyledChatWidget = () => {
                   className="px-4 py-3 rounded-xl flex items-center space-x-2 bg-muted text-foreground border border-border/50"
                 >
                   <div className="flex space-x-1">
-                    <div className="w-2 h-2 bg-primary-400 rounded-full animate-bounce"></div>
-                    <div className="w-2 h-2 bg-primary-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                    <div className="w-2 h-2 bg-primary-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                    <div className="w-2 h-2 bg-primary-400 rounded-full opacity-60" style={{ animation: 'pulse 1.5s ease-in-out infinite' }}></div>
+                    <div className="w-2 h-2 bg-primary-500 rounded-full opacity-80" style={{ animation: 'pulse 1.5s ease-in-out infinite', animationDelay: '0.2s' }}></div>
+                    <div className="w-2 h-2 bg-primary-600 rounded-full" style={{ animation: 'pulse 1.5s ease-in-out infinite', animationDelay: '0.4s' }}></div>
                   </div>
                   <span className="text-sm text-muted-foreground">Summit is thinking...</span>
                 </div>
