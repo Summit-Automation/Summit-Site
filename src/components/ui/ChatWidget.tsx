@@ -296,18 +296,20 @@ const StyledChatWidget = () => {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4" style={{ backgroundColor: '#ffffff' }}>
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-muted/20">
             {messages.map((message) => (
               <div
                 key={message.id}
                 className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-md px-4 py-3 rounded-lg leading-relaxed`}
+                  className={`max-w-md px-4 py-3 rounded-lg leading-relaxed ${
+                    message.isUser
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-muted text-foreground border border-border/50'
+                  }`}
                   style={{
-                    fontSize: '16px',
-                    backgroundColor: message.isUser ? '#3B81F6' : '#f7f8ff',
-                    color: message.isUser ? '#ffffff' : '#303235'
+                    fontSize: '16px'
                   }}
                   dangerouslySetInnerHTML={{
                     __html: formatMessage(message.text)
@@ -334,8 +336,8 @@ const StyledChatWidget = () => {
                 <div className="flex justify-start">
                   <button
                     onClick={() => sendApiMessage('What features do you offer?')}
-                    className="bg-gradient-to-r from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 text-green-700 px-4 py-3 rounded-xl transition-all duration-200 hover:scale-105 shadow-sm border border-green-200/50"
-                    style={{ 
+                    className="bg-gradient-to-r from-emerald-900/60 to-emerald-800/40 hover:from-emerald-800/80 hover:to-emerald-700/60 text-emerald-300 px-4 py-3 rounded-xl transition-all duration-200 hover:scale-105 shadow-sm border border-emerald-700/50"
+                    style={{
                       fontSize: '14px',
                       fontWeight: '500'
                     }}
@@ -346,7 +348,7 @@ const StyledChatWidget = () => {
                 <div className="flex justify-start">
                   <button
                     onClick={() => sendApiMessage('How do I join the Alpha?')}
-                    className="bg-gradient-to-r from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200 text-purple-700 px-4 py-3 rounded-xl transition-all duration-200 hover:scale-105 shadow-sm border border-purple-200/50"
+                    className="bg-gradient-to-r from-violet-900/60 to-violet-800/40 hover:from-violet-800/80 hover:to-violet-700/60 text-violet-300 px-4 py-3 rounded-xl transition-all duration-200 hover:scale-105 shadow-sm border border-violet-700/50"
                     style={{ 
                       fontSize: '14px',
                       fontWeight: '500'
@@ -360,12 +362,8 @@ const StyledChatWidget = () => {
             
             {isLoading && (
               <div className="flex justify-start">
-                <div 
-                  className="px-4 py-3 rounded-xl flex items-center space-x-2"
-                  style={{ 
-                    backgroundColor: '#f7f8ff',
-                    color: '#303235'
-                  }}
+                <div
+                  className="px-4 py-3 rounded-xl flex items-center space-x-2 bg-muted text-foreground border border-border/50"
                 >
                   <div className="flex space-x-1">
                     <div className="w-2 h-2 bg-primary-400 rounded-full animate-bounce"></div>
@@ -399,11 +397,11 @@ const StyledChatWidget = () => {
               <button
                 onClick={sendMessage}
                 disabled={!inputValue.trim() || isLoading}
-                className="rounded-xl p-3 transition-all duration-200 hover:scale-105 shadow-sm"
-                style={{ 
-                  backgroundColor: !inputValue.trim() || isLoading ? '#e5e7eb' : '#3B81F6',
-                  color: 'white'
-                }}
+                className={`rounded-xl p-3 transition-all duration-200 hover:scale-105 shadow-sm ${
+                  !inputValue.trim() || isLoading
+                    ? 'bg-muted text-muted-foreground cursor-not-allowed'
+                    : 'bg-primary text-primary-foreground hover:bg-primary/90'
+                }`}
               >
                 <Send className="w-5 h-5" />
               </button>
@@ -416,15 +414,14 @@ const StyledChatWidget = () => {
           </div>
 
           {/* Footer */}
-          <div className="px-4 py-3 bg-muted/20/50 text-center border-t border-border">
-            <p style={{ fontSize: '11px', color: '#6b7280' }}>
+          <div className="px-4 py-3 bg-muted/30 text-center border-t border-border">
+            <p className="text-xs text-muted-foreground">
               Powered by{' '}
-              <a 
-                href="https://summitautomation.io" 
-                target="_blank" 
+              <a
+                href="https://summitautomation.io"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline font-medium"
-                style={{ color: '#3B81F6' }}
+                className="hover:underline font-medium text-primary hover:text-primary/80 transition-colors"
               >
                 Summit Automation
               </a>
