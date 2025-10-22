@@ -9,36 +9,36 @@ const FAQSection = () => {
 
   const faqs = [
     {
-      question: "What exactly does Summit include?",
-      answer: "Summit is a complete business management suite that includes: real-time business analytics dashboard, AI-powered bookkeeping and expense tracking, smart CRM with lead generation, inventory management with automated alerts, mileage tracking for tax deductions, and multi-user team collaboration. Everything you need to run your business in one integrated platform."
+      question: "What types of automation do you build?",
+      answer: "We build custom automation solutions tailored to your specific business needs. This includes API integrations between your existing tools, intelligent document processing, AI agents and chatbots, voice automation, advanced workflow automation, task automation, and entirely custom business applications. Every solution is designed from scratch to match your exact requirements."
     },
     {
-      question: "What types of businesses can use Summit?",
-      answer: "Summit works for any business that manages customers, tracks expenses, or handles inventory—from solo consultants and freelancers to growing teams and established companies. Whether you're in professional services, retail, hospitality, or any other industry, Summit adapts to your specific business needs."
+      question: "Can you integrate with my existing software?",
+      answer: "Yes! We specialize in connecting existing systems. Whether you're using popular platforms like Salesforce, QuickBooks, Shopify, or custom in-house software, we can build integrations that allow your tools to communicate and share data automatically. We work with APIs, databases, webhooks, and legacy systems."
     },
     {
-      question: "How does the AI automation actually work?",
-      answer: "Summit's AI handles the time-consuming tasks automatically: snap a photo of any receipt and it extracts all the data instantly, generates leads from your industry sources, creates follow-up reminders for customers, predicts inventory needs, and provides business insights from your data. It's trained on thousands of business documents and achieves over 95% accuracy."
+      question: "How do you determine what to automate?",
+      answer: "We start with a consultation to understand your business processes and pain points. We identify repetitive tasks, manual data entry, disconnected systems, and workflow bottlenecks. Then we create a custom automation roadmap that prioritizes high-impact improvements. You'll know exactly what we're building and why before we start."
     },
     {
-      question: "Can multiple team members use Summit?",
-      answer: "Yes, Summit supports multi-user access with role-based permissions. You can give team members access to specific modules (like inventory or customer management) while maintaining control over financial data and sensitive information. Perfect for growing businesses that need team collaboration."
+      question: "What if I already have some automation in place?",
+      answer: "Perfect! We can work with your existing automation and enhance it. Whether you need to extend current systems, fix issues, modernize old solutions, or add new capabilities, we'll build on what you have rather than starting from scratch. We can also optimize and improve existing automation that isn't performing well."
     },
     {
-      question: "Is my business data secure?",
-      answer: "Absolutely. All data is encrypted at rest with AES-256 and in transit via TLS. We follow SOC 2 Type 2 compliance standards and implement strict access controls. Your business data stays private and secure, with regular security audits and monitoring."
+      question: "How long does it take to build custom automation?",
+      answer: "Timeline varies based on complexity. Simple integrations might take 1-2 weeks, while comprehensive automation systems can take 4-8 weeks or more. We provide clear timelines during consultation and work in phases so you can start seeing benefits quickly. We prioritize delivering working solutions incrementally rather than waiting for everything to be perfect."
     },
     {
-      question: "When can I start using Summit?",
-      answer: "We're launching our Early Access program soon for select businesses. Early Access participants get free access during testing, direct input into product development, and priority pricing when we launch. Join our waitlist to secure your spot."
+      question: "Do you provide ongoing support after implementation?",
+      answer: "Yes. We offer ongoing support and maintenance packages to ensure your automation continues running smoothly. This includes monitoring, updates, troubleshooting, and enhancements as your business evolves. We can also train your team to manage and maintain the systems we build."
     },
     {
-      question: "Does Summit integrate with other tools?",
-      answer: "Summit is designed to be your central business hub, reducing the need for multiple disconnected tools. We're building key integrations based on Early Access feedback. The goal is to have everything you need in one place, but we understand some businesses have specific tool requirements."
+      question: "What technologies do you use?",
+      answer: "We use modern, reliable technologies based on what's best for your specific needs. This includes Python for automation and AI, JavaScript/TypeScript for web applications, cloud platforms like AWS and Supabase, and various integration tools and frameworks. We focus on building maintainable, scalable solutions using proven technologies."
     },
     {
-      question: "How is this different from other business software?",
-      answer: "Most business tools solve one problem at a time—separate CRM, separate accounting, separate inventory. Summit brings everything together with AI that learns your business patterns. Instead of switching between multiple apps and manually connecting data, you get one integrated system that works seamlessly."
+      question: "How much does custom automation cost?",
+      answer: "Pricing depends on the scope and complexity of your project. Simple integrations might start around $1,000-$2,000, while comprehensive automation systems typically range from $5,000-$20,000+. We provide transparent pricing after understanding your needs during the initial consultation. Most clients see ROI within 3-6 months through time savings alone."
     }
   ];
 
@@ -77,7 +77,7 @@ const FAQSection = () => {
             Got questions? We&apos;ve got answers.
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to know about Summit and how our complete business management suite can transform your operations.
+            Everything you need to know about our custom automation services and how we can transform your business operations.
           </p>
         </div>
 

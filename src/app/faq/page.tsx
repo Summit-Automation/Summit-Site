@@ -8,11 +8,11 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "FAQ - Summit Automation | Frequently Asked Questions",
-  description: "Get answers to common questions about Summit's complete business management suite. Learn about our AI-powered CRM, automated bookkeeping, inventory management, and business analytics platform.",
-  keywords: "Summit Automation FAQ, business management questions, AI CRM help, automated bookkeeping, inventory management, business analytics, multi-user collaboration",
+  description: "Get answers to common questions about Summit's custom business automation services. Learn about our API integrations, AI agents, voice bots, chatbots, workflow automation, and tailored business solutions.",
+  keywords: "Summit Automation FAQ, custom automation questions, API integration help, workflow automation, AI agents, voice bots, chatbots, custom business solutions, automation consulting",
   openGraph: {
     title: "FAQ - Summit Automation",
-    description: "Get answers to common questions about Summit's complete business management suite with AI-powered automation.",
+    description: "Get answers to common questions about Summit's custom business automation services including AI agents and advanced workflows.",
     url: "https://summitautomation.io/faq",
     type: "website"
   },

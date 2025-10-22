@@ -6,12 +6,12 @@ import Footer from '@/components/layout/Footer';
 import HeroSection from '@/components/sections/HeroSection';
 import ProblemSection from '@/components/sections/ProblemSection';
 import FeaturesSection from '@/components/sections/FeaturesSection';
+import ContactSection from '@/components/sections/ContactSection';
+import ChatWidget from '@/components/ui/ChatWidget';
 
 // Lazy load below-the-fold components for better performance
 const BlogSection = lazy(() => import('@/components/sections/BlogSection'));
 const HowItWorksSection = lazy(() => import('@/components/sections/HowItWorksSection'));
-const ContactSection = lazy(() => import('@/components/sections/ContactSection'));
-const ChatWidget = lazy(() => import('@/components/ui/ChatWidget'));
 
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
@@ -93,16 +93,16 @@ export default function HomePage() {
             "@context": "https://schema.org",
             "@type": "Product",
             "name": "Summit Automation",
-            "description": "Complete business management suite with AI-powered CRM, automated accounting, inventory tracking, mileage logging, recurring payments, and real-time analytics. Built for contractors, service providers, and growing businesses.",
+            "description": "Custom business automation solutions and professional web development services. We build tailored automation systems, API integrations, advanced workflows, voice agents, chatbots, and custom applications designed specifically for your business needs.",
             "brand": {
               "@type": "Brand",
               "name": "Summit Automation"
             },
-            "category": "Business Software",
+            "category": "Business Automation Services",
             "offers": {
               "@type": "Offer",
               "availability": "https://schema.org/InStock",
-              "description": "Contact us for business automation and web development services"
+              "description": "Contact us for custom automation and web development services"
             }
           })
         }}
@@ -115,8 +115,8 @@ export default function HomePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Business Automation Services",
-            "description": "Complete business management services including AI-powered CRM, automated accounting, inventory tracking, mileage logging, payment processing, and business analytics for contractors and service businesses in Pittsburgh, PA and worldwide.",
+            "name": "Custom Business Automation Services",
+            "description": "Custom business automation and integration services including API integrations, advanced workflow automation, AI agents, voice bots, chatbots, document processing, and tailored software solutions for businesses in Pittsburgh, PA and worldwide.",
             "provider": {
               "@type": "Organization",
               "name": "Summit Automation",
@@ -138,8 +138,8 @@ export default function HomePage() {
                 "name": "Pennsylvania"
               }
             ],
-            "serviceType": "Business Process Automation",
-            "category": "Business Services"
+            "serviceType": "Custom Business Automation",
+            "category": "Business Automation Services"
           })
         }}
       />
@@ -157,16 +157,12 @@ export default function HomePage() {
         <BlogSection />
       </Suspense>
 
-      <Suspense fallback={<div className="py-32" />}>
-        <ContactSection />
-      </Suspense>
+      <ContactSection />
 
       <Footer />
 
       {/* Flowise Chat Widget */}
-      <Suspense fallback={null}>
-        <ChatWidget />
-      </Suspense>
+      <ChatWidget />
     </div>
   );
 }

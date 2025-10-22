@@ -16,7 +16,9 @@
       "Bash(npm run lint)",
       "Bash(sed:*)",
       "Bash(/dev/null)",
-      "Bash(npx @next/codemod@canary next-lint-to-eslint-cli:*)"
+      "Bash(npx @next/codemod@canary next-lint-to-eslint-cli:*)",
+      "Bash(PORT=3002 npm run dev)",
+      "Bash(git stash:*)"
     ],
     "deny": [],
     "ask": []

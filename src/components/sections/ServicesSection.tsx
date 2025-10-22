@@ -2,23 +2,23 @@
 'use client';
 
 import React from 'react';
-import { Bot, Code, Server, Zap, Globe, Shield } from 'lucide-react';
+import { Bot, Code, Zap, Globe, Shield } from 'lucide-react';
 
 const ServicesSection = () => {
   const services = [
     {
-      category: "Business Automation Platform",
-      description: "Our flagship product - complete business management suite",
+      category: "Custom Business Automation",
+      description: "Tailored automation solutions built specifically for your workflow",
       icon: <Bot className="w-8 h-8 text-blue-500" />,
       features: [
-        "AI-powered CRM system",
-        "Automated accounting & invoicing", 
-        "Smart inventory tracking",
-        "Mileage logging & expense tracking",
-        "Real-time business analytics",
-        "24/7 AI business assistant"
+        "Custom API integrations",
+        "Process automation & optimization",
+        "AI-powered intelligent workflows",
+        "Custom dashboards & analytics",
+        "Legacy system modernization",
+        "Third-party tool integration"
       ],
-      pricing: "Contact for demo & pricing",
+      pricing: "Contact for consultation & pricing",
       highlight: true
     },
     {
@@ -27,28 +27,13 @@ const ServicesSection = () => {
       icon: <Code className="w-8 h-8 text-green-500" />,
       features: [
         "HTML/CSS static websites",
-        "React dynamic applications", 
+        "React dynamic applications",
         "Mobile-responsive design",
         "SEO optimization included",
         "Custom functionality",
-        "Professional design"
+        "Hosting available"
       ],
       pricing: "Starting at $500 (static) / $1,250 (React)",
-      highlight: false
-    },
-    {
-      category: "Web Hosting & Maintenance",
-      description: "Reliable hosting with optional technical support",
-      icon: <Server className="w-8 h-8 text-purple-500" />,
-      features: [
-        "Fast, secure hosting",
-        "SSL certificates included",
-        "Regular backups",
-        "99.9% uptime guarantee",
-        "Basic server maintenance option",
-        "Technical support available"
-      ],
-      pricing: "$10/month basic • $30/month with maintenance",
       highlight: false
     }
   ];
@@ -65,11 +50,11 @@ const ServicesSection = () => {
             Our Services
           </h2>
           <p className="text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
-            From cutting-edge business automation to custom web development, we help businesses of all sizes streamline operations and establish a strong online presence.
+            We create custom automation solutions and professional websites tailored specifically to your business needs. Every solution is built from the ground up to match your unique workflow.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {services.map((service, index) => (
             <div 
               key={index} 
@@ -100,7 +85,7 @@ const ServicesSection = () => {
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
                   <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 shadow-lg ring-2 ring-blue-500/20">
                     <Zap className="w-4 h-4" />
-                    Flagship Product
+                    Most Popular
                   </div>
                 </div>
               )}
@@ -137,11 +122,11 @@ const ServicesSection = () => {
                   <p className="text-lg font-semibold text-slate-50 mb-4">
                     {service.pricing}
                   </p>
-                  <a 
-                    href={`/services#${index === 0 ? 'automation' : index === 1 ? 'web-development' : 'hosting'}`}
+                  <a
+                    href={`/services#${index === 0 ? 'automation' : 'web-development'}`}
                     className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 relative ${
-                      service.highlight 
-                        ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 shadow-lg hover:shadow-xl ring-2 ring-blue-500/20 hover:ring-blue-500/40' 
+                      service.highlight
+                        ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 shadow-lg hover:shadow-xl ring-2 ring-blue-500/20 hover:ring-blue-500/40'
                         : 'bg-gradient-to-r from-slate-800/60 to-slate-700/40 text-slate-200 hover:from-slate-700/60 hover:to-slate-600/40 hover:text-white border border-slate-600/50 backdrop-blur-sm'
                     }`}
                   >
@@ -158,21 +143,21 @@ const ServicesSection = () => {
         <div className="mt-16 text-center">
           <div className="bg-blue-600 text-white rounded-2xl p-8 max-w-4xl mx-auto">
             <h3 className="text-3xl font-bold mb-4">
-              Need Something Custom?
+              Ready to Automate Your Business?
             </h3>
             <p className="text-xl text-blue-100 mb-6 leading-relaxed">
-              Every business is unique. Whether you need a custom automation solution, specialized web application, or hybrid approach combining multiple services, we&apos;re here to help.
+              Every business has unique challenges and workflows. We create custom solutions that integrate with your existing tools or build entirely new systems tailored specifically to your needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="/services" 
+              <a
+                href="/services"
                 className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 <Globe className="w-5 h-5" />
                 View All Services
               </a>
-              <a 
-                href="#contact" 
+              <a
+                href="#contact"
                 className="inline-flex items-center gap-2 bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-400 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border-2 border-blue-300"
               >
                 <Bot className="w-5 h-5" />
