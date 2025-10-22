@@ -4,7 +4,7 @@ import React from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ChatWidget from '@/components/ui/ChatWidget';
-import { Bot, Code, Server, Zap, CheckCircle, CreditCard, MessageCircle, Users, Calculator, Package, TrendingUp, Layout, Code2, Smartphone, Settings, Shield, Activity } from 'lucide-react';
+import { Bot, Code, Zap, CheckCircle, CreditCard, MessageCircle, Users, Layout, Code2, Smartphone, Settings } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ServicesPage() {
@@ -24,56 +24,56 @@ export default function ServicesPage() {
   const services = [
     {
       id: "automation",
-      category: "Business Automation Platform",
-      tagline: "Your Complete Business Management Suite",
-      description: "Transform your business operations with our AI-powered platform that handles everything from customer relationships to financial management.",
+      category: "Custom Business Automation",
+      tagline: "Tailored Solutions For Your Unique Workflow",
+      description: "We build custom automation solutions designed specifically for your business. Whether you need to streamline existing processes, integrate disparate systems, or build entirely new workflows—we create solutions that fit your exact needs.",
       icon: <Bot className="w-12 h-12 text-blue-500" />,
       pricing: "Custom Pricing",
-      pricingDescription: "Contact us for a personalized demo and quote based on your business needs",
+      pricingDescription: "Contact us for a personalized consultation and quote based on your specific automation needs",
       highlight: true,
       features: [
         {
-          title: "AI-Powered CRM System",
-          description: "Intelligent customer relationship management that learns from your interactions",
+          title: "Process Automation & Integration",
+          description: "Connect your existing tools and automate repetitive tasks",
+          icon: <Zap className="w-6 h-6" />,
+          details: [
+            "Custom API integrations between your existing tools",
+            "Automated workflows that eliminate manual data entry",
+            "Business process optimization and streamlining",
+            "Legacy system modernization and integration"
+          ]
+        },
+        {
+          title: "AI-Powered Custom Solutions",
+          description: "Intelligent automation built for your specific use cases",
+          icon: <Bot className="w-6 h-6" />,
+          details: [
+            "Custom AI agents for document processing",
+            "Intelligent data extraction and categorization",
+            "Automated decision-making systems",
+            "Natural language processing for customer interactions"
+          ]
+        },
+        {
+          title: "AI Agents & Chatbots",
+          description: "Intelligent conversational AI for customer interactions",
           icon: <Users className="w-6 h-6" />,
           details: [
-            "Automated lead scoring and qualification",
-            "Smart follow-up scheduling and reminders",
-            "Customer interaction history and insights",
-            "Predictive analytics for sales opportunities"
+            "Custom chatbots for your website or app",
+            "Voice agents for phone automation",
+            "Multi-channel messaging (SMS, email, chat)",
+            "Natural language processing and understanding"
           ]
         },
         {
-          title: "Automated Accounting & Invoicing",
-          description: "Financial management that runs itself",
-          icon: <Calculator className="w-6 h-6" />,
+          title: "Workflow Optimization",
+          description: "Streamline operations and eliminate bottlenecks",
+          icon: <Settings className="w-6 h-6" />,
           details: [
-            "Automatic expense categorization from receipts",
-            "AI-powered invoice generation and sending",
-            "Real-time profit & loss tracking",
-            "Tax preparation assistance"
-          ]
-        },
-        {
-          title: "Smart Inventory Tracking",
-          description: "Never run out of stock or overorder again",
-          icon: <Package className="w-6 h-6" />,
-          details: [
-            "Real-time stock level monitoring",
-            "Automatic reorder point calculations",
-            "Supplier management and comparison",
-            "Cost analysis and profit margins"
-          ]
-        },
-        {
-          title: "Real-Time Business Analytics",
-          description: "Make data-driven decisions with confidence",
-          icon: <TrendingUp className="w-6 h-6" />,
-          details: [
-            "Live business performance dashboards",
-            "Revenue and growth tracking",
-            "Customer acquisition metrics",
-            "Profitability analysis by service/product"
+            "Custom workflow design and implementation",
+            "Team collaboration and approval systems",
+            "Notification and alert automation",
+            "Task scheduling and resource management"
           ]
         }
       ]
@@ -82,10 +82,10 @@ export default function ServicesPage() {
       id: "web-development",
       category: "Custom Website Development",
       tagline: "Professional Websites That Drive Results",
-      description: "From simple business sites to complex web applications, we build websites that look great and perform even better.",
+      description: "From simple business sites to complex web applications, we build websites that look great and perform even better. Hosting options available for all projects.",
       icon: <Code className="w-12 h-12 text-green-500" />,
       pricing: "Starting at $500",
-      pricingDescription: "Static sites from $500, Dynamic React applications from $1,250",
+      pricingDescription: "Static sites from $500, Dynamic React applications from $1,250. Hosting available starting at $10/month.",
       highlight: false,
       features: [
         {
@@ -122,62 +122,6 @@ export default function ServicesPage() {
           ]
         }
       ]
-    },
-    {
-      id: "hosting",
-      category: "Web Hosting & Maintenance",
-      tagline: "Reliable Hosting with Expert Support",
-      description: "Keep your website running smoothly with our secure hosting and optional technical maintenance services.",
-      icon: <Server className="w-12 h-12 text-purple-500" />,
-      pricing: "Starting at $10/month",
-      pricingDescription: "Basic hosting $10/month, Full maintenance package $30/month",
-      highlight: false,
-      features: [
-        {
-          title: "High-Performance Hosting",
-          description: "Fast, secure hosting infrastructure",
-          icon: <Zap className="w-6 h-6" />,
-          details: [
-            "99.9% uptime guarantee with SLA",
-            "SSD storage and CDN integration",
-            "Automatic daily backups",
-            "SSL certificates included"
-          ]
-        },
-        {
-          title: "Technical Maintenance Package",
-          description: "Complete website care and optimization",
-          icon: <Settings className="w-6 h-6" />,
-          details: [
-            "Regular software updates and patches",
-            "Performance optimization and monitoring",
-            "Security scans and malware removal",
-            "Content updates and minor changes"
-          ]
-        },
-        {
-          title: "Backup & Recovery Services",
-          description: "Comprehensive data protection",
-          icon: <Shield className="w-6 h-6" />,
-          details: [
-            "Automated daily backups to multiple locations",
-            "One-click restore functionality",
-            "Version history and point-in-time recovery",
-            "Disaster recovery planning"
-          ]
-        },
-        {
-          title: "Performance Monitoring",
-          description: "Proactive monitoring and optimization",
-          icon: <Activity className="w-6 h-6" />,
-          details: [
-            "24/7 uptime monitoring with alerts",
-            "Page speed analysis and optimization",
-            "Traffic analytics and reporting",
-            "Resource usage monitoring"
-          ]
-        }
-      ]
     }
   ];
 
@@ -190,7 +134,7 @@ export default function ServicesPage() {
             "@context": "https://schema.org",
             "@type": "WebPage",
             "name": "Services - Summit Automation",
-            "description": "Professional business automation, web development, and hosting services. Transform your business operations and online presence.",
+            "description": "Custom business automation and professional web development services tailored to your unique business needs. Transform your operations with solutions built specifically for you.",
             "url": "https://summitautomation.io/services"
           })
         }}
@@ -214,7 +158,7 @@ export default function ServicesPage() {
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed max-w-4xl mx-auto">
-            From AI-powered business automation to custom web development and reliable hosting, we provide the complete technology stack your business needs to thrive in the digital age.
+            From custom business automation to professional web development, we create tailored solutions designed specifically for your business needs and workflows.
           </p>
         </div>
       </section>

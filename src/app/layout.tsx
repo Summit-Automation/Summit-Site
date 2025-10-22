@@ -6,17 +6,17 @@ import "./globals.css";
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Summit Automation - AI-Powered Business Automation | Pittsburgh, PA",
-  description: "Stop drowning in paperwork. Start growing your business. AI-powered CRM, invoicing, and custom automation tools designed for businesses of all sizes. Serving Pittsburgh, New Castle, and businesses worldwide. Save 20+ hours weekly with intelligent business automation.",
-  keywords: "AI automation Pittsburgh, business CRM Pennsylvania, invoice automation New Castle PA, business process automation Pittsburgh, receipt processing PA, lead generation Pittsburgh, customer management Pennsylvania, business automation software Pittsburgh, automated invoicing PA, AI business tools Pittsburgh",
+  title: "Summit Automation - Custom Business Automation Solutions | Pittsburgh, PA",
+  description: "Custom business automation tailored to your needs. We build API integrations, AI agents, chatbots, voice bots, advanced workflows, and custom software solutions. Serving Pittsburgh, New Castle, and businesses worldwide. Save 20+ hours weekly with custom automation.",
+  keywords: "custom automation Pittsburgh, API integration Pennsylvania, workflow automation New Castle PA, business process automation Pittsburgh, AI agents PA, chatbots Pittsburgh, voice bots Pennsylvania, custom software automation Pittsburgh, business integration PA, automation consulting Pittsburgh",
   authors: [{ name: "Summit Automation" }],
   creator: "Summit Automation",
   publisher: "Summit Automation",
   robots: "index, follow",
   applicationName: "Summit Automation",
   referrer: "origin-when-cross-origin",
-  category: "Business Software",
-  classification: "Business Automation Platform",
+  category: "Business Automation Services",
+  classification: "Custom Business Automation Platform",
   formatDetection: {
     email: false,
     address: false,
@@ -37,21 +37,21 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://summitautomation.io",
     siteName: "Summit Automation",
-    title: "Summit Automation - AI-Powered Business Automation",
-    description: "Stop drowning in paperwork. Start growing your business. AI-powered CRM and invoicing designed for businesses of all sizes.",
+    title: "Summit Automation - Custom Business Automation Solutions",
+    description: "Stop drowning in paperwork. Start growing your business. Custom automation, API integrations, AI agents, and workflow solutions tailored to your business.",
     images: [
       {
         url: "https://summitautomation.io/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Summit Automation - AI-Powered Business Automation"
+        alt: "Summit Automation - Custom Business Automation Solutions"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Summit Automation - AI-Powered Business Automation",
-    description: "Stop drowning in paperwork. Start growing your business with AI automation.",
+    title: "Summit Automation - Custom Business Automation",
+    description: "Stop drowning in paperwork. Start growing your business with custom automation solutions tailored to your needs.",
     images: ["https://summitautomation.io/og-image.png"],
     creator: "@summitautomation"
   },
@@ -96,7 +96,7 @@ export default function RootLayout({
               "alternateName": "Summit",
               "url": "https://summitautomation.io",
               "logo": "https://summitautomation.io/images/4_SVG.svg",
-              "description": "AI-powered business automation platform for businesses of all sizes. Automate CRM, invoicing, and business processes to save time and grow faster.",
+              "description": "Custom business automation solutions for businesses of all sizes. We build API integrations, AI agents, chatbots, voice bots, and tailored workflow automation to save time and grow faster.",
               "contactPoint": [
                 {
                   "@type": "ContactPoint",
@@ -116,13 +116,16 @@ export default function RootLayout({
                 "@type": "QuantitativeValue",
                 "value": "2-10"
               },
-              "industry": "Business Automation Software",
+              "industry": "Custom Business Automation Services",
               "knowsAbout": [
-                "AI Automation",
-                "Business Process Automation", 
-                "CRM Systems",
-                "Invoice Processing",
-                "Receipt Processing"
+                "Custom Automation",
+                "API Integration",
+                "Workflow Automation",
+                "AI Agents",
+                "Chatbots",
+                "Voice Automation",
+                "Business Process Automation",
+                "Document Processing"
               ],
               "address": {
                 "@type": "PostalAddress",
@@ -169,7 +172,7 @@ export default function RootLayout({
               "name": "Summit Automation",
               "alternateName": "Summit",
               "url": "https://summitautomation.io",
-              "description": "AI-powered business automation platform for businesses of all sizes",
+              "description": "Custom business automation solutions tailored to your business needs",
               "publisher": {
                 "@type": "Organization",
                 "name": "Summit Automation"
@@ -192,30 +195,50 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
+              "@type": "Service",
+              "serviceType": "Custom Business Automation",
               "name": "Summit Automation",
-              "description": "AI-powered business automation platform for businesses of all sizes. Automate CRM, invoicing, and business processes.",
+              "description": "Custom business automation solutions including API integrations, AI agents, chatbots, voice bots, workflow automation, and tailored software development.",
               "url": "https://summitautomation.io",
-              "applicationCategory": "BusinessApplication",
-              "operatingSystem": "Web Browser",
-              "offers": {
-                "@type": "Offer",
-                "priceCurrency": "USD",
-                "price": "0",
-                "description": "Contact us for pricing and demo - Multiple service options available"
-              },
-              "creator": {
+              "provider": {
                 "@type": "Organization",
                 "name": "Summit Automation",
                 "url": "https://summitautomation.io"
               },
-              "featureList": [
-                "AI Receipt Processing",
-                "Automated CRM",
-                "Invoice Generation", 
-                "Lead Management",
-                "Business Process Automation"
-              ]
+              "areaServed": {
+                "@type": "Country",
+                "name": "United States"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Custom Automation Services",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Custom API Integration",
+                      "description": "Connect your existing tools and systems seamlessly"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "AI Agents & Chatbots",
+                      "description": "Intelligent conversational AI for customer interactions"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Workflow Automation",
+                      "description": "Advanced automated workflows tailored to your business"
+                    }
+                  }
+                ]
+              }
             })
           }}
         />
@@ -228,7 +251,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Summit Automation",
-              "description": "AI-powered business automation services for businesses in Pittsburgh, Pennsylvania and worldwide. Specializing in CRM, invoicing, and business process automation.",
+              "description": "Custom business automation services for businesses in Pittsburgh, Pennsylvania and worldwide. Specializing in API integrations, AI agents, chatbots, voice bots, workflow automation, and custom software solutions.",
               "url": "https://summitautomation.io",
               "telephone": "",
               "email": "clientservices@summitautomation.io",

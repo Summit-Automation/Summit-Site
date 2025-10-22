@@ -25,9 +25,9 @@ const HeroSection = memo(() => {
             Stop drowning in paperwork.<br />
             <span className="text-primary">Start growing your business.</span>
           </h1>
-          
+
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-3xl mx-auto">
-            Summit is your complete business management suite—AI-powered CRM, automated accounting, smart inventory tracking, mileage logging, and real-time analytics. Everything you need to run your business in one place.
+            We build custom automation solutions tailored specifically to your business. From API integrations to intelligent workflows, we create systems that fit your exact needs and work seamlessly with your existing tools.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
@@ -52,20 +52,20 @@ const HeroSection = memo(() => {
           {/* Clean stats section */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">7+</div>
-              <div className="text-muted-foreground">Business modules</div>
+              <div className="text-3xl font-bold text-primary mb-2">100%</div>
+              <div className="text-muted-foreground">Custom built</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-primary mb-2">20+</div>
               <div className="text-muted-foreground">Hours saved weekly</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">24/7</div>
-              <div className="text-muted-foreground">AI assistance</div>
+              <div className="text-3xl font-bold text-primary mb-2">Any</div>
+              <div className="text-muted-foreground">System integration</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">Real-time</div>
-              <div className="text-muted-foreground">Business analytics</div>
+              <div className="text-3xl font-bold text-primary mb-2">Your</div>
+              <div className="text-muted-foreground">Exact workflow</div>
             </div>
           </div>
         </div>

@@ -198,10 +198,10 @@ export default function PrivacyPage() {
               <div className="text-slate-300 space-y-2">
                 <p><strong>Email:</strong> privacy@summitautomation.io</p>
                 <p><strong>General Contact:</strong> clientservices@summitautomation.io</p>
-                <p><strong>Mailing Address:</strong><br>
-                Summit Automation<br>
-                Data Protection Officer<br>
-                New Castle, PA 16101<br>
+                <p><strong>Mailing Address:</strong><br />
+                Summit Automation<br />
+                Data Protection Officer<br />
+                New Castle, PA 16101<br />
                 United States</p>
               </div>
 

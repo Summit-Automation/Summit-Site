@@ -172,15 +172,15 @@ const ContactSection = () => {
                 <div className="grid grid-cols-1 gap-2 text-sm">
                   <label className="flex items-center gap-2 text-slate-300 hover:text-slate-200 cursor-pointer">
                     <input type="checkbox" className="text-blue-500 bg-slate-700 border-slate-600 rounded focus:ring-blue-500" />
-                    <span>Business Automation Suite</span>
-                  </label>
-                  <label className="flex items-center gap-2 text-slate-300 hover:text-slate-200 cursor-pointer">
-                    <input type="checkbox" className="text-blue-500 bg-slate-700 border-slate-600 rounded focus:ring-blue-500" />
                     <span>Custom Business Automation</span>
                   </label>
                   <label className="flex items-center gap-2 text-slate-300 hover:text-slate-200 cursor-pointer">
                     <input type="checkbox" className="text-blue-500 bg-slate-700 border-slate-600 rounded focus:ring-blue-500" />
-                    <span>Web Development</span>
+                    <span>AI Agents & Chatbots</span>
+                  </label>
+                  <label className="flex items-center gap-2 text-slate-300 hover:text-slate-200 cursor-pointer">
+                    <input type="checkbox" className="text-blue-500 bg-slate-700 border-slate-600 rounded focus:ring-blue-500" />
+                    <span>Custom Web Development</span>
                   </label>
                 </div>
               </div>

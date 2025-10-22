@@ -2,74 +2,74 @@
 'use client';
 
 import React, { memo } from 'react';
-import { Check, Users, Zap, FileText, Camera, Clock, BarChart3, Package, Route, CreditCard, PieChart } from 'lucide-react';
+import { Check, Users, Zap, FileText, Clock, BarChart3, Package, PieChart } from 'lucide-react';
 
 // Move features array outside component to prevent recreation on every render
 const FEATURES_DATA = [
   {
-    icon: <BarChart3 className="w-8 h-8" />,
-    title: "Business Dashboard & Analytics",
-    description: "See your business performance at a glance. Real-time metrics, growth tracking, cash flow analysis, and actionable insights that help you make smarter decisions faster.",
+    icon: <Zap className="w-8 h-8" />,
+    title: "Custom API Integrations",
+    description: "Connect your existing tools and systems seamlessly. We build custom integrations that allow your software to communicate and share data automatically, eliminating manual data entry.",
     features: [
-      "Real-time business metrics",
-      "Customer growth tracking",
-      "Cash flow visualization",
-      "Revenue & expense analysis"
-    ]
-  },
-  {
-    icon: <FileText className="w-8 h-8" />,
-    title: "AI Receipt & Expense Management",
-    description: "Take a photo of any receipt or invoice. Our AI instantly extracts vendor info, amounts, dates, and categorizes expenses. Plus automated recurring payment processing.",
-    features: [
-      "Instant photo-to-data conversion",
-      "Automatic expense categorization",
-      "Recurring payment automation",
-      "Financial reporting & insights"
+      "Connect any software or platform",
+      "Bi-directional data synchronization",
+      "Real-time automation triggers",
+      "Legacy system modernization"
     ]
   },
   {
     icon: <Users className="w-8 h-8" />,
-    title: "Smart CRM & Lead Management",
-    description: "Track every conversation, follow-up, and opportunity in one organized place. AI helps generate leads, draft emails, and converts prospects into customers automatically.",
+    title: "AI Agents & Voice Bots",
+    description: "Deploy intelligent AI agents that handle customer interactions, answer questions, and automate communications. From chatbots to voice agents, we build conversational AI tailored to your business.",
     features: [
-      "AI-powered lead generation",
-      "Automated follow-up reminders",
-      "Email draft generation",
-      "Customer interaction tracking"
+      "Custom chatbots for websites",
+      "Voice agents for phone systems",
+      "Multi-channel messaging automation",
+      "Natural language understanding"
+    ]
+  },
+  {
+    icon: <FileText className="w-8 h-8" />,
+    title: "Intelligent Document Processing",
+    description: "Automate document handling with AI. From invoice processing to data extraction, we build systems that understand your documents and automate the tedious work.",
+    features: [
+      "AI-powered data extraction",
+      "Automatic categorization & filing",
+      "Custom validation rules",
+      "Multi-format document support"
+    ]
+  },
+  {
+    icon: <BarChart3 className="w-8 h-8" />,
+    title: "Advanced Workflow Automation",
+    description: "Build sophisticated automated workflows that handle complex business logic. From multi-step approval chains to conditional routing, we create intelligent systems that adapt to your needs.",
+    features: [
+      "Complex multi-step workflows",
+      "Conditional logic & decision trees",
+      "Automated notifications & alerts",
+      "Exception handling & escalation"
+    ]
+  },
+  {
+    icon: <Clock className="w-8 h-8" />,
+    title: "Task & Process Automation",
+    description: "Eliminate repetitive manual tasks. We identify time-consuming processes in your workflow and build automation solutions that handle them automatically.",
+    features: [
+      "Scheduled task automation",
+      "Event-driven automation triggers",
+      "Data processing pipelines",
+      "Error handling & recovery"
     ]
   },
   {
     icon: <Package className="w-8 h-8" />,
-    title: "Inventory & Stock Management",
-    description: "Never run out of stock again. Monitor inventory levels, get alerts when supplies are low, and track product performance with intelligent inventory management.",
+    title: "Custom Business Tools",
+    description: "Need a specific tool that doesn't exist? We build custom applications tailored to your exact requirements, designed to solve your unique business challenges.",
     features: [
-      "Real-time stock monitoring",
-      "Automated low-stock alerts",
-      "Product performance tracking",
-      "Inventory reporting & analytics"
-    ]
-  },
-  {
-    icon: <Route className="w-8 h-8" />,
-    title: "Mileage & Trip Tracking",
-    description: "Automatically track business trips and maximize tax deductions. Perfect for any business with mobile operations, client visits, or delivery services.",
-    features: [
-      "Automatic trip detection",
-      "Mileage calculation & logging",
-      "Tax-ready expense reports",
-      "Business vs personal categorization"
-    ]
-  },
-  {
-    icon: <Zap className="w-8 h-8" />,
-    title: "Multi-User Team Collaboration",
-    description: "Scale your operations with team access controls. Multiple users can collaborate securely with customized permissions for different business functions and roles.",
-    features: [
-      "Role-based access control",
-      "Team collaboration tools",
-      "Secure data sharing",
-      "Activity tracking & permissions"
+      "Built for your specific needs",
+      "Integrates with existing systems",
+      "Scalable and maintainable",
+      "Ongoing support & updates"
     ]
   }
 ] as const;
@@ -77,24 +77,24 @@ const FEATURES_DATA = [
 // Additional features data
 const ADDITIONAL_FEATURES_DATA = [
   {
-    icon: <Camera className="w-6 h-6" />,
-    title: "Mobile-First Design",
-    description: "Capture receipts, update leads, and manage your business from anywhere."
+    icon: <Zap className="w-6 h-6" />,
+    title: "Rapid Development",
+    description: "Fast turnaround times without sacrificing quality or customization."
   },
   {
     icon: <Clock className="w-6 h-6" />,
-    title: "Real-Time Updates",
-    description: "See your business data update instantly across all your devices."
+    title: "Ongoing Support",
+    description: "Continuous maintenance and updates to keep your automation running smoothly."
   },
   {
     icon: <PieChart className="w-6 h-6" />,
-    title: "Advanced Analytics",
-    description: "Expense breakdowns, customer insights, and growth tracking."
+    title: "Scalable Solutions",
+    description: "Systems that grow with your business and adapt to changing needs."
   },
   {
-    icon: <CreditCard className="w-6 h-6" />,
-    title: "Payment Processing",
-    description: "Automated recurring payments and seamless transaction management."
+    icon: <Users className="w-6 h-6" />,
+    title: "Tailored Training",
+    description: "We ensure your team knows how to use and maintain the systems we build."
   }
 ] as const;
 
@@ -182,13 +182,13 @@ const FeaturesSection = memo(() => {
         <div className="text-center mb-20">
           <div className="inline-flex items-center bg-gradient-to-r from-slate-800/60 to-slate-700/40 text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-slate-700/50 backdrop-blur-sm">
             <Zap className="w-4 h-4 mr-2" />
-            AI-Powered Solutions
+            Custom Automation Solutions
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-6">
-            Everything you need to run your business in one place
+            Custom automation solutions built for your business
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            From customer relationships to financial tracking, inventory management to business analytics—Summit handles it all with AI. Get the complete business management suite that works 24/7 so you can focus on what matters most.
+            We create tailored automation systems that integrate with your existing tools, optimize your workflows, and eliminate repetitive tasks. Every solution is designed specifically for your unique business needs.
           </p>
         </div>
 

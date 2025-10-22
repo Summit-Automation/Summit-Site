@@ -172,23 +172,23 @@ const ProblemSection = () => {
             <ul className="text-primary/80 space-y-3">
               <li className="flex items-start">
                 <span className="text-primary mr-2">•</span>
-                AI-powered expense and financial tracking
+                Custom automation for your workflows
               </li>
               <li className="flex items-start">
                 <span className="text-primary mr-2">•</span>
-                Automated lead nurturing and CRM
+                Seamless integration between all tools
               </li>
               <li className="flex items-start">
                 <span className="text-primary mr-2">•</span>
-                Real-time business analytics dashboard
+                AI agents, chatbots, and voice automation
               </li>
               <li className="flex items-start">
                 <span className="text-primary mr-2">•</span>
-                Smart inventory and stock management
+                Intelligent document and data processing
               </li>
               <li className="flex items-start">
                 <span className="text-primary mr-2">•</span>
-                Everything integrated in one platform
+                Solutions built specifically for your business
               </li>
             </ul>
           </div>

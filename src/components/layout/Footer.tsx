@@ -9,7 +9,7 @@ const Footer = () => (
                 <div className="flex flex-col justify-center h-full text-center">
                     <Image 
                         src="/images/4_SVG.svg" 
-                        alt="Summit Automation - AI-powered business automation platform for Pittsburgh, PA businesses" 
+                        alt="Summit Automation - Custom business automation solutions for Pittsburgh, PA businesses" 
                         width={160}
                         height={160}
                         className="mx-auto mb-3"

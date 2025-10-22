@@ -37,7 +37,7 @@ const Header = memo(({ scrolled }: HeaderProps) => {
                         <Link href="/" className="flex items-center">
                             <Image
                                 src="/images/4_SVG.svg"
-                                alt="Summit Automation - Business automation software for Pittsburgh Pennsylvania"
+                                alt="Summit Automation - Custom business automation and integration services"
                                 width={270}
                                 height={73}
                                 priority
