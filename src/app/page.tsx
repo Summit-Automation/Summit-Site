@@ -6,12 +6,12 @@ import Footer from '@/components/layout/Footer';
 import HeroSection from '@/components/sections/HeroSection';
 import ProblemSection from '@/components/sections/ProblemSection';
 import FeaturesSection from '@/components/sections/FeaturesSection';
+import ContactSection from '@/components/sections/ContactSection';
+import ChatWidget from '@/components/ui/ChatWidget';
 
 // Lazy load below-the-fold components for better performance
 const BlogSection = lazy(() => import('@/components/sections/BlogSection'));
 const HowItWorksSection = lazy(() => import('@/components/sections/HowItWorksSection'));
-const ContactSection = lazy(() => import('@/components/sections/ContactSection'));
-const ChatWidget = lazy(() => import('@/components/ui/ChatWidget'));
 
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
@@ -157,16 +157,12 @@ export default function HomePage() {
         <BlogSection />
       </Suspense>
 
-      <Suspense fallback={<div className="py-32" />}>
-        <ContactSection />
-      </Suspense>
+      <ContactSection />
 
       <Footer />
 
       {/* Flowise Chat Widget */}
-      <Suspense fallback={null}>
-        <ChatWidget />
-      </Suspense>
+      <ChatWidget />
     </div>
   );
 }
